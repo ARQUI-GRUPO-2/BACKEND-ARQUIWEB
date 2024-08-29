@@ -17,6 +17,7 @@ public class CentroReciclajeController {
     @Autowired
     private ICentroReciclajeService cS;
 
+    @PostMapping
     public void registrarCentroReciclaje(@RequestBody CentroReciclajeDTO dto) {
         ModelMapper m = new ModelMapper();
         CentroReciclaje d = m.map(dto, CentroReciclaje.class);
