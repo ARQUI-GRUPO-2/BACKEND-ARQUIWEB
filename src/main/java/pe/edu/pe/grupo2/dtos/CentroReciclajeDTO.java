@@ -6,16 +6,15 @@ public class CentroReciclajeDTO {
 
     private int idCentroReciclaje;
     private String direccion;
-    private String longitud;
     private String latitud;
-    private String tipoReciclaje;
+    private String longitud;
     private LocalTime horario;
 
     public int getIdCentroReciclaje() {
         return idCentroReciclaje;
     }
 
-    public void setCentroReciclaje(int idCentroReciclaje) {
+    public void setIdCentroReciclaje(int idCentroReciclaje) {
         this.idCentroReciclaje = idCentroReciclaje;
     }
 
@@ -27,14 +26,6 @@ public class CentroReciclajeDTO {
         this.direccion = direccion;
     }
 
-    public String getLongitud() {
-        return longitud;
-    }
-
-    public void setLongitud(String longitud) {
-        this.longitud = longitud;
-    }
-
     public String getLatitud() {
         return latitud;
     }
@@ -43,12 +34,12 @@ public class CentroReciclajeDTO {
         this.latitud = latitud;
     }
 
-    public String getTipoReciclaje() {
-        return tipoReciclaje;
+    public String getLongitud() {
+        return longitud;
     }
 
-    public void setTipoReciclaje(String tipoReciclaje) {
-        this.tipoReciclaje = tipoReciclaje;
+    public void setLongitud(String longitud) {
+        this.longitud = longitud;
     }
 
     public LocalTime getHorario() {
