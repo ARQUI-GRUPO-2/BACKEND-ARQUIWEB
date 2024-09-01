@@ -15,5 +15,15 @@ public class CentroReciclajeServiceImplement implements ICentroReciclajeService 
     private ICentroReciclajeRepository cR;
 
     @Override
+    public void insert(CentroReciclaje centroReciclaje) { cR.save(centroReciclaje); }
+
+    @Override
     public List<CentroReciclaje> list() { return cR.findAll();}
+
+    @Override
+    public void delete(int idCentroReciclaje) { cR.deleteById(idCentroReciclaje); }
+
+    @Override
+    public void update(CentroReciclaje centroReciclaje) { cR.save(centroReciclaje); }
+
 }
