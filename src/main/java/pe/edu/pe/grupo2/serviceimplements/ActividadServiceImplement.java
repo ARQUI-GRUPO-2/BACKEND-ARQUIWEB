@@ -1,6 +1,5 @@
 package pe.edu.pe.grupo2.serviceimplements;
 
-import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.pe.grupo2.entities.Actividad;
@@ -11,20 +10,24 @@ import java.util.List;
 
 @Service
 public class ActividadServiceImplement implements IActividadService {
+
     @Autowired
-    private IActividadRepository cR;
+    private IActividadRepository aR;
     @Override
-    public List<Actividad> list() {return cR.findAll();}
+    public List<Actividad> list() {return aR.findAll();}
     @Override
-    public void insert(Actividad a){cR.save(a);}
+    public void insert(Actividad a){
+        aR.save(a);}
 
     @Override
-    public Actividad listId(int id){return cR.findById(id).orElse(new Actividad());}
+    public Actividad listId(int id){return aR.findById(id).orElse(new Actividad());}
 
     @Override
-    public void update(Actividad a){cR.save(a);}
+    public void update(Actividad a){
+        aR.save(a);}
     @Override
-    public void delete(int id){cR.deleteById(id);}
+    public void delete(int id){
+        aR.deleteById(id);}
     @Override
-    public List<Actividad> buscarNombre(String nombre){ return cR.buscarNombre(nombre);}
+    public List<Actividad> buscarNombre(String nombre){ return aR.buscarNombre(nombre);}
 }
