@@ -1,7 +1,6 @@
 package pe.edu.pe.grupo2.dtos;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class RecompensasDTO {
     private int idRecompensas;

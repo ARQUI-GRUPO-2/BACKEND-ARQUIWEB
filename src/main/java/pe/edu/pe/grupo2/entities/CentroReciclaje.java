@@ -1,5 +1,7 @@
 package pe.edu.pe.grupo2.entities;
+
 import jakarta.persistence.*;
+
 import java.time.LocalTime;
 
 @Entity
@@ -21,16 +23,25 @@ public class CentroReciclaje {
     @Column(name = "horario", nullable = false)
     private LocalTime horario;
 
+    @Column(name = "favoritos")
+    private Boolean favoritos;
+
+    @ManyToOne /*PARA HACER RELACION FK  */
+    @JoinColumn(name = "idUser")
+    private User us;
+
     public CentroReciclaje() {
 
     }
 
-    public CentroReciclaje(int idCentroReciclaje, String direccion, String latitud, String longitud, String tipoReciclaje, LocalTime horario) {
+    public CentroReciclaje(int idCentroReciclaje, String direccion, String latitud, String longitud, String tipoReciclaje, LocalTime horario, Boolean favoritos, User us) {
         this.idCentroReciclaje = idCentroReciclaje;
         this.direccion = direccion;
         this.latitud = latitud;
         this.longitud = longitud;
         this.horario = horario;
+        this.favoritos = false;
+        this.us = us;
     }
     
     public int getIdCentroReciclaje() {
@@ -72,4 +83,12 @@ public class CentroReciclaje {
     public void setHorario(LocalTime horario) {
         this.horario = horario;
     }
+
+    public Boolean getFavoritos() { return favoritos; }
+
+    public void setFavoritos(Boolean favoritos) { this.favoritos = favoritos; }
+
+    public User getUs() { return us;}
+
+    public void setUs(User us) { this.us = us;}
 }

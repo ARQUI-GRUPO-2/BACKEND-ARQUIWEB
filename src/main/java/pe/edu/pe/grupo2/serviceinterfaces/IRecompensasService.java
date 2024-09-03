@@ -13,5 +13,5 @@ public interface IRecompensasService {
 
     Recompensas listId(int idRecompensas);
 
-    public void update(Recompensas vehicle);
+    public void update(Recompensas recompensas);
 }

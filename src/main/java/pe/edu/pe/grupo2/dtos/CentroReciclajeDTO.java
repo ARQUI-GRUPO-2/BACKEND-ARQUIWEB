@@ -1,5 +1,7 @@
 package pe.edu.pe.grupo2.dtos;
 
+import pe.edu.pe.grupo2.entities.User;
+
 import java.time.LocalTime;
 
 public class CentroReciclajeDTO {
@@ -9,6 +11,8 @@ public class CentroReciclajeDTO {
     private String latitud;
     private String longitud;
     private LocalTime horario;
+    private Boolean favoritos;
+    private User us;
 
     public int getIdCentroReciclaje() {
         return idCentroReciclaje;
@@ -50,4 +54,11 @@ public class CentroReciclajeDTO {
         this.horario = horario;
     }
 
+    public Boolean getFavoritos() { return favoritos; }
+
+    public void setFavoritos(Boolean favoritos) { this.favoritos  = favoritos; }
+
+    public User getUs() {return us; }
+
+    public void setUs(User us) { this.us = us; }
 }
