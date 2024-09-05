@@ -37,12 +37,18 @@ public class User {
 
     @Column(name = "contraseña", nullable = false)
     private String contrasena;
-    
+
+
+
+    @ManyToOne
+    @JoinColumn(name = "idRol")
+    private Rol ro;
     public User() {
 
     }
 
-    public User(int idUser, String nombres, String apellidos, String dni, int edad, String genero, String informacionPersonal, String direccion, String telefono, String correo, String contrasena) {
+
+    public User(int idUser, String nombres, String apellidos, String dni, int edad, String genero, String informacionPersonal, String direccion, String telefono, String correo, String contrasena, Rol ro) {
         this.idUser = idUser;
         this.nombres= nombres;
         this.apellidos = apellidos;
@@ -54,6 +60,7 @@ public class User {
         this.telefono = telefono;
         this.correo = correo;
         this.contrasena = contrasena;
+        this.ro = ro;
     }
 
 
@@ -141,4 +148,17 @@ public class User {
         this.contrasena = contrasena;
     }
 
+    public Rol getRo() {
+        return ro;
+    }
+
+    public void setRo(Rol ro) {
+        this.ro = ro;
+    }
+
+
+
+
 }
+
+
