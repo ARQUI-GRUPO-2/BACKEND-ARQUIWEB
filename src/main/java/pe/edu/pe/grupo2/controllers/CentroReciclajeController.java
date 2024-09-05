@@ -45,17 +45,25 @@ public class CentroReciclajeController {
         CentroReciclaje d = m.map(dto, CentroReciclaje.class);
         cS.update(d);
     }
+
     @GetMapping("/actividades")
     public List<ActividadCentroDTO> obtenerActividadesxCentroReciclaje() {
-        List<String[]> lista= cS.actividadxnombreService();
-        List<ActividadCentroDTO> listaDTO=new ArrayList<>();
-        for (String[] columna:lista){
-            ActividadCentroDTO dto=new ActividadCentroDTO();
+        List<String[]> lista = cS.actividadxnombreService();
+        List<ActividadCentroDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            ActividadCentroDTO dto = new ActividadCentroDTO();
             dto.setNombre(columna[0]);
             dto.setDireccion(columna[1]);
             listaDTO.add(dto);
 
         }
         return listaDTO;
+    }
+    @GetMapping("/{id}")
+    public CentroReciclajeDTO listarId(@PathVariable("id") Integer id) {
+        ModelMapper m=new ModelMapper();
+        CentroReciclajeDTO dto=m.map(cS.listId(id),CentroReciclajeDTO.class);
+        return dto;
+
     }
 }

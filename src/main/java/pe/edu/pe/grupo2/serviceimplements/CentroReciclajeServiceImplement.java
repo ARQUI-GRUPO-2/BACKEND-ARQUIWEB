@@ -21,6 +21,9 @@ public class CentroReciclajeServiceImplement implements ICentroReciclajeService 
     public List<CentroReciclaje> list() { return cR.findAll();}
 
     @Override
+    public CentroReciclaje listId(int id){return cR.findById(id).orElse(new CentroReciclaje());}
+
+    @Override
     public void delete(int idCentroReciclaje) { cR.deleteById(idCentroReciclaje); }
 
     @Override

@@ -30,24 +30,28 @@ public class ActividadController {
             return m.map(x, ActividadDTO.class);
         }).collect(Collectors.toList());
     }
+
     @PostMapping
     public void insertar(@RequestBody ActividadDTO dto) {
         ModelMapper m=new ModelMapper();
         Actividad ac = m.map(dto, Actividad.class);
         aS.insert(ac);
     }
+
     @GetMapping("/{id}")
     public ActividadDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m=new ModelMapper();
         ActividadDTO dto = m.map(aS.listId(id),ActividadDTO.class);
         return dto;
     }
+
     @PutMapping
     public void update(@RequestBody ActividadDTO dto) {
         ModelMapper m = new ModelMapper();
         Actividad ac = m.map(dto, Actividad.class);
         aS.update(ac);
     }
+
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
         aS.delete(id);
