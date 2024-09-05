@@ -7,6 +7,7 @@ import java.util.List;
 public interface ICentroReciclajeService {
     public void insert(CentroReciclaje centroReciclaje);
     public List<CentroReciclaje> list();
+    public CentroReciclaje listId(int id);
     public void delete(int idCentroReciclaje);
     public void update(CentroReciclaje centroReciclaje);
 }

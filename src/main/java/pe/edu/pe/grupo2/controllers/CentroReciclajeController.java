@@ -43,4 +43,11 @@ public class CentroReciclajeController {
         CentroReciclaje d = m.map(dto, CentroReciclaje.class);
         cS.update(d);
     }
+
+    @GetMapping("/{id}")
+    public CentroReciclajeDTO listarId(@PathVariable("id") Integer id) {
+        ModelMapper m=new ModelMapper();
+        CentroReciclajeDTO dto=m.map(cS.listId(id),CentroReciclajeDTO.class);
+        return dto;
+    }
 }
