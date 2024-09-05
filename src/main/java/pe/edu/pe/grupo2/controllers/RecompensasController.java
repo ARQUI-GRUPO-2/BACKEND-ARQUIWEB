@@ -3,6 +3,7 @@ package pe.edu.pe.grupo2.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.pe.grupo2.dtos.ActividadDTO;
 import pe.edu.pe.grupo2.dtos.RecompensasDTO;
 import pe.edu.pe.grupo2.entities.Recompensas;
 import pe.edu.pe.grupo2.serviceinterfaces.IRecompensasService;
@@ -24,6 +25,13 @@ public class RecompensasController {
         vs.insert(d);
     }
 
+    @GetMapping("/{id}")
+    public RecompensasDTO listarId(@PathVariable("id") Integer id) {
+        ModelMapper m=new ModelMapper();
+        RecompensasDTO dto = m.map(vs.listId(id),RecompensasDTO.class);
+        return dto;
+    }
+
     @GetMapping
     public List<RecompensasDTO> listar() {
         return vs.list().stream().map(x->{
@@ -31,7 +39,6 @@ public class RecompensasController {
             return m.map(x,RecompensasDTO.class);
         }).collect(Collectors.toList());
     }
-
 
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
