@@ -1,5 +1,7 @@
 package pe.edu.pe.grupo2.dtos;
 
+import pe.edu.pe.grupo2.entities.Noticias;
+
 import java.time.LocalTime;
 
 public class NotificacionesDTO {
@@ -7,6 +9,10 @@ public class NotificacionesDTO {
     private String tituloNotificacion;
     private String descripcionNotificacion;
     private LocalTime fechaNotificacion;
+
+
+
+    private Noticias noti;
 
     public int getIdNotificacion() {
         return idNotificacion;
@@ -38,5 +44,16 @@ public class NotificacionesDTO {
 
     public void setFechaNotificacion(LocalTime fechaNotificacion) {
         this.fechaNotificacion = fechaNotificacion;
+    }
+
+
+
+
+    public Noticias getNoti() {
+        return noti;
+    }
+
+    public void setNoti(Noticias noti) {
+        this.noti = noti;
     }
 }

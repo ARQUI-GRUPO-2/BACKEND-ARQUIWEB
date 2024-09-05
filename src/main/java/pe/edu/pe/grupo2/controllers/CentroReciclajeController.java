@@ -15,6 +15,14 @@ import java.util.stream.Collectors;
 public class CentroReciclajeController {
 
     @Autowired
+<<<<<<< HEAD
+    private ICentroReciclajeService tA;
+    @GetMapping
+    public List<CentroReciclajeDTO> listar() {
+
+        return tA.list().stream().map(x->{
+            ModelMapper m=new ModelMapper();
+=======
     private ICentroReciclajeService cS;
 
     @PostMapping
@@ -28,8 +36,16 @@ public class CentroReciclajeController {
     public List<CentroReciclajeDTO> listarCentroReciclaje() {
         return cS.list().stream().map(x->{
             ModelMapper m = new ModelMapper();
+>>>>>>> e9d79d512ea03628bc0a0020d8cdf76e01f6a878
             return m.map(x, CentroReciclajeDTO.class);
         }).collect(Collectors.toList());
+
+    @PostMapping
+    public void insertar(@RequestBody VehicleDTO dto) {
+            ModelMapper m = new ModelMapper();
+            Vehicle ve = m.map(dto, Vehicle.class);
+            tA.insert(ve);
+
     }
 
     @DeleteMapping("/{id}")
