@@ -3,10 +3,12 @@ package pe.edu.pe.grupo2.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.pe.grupo2.dtos.ActividadCentroDTO;
 import pe.edu.pe.grupo2.dtos.CentroReciclajeDTO;
 import pe.edu.pe.grupo2.entities.CentroReciclaje;
 import pe.edu.pe.grupo2.serviceinterfaces.ICentroReciclajeService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -60,10 +62,24 @@ public class CentroReciclajeController {
         cS.update(d);
     }
 
+    @GetMapping("/actividades")
+    public List<ActividadCentroDTO> obtenerActividadesxCentroReciclaje() {
+        List<String[]> lista = cS.actividadxnombreService();
+        List<ActividadCentroDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            ActividadCentroDTO dto = new ActividadCentroDTO();
+            dto.setNombre(columna[0]);
+            dto.setDireccion(columna[1]);
+            listaDTO.add(dto);
+
+        }
+        return listaDTO;
+    }
     @GetMapping("/{id}")
     public CentroReciclajeDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m=new ModelMapper();
         CentroReciclajeDTO dto=m.map(cS.listId(id),CentroReciclajeDTO.class);
         return dto;
+
     }
 }
