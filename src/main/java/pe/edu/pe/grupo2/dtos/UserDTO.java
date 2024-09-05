@@ -1,5 +1,7 @@
 package pe.edu.pe.grupo2.dtos;
 
+import pe.edu.pe.grupo2.entities.Rol;
+
 import java.time.LocalDate;
 
 public class UserDTO {
@@ -14,6 +16,7 @@ public class UserDTO {
     private String telefono;
     private String correo;
     private String contrasena;
+    private Rol ro;
 
     public int getIdUser() {
         return idUser;
@@ -98,4 +101,15 @@ public class UserDTO {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
+
+
+    public Rol getRol() {
+        return ro;
+    }
+
+    public void setRol(Rol ro) {
+        this.ro = ro;
+    }
+
+
 }
