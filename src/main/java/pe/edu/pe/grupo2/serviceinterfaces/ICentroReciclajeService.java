@@ -9,4 +9,6 @@ public interface ICentroReciclajeService {
     public List<CentroReciclaje> list();
     public void delete(int idCentroReciclaje);
     public void update(CentroReciclaje centroReciclaje);
+
+    public List<String[]> actividadxnombreService();
 }

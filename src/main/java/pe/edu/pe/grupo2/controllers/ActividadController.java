@@ -21,11 +21,11 @@ import java.util.stream.Collectors;
 public class ActividadController {
 
     @Autowired
-    private IActividadService cS;
+    private IActividadService aS;
     @GetMapping
     public List<ActividadDTO> listar() {
 
-        return cS.list().stream().map(x->{
+        return aS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
             return m.map(x, ActividadDTO.class);
         }).collect(Collectors.toList());
@@ -34,28 +34,28 @@ public class ActividadController {
     public void insertar(@RequestBody ActividadDTO dto) {
         ModelMapper m=new ModelMapper();
         Actividad ac = m.map(dto, Actividad.class);
-        cS.insert(ac);
+        aS.insert(ac);
     }
     @GetMapping("/{id}")
     public ActividadDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m=new ModelMapper();
-        ActividadDTO dto = m.map(cS.listId(id),ActividadDTO.class);
+        ActividadDTO dto = m.map(aS.listId(id),ActividadDTO.class);
         return dto;
     }
     @PutMapping
     public void update(@RequestBody ActividadDTO dto) {
         ModelMapper m = new ModelMapper();
         Actividad ac = m.map(dto, Actividad.class);
-        cS.update(ac);
+        aS.update(ac);
     }
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
-        cS.delete(id);
+        aS.delete(id);
     }
     @GetMapping("/busquedas")
     public List<ActividadDTO> buscar(@RequestParam String nombre) {
 
-        return cS.buscarNombre(nombre).stream().map(x -> {
+        return aS.buscarNombre(nombre).stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, ActividadDTO.class);
         }).collect(Collectors.toList());
