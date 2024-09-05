@@ -11,4 +11,5 @@ public interface IActividadService {
     public void update(Actividad a);
     public void delete(int id);
     public List<Actividad> buscarNombre(String nombre);
+
 }

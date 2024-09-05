@@ -21,13 +21,20 @@ public class Notificaciones {
     @Column(name = "fecha_notificacion", nullable = false)
     private LocalTime fecha;
 
+    @ManyToOne
+    @JoinColumn(name = "idNoticias")
+    private Noticias noti;
+
     public Notificaciones() {}
 
-    public Notificaciones(int idNotificaciones, String mensaje, String estado, LocalTime fecha) {
+
+
+    public Notificaciones(int idNotificaciones, String mensaje, String estado, LocalTime fecha,Noticias noti ) {
         this.idNotificaciones = idNotificaciones;
         this.mensaje = mensaje;
         this.estado = estado;
         this.fecha = fecha;
+        this.noti = noti;
     }
 
     public int getIdNotificaciones() {
@@ -61,4 +68,15 @@ public class Notificaciones {
     public void setFecha(LocalTime fecha) {
         this.fecha = fecha;
     }
+
+
+    public Noticias getNoti() {
+        return noti;
+    }
+
+    public void setNoti(Noticias noti) {
+        this.noti = noti;
+    }
+
+
 }
