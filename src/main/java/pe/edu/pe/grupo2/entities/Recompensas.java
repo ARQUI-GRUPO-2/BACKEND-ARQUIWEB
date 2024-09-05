@@ -20,6 +20,10 @@ public class Recompensas {
     @Column(name = "fechaVencimiento", nullable = false)
     private LocalDate fechaVencimiento;
 
+    @ManyToOne
+    @JoinColumn(name="idActividad")
+    private Actividad ac;
+
     public Recompensas() {
     }
 
@@ -62,4 +66,11 @@ public class Recompensas {
         this.fechaVencimiento = fechaVencimiento;
     }
 
+    public Actividad getAc() {
+        return ac;
+    }
+
+    public void setAc(Actividad ac) {
+        this.ac = ac;
+    }
 }

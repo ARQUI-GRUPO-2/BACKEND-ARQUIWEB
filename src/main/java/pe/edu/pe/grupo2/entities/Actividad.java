@@ -20,10 +20,20 @@ public class Actividad {
     private String cantidad;
     @Column(name = "ubicacion",nullable = false, length = 225)
     private String ubicacion;
+    @ManyToOne
+    @JoinColumn(name = "id_tipo_de_actividad")
+    private TipoActividad ta;
 
+    @ManyToOne
+    @JoinColumn(name = "idCentroReciclaje")
+    private CentroReciclaje cr;
+
+    @ManyToOne
+    @JoinColumn(name = "idUser")
+    private User u;
     public Actividad() {}
 
-    public Actividad(int idActividad, String fecha_recepcion, String descripcion, String nombre, String puntos, String cantidad, String ubicacion) {
+    public Actividad(int idActividad, String fecha_recepcion, String descripcion, String nombre, String puntos, String cantidad, String ubicacion, TipoActividad ta, CentroReciclaje cr, User u) {
         this.idActividad = idActividad;
         this.fecha_recepcion = fecha_recepcion;
         this.descripcion = descripcion;
@@ -31,6 +41,9 @@ public class Actividad {
         this.puntos = puntos;
         this.cantidad = cantidad;
         this.ubicacion = ubicacion;
+        this.ta = ta;
+        this.cr = cr;
+        this.u = u;
 
     }
 
@@ -90,6 +103,13 @@ public class Actividad {
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
+    public TipoActividad getTa() {return ta;}
 
+    public void setTa(TipoActividad ta) {this.ta = ta;}
 
+    public CentroReciclaje getCr() {return cr;}
+    public void setCr(CentroReciclaje cr) {this.cr = cr;}
+
+    public User getU() {return u;}
+    public void setU(User u) {this.u = u;}
 }
