@@ -3,7 +3,6 @@ package pe.edu.pe.grupo2.dtos;
 import pe.edu.pe.grupo2.entities.Actividad;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class RecompensasDTO {
     private int idRecompensas;
