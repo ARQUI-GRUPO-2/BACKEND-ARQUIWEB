@@ -8,11 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.boot.Banner;
+import pe.edu.pe.grupo2.dtos.ActividadCentroDTO;
 import pe.edu.pe.grupo2.dtos.ActividadDTO;
+import pe.edu.pe.grupo2.dtos.ActividadRecompensasDTO;
 import pe.edu.pe.grupo2.entities.Actividad;
 import pe.edu.pe.grupo2.serviceinterfaces.IActividadService;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -64,6 +67,20 @@ public class ActividadController {
             ModelMapper m = new ModelMapper();
             return m.map(x, ActividadDTO.class);
         }).collect(Collectors.toList());
+    }
+    @GetMapping("/recompensas")
+    public List<ActividadRecompensasDTO> obtenerpuntosxactividad(){
+        List<String[]> lista = aS.puntosxactividadService();
+        List<ActividadRecompensasDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            ActividadRecompensasDTO dto = new ActividadRecompensasDTO();
+            dto.setNombre(columna[0]);
+            dto.setPuntos(columna[1]);
+            dto.setNombre_recompensa(columna[2]);
+            listaDTO.add(dto);
+
+        }
+        return listaDTO;
     }
 
 }
