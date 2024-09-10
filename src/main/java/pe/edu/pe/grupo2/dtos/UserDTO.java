@@ -1,11 +1,10 @@
 package pe.edu.pe.grupo2.dtos;
 
-import pe.edu.pe.grupo2.entities.Rol;
-
-import java.time.LocalDate;
 
 public class UserDTO {
     private int idUser;
+    private String username;
+    private String password;
     private String nombres;
     private String apellidos;
     private String dni;
@@ -15,8 +14,8 @@ public class UserDTO {
     private String direccion;
     private String telefono;
     private String correo;
-    private String contrasena;
-    private Rol ro;
+
+    private Boolean enabled;
 
     public int getIdUser() {
         return idUser;
@@ -41,6 +40,11 @@ public class UserDTO {
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
+
+    public String getUsername() {return username;}
+
+    public void setUsername(String username) {this.username = username;}
+
     public String getDni() {
         return dni;
     }
@@ -49,13 +53,9 @@ public class UserDTO {
         this.dni = dni;
     }
 
-    public int getEdad() {
-        return edad;
-    }
+    public int getEdad() {return edad;}
 
-    public void setEdad(String edad) {
-        this.edad = Integer.parseInt(edad);
-    }
+    public void setEdad(int edad) {this.edad = edad;}
 
     public String getGenero() {
         return genero;
@@ -64,6 +64,7 @@ public class UserDTO {
     public void setGenero(String genero) {
         this.genero = genero;
     }
+
     public String getInformacionPersonal() {
         return informacionPersonal;
     }
@@ -79,6 +80,7 @@ public class UserDTO {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+
     public String getTelefono() {
         return telefono;
     }
@@ -94,22 +96,16 @@ public class UserDTO {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-    public String getContrasena() {
-        return contrasena;
+
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
+    public Boolean getEnabled() {return enabled;}
 
-    public Rol getRol() {
-        return ro;
-    }
-
-    public void setRol(Rol ro) {
-        this.ro = ro;
-    }
-
-
+    public void setEnabled(Boolean enabled) {this.enabled = enabled;}
 }

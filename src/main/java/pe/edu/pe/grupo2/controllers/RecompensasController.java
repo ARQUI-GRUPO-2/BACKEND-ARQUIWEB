@@ -2,6 +2,7 @@ package pe.edu.pe.grupo2.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.pe.grupo2.dtos.ActividadDTO;
 import pe.edu.pe.grupo2.dtos.RecompensasDTO;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/recompensas")
+@PreAuthorize("hasAuthority('USUARIO')")
 public class RecompensasController {
     @Autowired
     private

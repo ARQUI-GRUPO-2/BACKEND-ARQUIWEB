@@ -56,6 +56,7 @@ public class ActividadController {
     public void eliminar(@PathVariable("id") Integer id) {
         aS.delete(id);
     }
+
     @GetMapping("/busquedas")
     public List<ActividadDTO> buscar(@RequestParam String nombre) {
 
