@@ -51,11 +51,10 @@ public class User {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
 
-    private List<Rol> roles;
-    
     public User() {
 
     }
+
 
     public User(int idUser, String nombres, String apellidos, String username, String dni, int edad, String genero, String informacionPersonal, String direccion, String telefono, String correo, String password, Boolean enabled) {
         this.idUser = idUser;
@@ -71,6 +70,7 @@ public class User {
         this.correo = correo;
         this.password = password;
         this.enabled = false;
+
     }
 
     public int getIdUser() {
@@ -183,4 +183,11 @@ public class User {
         this.roles = roles;
     }
 
+ 
+
+
+
+
 }
+
+
