@@ -1,5 +1,8 @@
 package pe.edu.pe.grupo2.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "Usuario")
@@ -13,6 +16,9 @@ public class User {
 
     @Column(name = "apellidos", nullable = false, length = 30)
     private String apellidos;
+
+    @Column(name = "username", length = 30, unique = true)
+    private String username;
 
     @Column(name = "dni", nullable = false, length = 8)
     private String dni;
@@ -35,34 +41,37 @@ public class User {
     @Column(name = "correo", nullable = false)
     private String correo;
 
-    @Column(name = "contraseña", nullable = false)
-    private String contrasena;
+    @Column(name = "password", nullable = false)
+    private String password;
 
+    @Column(name = "enabled")
+    private Boolean enabled;
 
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
 
-    @ManyToOne
-    @JoinColumn(name = "idRol")
-    private Rol ro;
     public User() {
 
     }
 
 
-    public User(int idUser, String nombres, String apellidos, String dni, int edad, String genero, String informacionPersonal, String direccion, String telefono, String correo, String contrasena, Rol ro) {
+    public User(int idUser, String nombres, String apellidos, String username, String dni, int edad, String genero, String informacionPersonal, String direccion, String telefono, String correo, String password, Boolean enabled) {
         this.idUser = idUser;
-        this.nombres= nombres;
+        this.nombres = nombres;
         this.apellidos = apellidos;
+        this.username = username;
         this.dni = dni;
-        this.edad = edad   ;
+        this.edad = edad;
         this.genero = genero;
         this.informacionPersonal = informacionPersonal;
         this.direccion = direccion;
         this.telefono = telefono;
         this.correo = correo;
-        this.contrasena = contrasena;
-        this.ro = ro;
-    }
+        this.password = password;
+        this.enabled = false;
 
+    }
 
     public int getIdUser() {
         return idUser;
@@ -87,6 +96,15 @@ public class User {
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getDni() {
         return dni;
     }
@@ -99,9 +117,7 @@ public class User {
         return edad;
     }
 
-    public void setEdad(String edad) {
-        this.edad = Integer.parseInt(edad);
-    }
+    public void setEdad(int edad) {this.edad = edad;}
 
     public String getGenero() {
         return genero;
@@ -110,6 +126,7 @@ public class User {
     public void setGenero(String genero) {
         this.genero = genero;
     }
+
     public String getInformacionPersonal() {
         return informacionPersonal;
     }
@@ -125,6 +142,7 @@ public class User {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+
     public String getTelefono() {
         return telefono;
     }
@@ -140,21 +158,32 @@ public class User {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-    public String getContrasena() {
-        return nombres;
+
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public Rol getRo() {
-        return ro;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setRo(Rol ro) {
-        this.ro = ro;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
+
+    public List<Rol> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Rol> roles) {
+        this.roles = roles;
+    }
+
+ 
 
 
 
