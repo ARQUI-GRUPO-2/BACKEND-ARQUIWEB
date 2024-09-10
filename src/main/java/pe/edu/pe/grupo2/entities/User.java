@@ -50,6 +50,7 @@ public class User {
     @JsonIgnore
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
+    private List<Rol> roles;
 
     public User() {
 
