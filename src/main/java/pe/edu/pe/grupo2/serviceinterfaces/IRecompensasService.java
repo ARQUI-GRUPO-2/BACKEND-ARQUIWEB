@@ -10,11 +10,9 @@ public interface IRecompensasService {
 
     public List<Recompensas> list();
 
-    public Recompensas listId(int id);
+    public Recompensas listId(int idRecompensas);
 
     public void delete(int idRecompensas);
-
-    Recompensas listId(int idRecompensas);
 
     public void update(Recompensas recompensas);
 }
