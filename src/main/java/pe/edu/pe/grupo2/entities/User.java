@@ -50,6 +50,7 @@ public class User {
     @JsonIgnore
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
+    private List<Rol> roles;
 
     public User() {
 
@@ -175,18 +176,11 @@ public class User {
         this.enabled = enabled;
     }
 
-    public List<Rol> getRoles() {
-        return roles;
-    }
+    public List<Rol> getRoles() {return roles;}
 
     public void setRoles(List<Rol> roles) {
         this.roles = roles;
     }
-
- 
-
-
-
 
 }
 
