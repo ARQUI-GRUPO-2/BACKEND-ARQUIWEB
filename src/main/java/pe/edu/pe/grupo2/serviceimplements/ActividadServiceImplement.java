@@ -30,4 +30,8 @@ public class ActividadServiceImplement implements IActividadService {
         aR.deleteById(id);}
     @Override
     public List<Actividad> buscarNombre(String nombre){ return aR.buscarNombre(nombre);}
+
+    @Override
+    public List<String[]> puntosxactividadService() {return aR.puntosxactividad();
+    }
 }
