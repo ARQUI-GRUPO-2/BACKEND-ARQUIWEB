@@ -1,59 +1,40 @@
 package pe.edu.pe.grupo2.dtos;
 
+import jakarta.persistence.Column;
 import pe.edu.pe.grupo2.entities.Noticias;
+import pe.edu.pe.grupo2.entities.User;
 
 import java.time.LocalTime;
 
 public class NotificacionesDTO {
     private int idNotificacion;
-    private String tituloNotificacion;
-    private String descripcionNotificacion;
-    private LocalTime fechaNotificacion;
-
-
-
+    private String mensaje;
+    private Boolean estado;
+    private LocalTime fecha;
     private Noticias noti;
+    private User us;
 
-    public int getIdNotificacion() {
-        return idNotificacion;
-    }
+    public int getIdNotificacion() {return idNotificacion;}
 
-    public void setIdNotificacion(int idNotificacion) {
-        this.idNotificacion = idNotificacion;
-    }
+    public void setIdNotificacion(int idNotificacion) {this.idNotificacion = idNotificacion;}
 
-    public String getTituloNotificacion() {
-        return tituloNotificacion;
-    }
+    public String getMensaje() {return mensaje;}
 
-    public void setTituloNotificacion(String tituloNotificacion) {
-        this.tituloNotificacion = tituloNotificacion;
-    }
+    public void setMensaje(String mensaje) {this.mensaje = mensaje;}
 
-    public String getDescripcionNotificacion() {
-        return descripcionNotificacion;
-    }
+    public Boolean getEstado() {return estado;}
 
-    public void setDescripcionNotificacion(String descripcionNotificacion) {
-        this.descripcionNotificacion = descripcionNotificacion;
-    }
+    public void setEstado(Boolean estado) {this.estado = estado;}
 
-    public LocalTime getFechaNotificacion() {
-        return fechaNotificacion;
-    }
+    public LocalTime getFecha() {return fecha;}
 
-    public void setFechaNotificacion(LocalTime fechaNotificacion) {
-        this.fechaNotificacion = fechaNotificacion;
-    }
+    public void setFecha(LocalTime fecha) {this.fecha = fecha;}
 
+    public Noticias getNoti() {return noti;}
 
+    public void setNoti(Noticias noti) {this.noti = noti;}
 
+    public User getUs() {return us;}
 
-    public Noticias getNoti() {
-        return noti;
-    }
-
-    public void setNoti(Noticias noti) {
-        this.noti = noti;
-    }
+    public void setUs(User us) {this.us = us;}
 }

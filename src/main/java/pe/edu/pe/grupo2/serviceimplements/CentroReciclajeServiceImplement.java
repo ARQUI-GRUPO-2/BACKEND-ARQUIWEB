@@ -34,4 +34,10 @@ public class CentroReciclajeServiceImplement implements ICentroReciclajeService 
         return cR.actividadxnombre();
     }
 
+    @Override
+    public List<String[]> masActividadMenosReciclaje() {return cR.findMasActividadMenosReciclaje();}
+
+    @Override
+    public  List<String[]> masVisitasCentro(String direccion) {return cR.masVisitasCentro(direccion);}
+
 }
