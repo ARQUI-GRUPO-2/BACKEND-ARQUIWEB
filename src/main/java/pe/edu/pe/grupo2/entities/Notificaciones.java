@@ -15,8 +15,8 @@ public class Notificaciones {
     @Column(name="mensaje", nullable = false, length = 225)
     private String mensaje;
 
-    @Column(name="estado", nullable = false, length = 20)
-    private String estado;
+    @Column(name="estado")
+    private Boolean estado;
 
     @Column(name = "fecha_notificacion", nullable = false)
     private LocalTime fecha;
@@ -25,16 +25,21 @@ public class Notificaciones {
     @JoinColumn(name = "idNoticias")
     private Noticias noti;
 
-    public Notificaciones() {}
+    @ManyToOne
+    @JoinColumn(name = "idUser")
+    private User us;
 
+    public Notificaciones() {
 
+    }
 
-    public Notificaciones(int idNotificaciones, String mensaje, String estado, LocalTime fecha,Noticias noti ) {
+    public Notificaciones(int idNotificaciones, String mensaje, Boolean estado, LocalTime fecha,Noticias noti, User us ) {
         this.idNotificaciones = idNotificaciones;
         this.mensaje = mensaje;
-        this.estado = estado;
+        this.estado = false;
         this.fecha = fecha;
         this.noti = noti;
+        this.us = us;
     }
 
     public int getIdNotificaciones() {
@@ -53,11 +58,9 @@ public class Notificaciones {
         this.mensaje = mensaje;
     }
 
-    public String getEstado() {
-        return estado;
-    }
+    public Boolean getEstado() {return estado;}
 
-    public void setEstado(String estado) {
+    public void setEstado(Boolean estado) {
         this.estado = estado;
     }
 
@@ -69,7 +72,6 @@ public class Notificaciones {
         this.fecha = fecha;
     }
 
-
     public Noticias getNoti() {
         return noti;
     }
@@ -78,5 +80,7 @@ public class Notificaciones {
         this.noti = noti;
     }
 
+    public User getUs() {return us;}
 
+    public void setUs(User us) {this.us = us;}
 }

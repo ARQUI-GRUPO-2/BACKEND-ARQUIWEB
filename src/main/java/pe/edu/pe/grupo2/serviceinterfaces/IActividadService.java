@@ -12,4 +12,8 @@ public interface IActividadService {
     public void delete(int id);
     public List<Actividad> buscarNombre(String nombre);
 
+    public List<String[]> puntosxactividadService();
+    public List<String[]> ActividadesporCentro();
+    public List<String[]> ActividadesporUsuario();
+
 }
