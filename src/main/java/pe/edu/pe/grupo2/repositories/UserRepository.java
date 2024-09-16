@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import pe.edu.pe.grupo2.dtos.UserCentroReciclajeDTO;
 import pe.edu.pe.grupo2.entities.User;
 
 import java.util.List;
@@ -27,5 +28,11 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Query("select ur from User ur where ur.genero like %:genero%")
     public List<User> BuscarGenero(@Param("genero") String Genero);
+
+    @Query("SELECT u.nombres, u.edad, cr.direccion, cr.horario " +
+            "FROM User u " +
+            "JOIN CentroReciclaje cr ON cr.us.idUser = u.idUser " +
+            "WHERE u.idUser = :idUser")
+    List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclaje(@Param("idUser") Integer idUser);
 
 }

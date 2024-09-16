@@ -4,6 +4,7 @@ package pe.edu.pe.grupo2.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.pe.grupo2.dtos.UserCentroReciclajeDTO;
 import pe.edu.pe.grupo2.dtos.UserDTO;
 import pe.edu.pe.grupo2.entities.User;
 import pe.edu.pe.grupo2.serviceinterfaces.UserService;
@@ -57,4 +58,9 @@ public class UserController {
             return m.map(x, UserDTO.class);
         }).collect(Collectors.toList());
     }
+    @GetMapping("/{id}/centros-reciclaje")
+    public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclaje(@PathVariable("id") Integer idUser) {
+        return uS.obtenerUsuarioConCentrosDeReciclaje(idUser);
+    }
+
 }

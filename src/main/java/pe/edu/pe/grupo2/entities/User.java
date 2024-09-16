@@ -50,13 +50,12 @@ public class User {
     @JsonIgnore
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
+    private List<Rol> roles;
 
     public User() {
-
     }
 
-
-    public User(int idUser, String nombres, String apellidos, String username, String dni, int edad, String genero, String informacionPersonal, String direccion, String telefono, String correo, String password, Boolean enabled) {
+    public User(int idUser, String nombres, String apellidos, String username, String dni, int edad, String genero, String informacionPersonal, String direccion, String telefono, String correo, String password, Boolean enabled, List<Rol> roles) {
         this.idUser = idUser;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -69,8 +68,8 @@ public class User {
         this.telefono = telefono;
         this.correo = correo;
         this.password = password;
-        this.enabled = false;
-
+        this.enabled = enabled;
+        this.roles = roles;
     }
 
     public int getIdUser() {
@@ -117,7 +116,9 @@ public class User {
         return edad;
     }
 
-    public void setEdad(int edad) {this.edad = edad;}
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
 
     public String getGenero() {
         return genero;
@@ -182,12 +183,6 @@ public class User {
     public void setRoles(List<Rol> roles) {
         this.roles = roles;
     }
-
- 
-
-
-
-
 }
 
 
