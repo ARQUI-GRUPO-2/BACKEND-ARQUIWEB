@@ -34,4 +34,14 @@ public class ActividadServiceImplement implements IActividadService {
     @Override
     public List<String[]> puntosxactividadService() {return aR.puntosxactividad();
     }
+
+    @Override
+    public List<String[]> ActividadesporCentro() {
+        return aR.ActividadesporCentro();
+    }
+
+    @Override
+    public List<String[]> ActividadesporUsuario() {
+        return aR.ActividadesporUsuario();
+    }
 }
