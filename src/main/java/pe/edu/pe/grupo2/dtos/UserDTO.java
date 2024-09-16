@@ -14,7 +14,6 @@ public class UserDTO {
     private String direccion;
     private String telefono;
     private String correo;
-
     private Boolean enabled;
 
     public int getIdUser() {
