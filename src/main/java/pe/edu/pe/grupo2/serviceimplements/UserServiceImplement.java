@@ -53,5 +53,9 @@ public class UserServiceImplement implements UserService {
     public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclaje(int idUser) {
         return uR.obtenerUsuarioConCentrosDeReciclaje(idUser);
     }
+    @Override
+    public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclajeFavorito(Boolean favoritos) {
+        return uR.findUserWithCentrosReciclajeFiltered(favoritos);
+    }
 
 }

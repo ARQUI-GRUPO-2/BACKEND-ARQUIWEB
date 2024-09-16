@@ -14,7 +14,5 @@ public interface UserService {
     public void delete(int id);
     public List<User> BuscarGenero(String genero);
     public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclaje(int idUser);
-
-
-
+    public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclajeFavorito(Boolean favoritos);
 }

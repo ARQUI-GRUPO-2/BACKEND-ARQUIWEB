@@ -62,5 +62,12 @@ public class UserController {
     public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclaje(@PathVariable("id") Integer idUser) {
         return uS.obtenerUsuarioConCentrosDeReciclaje(idUser);
     }
+    @GetMapping("/centros-reciclaje-filtrados")
+    public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclajeFiltrado(
+            @RequestParam(required = false) int edad,
+            @RequestParam(required = false) Boolean favoritos) {
+
+        return uS.obtenerUsuarioConCentrosDeReciclajeFavorito(favoritos);
+    }
 
 }

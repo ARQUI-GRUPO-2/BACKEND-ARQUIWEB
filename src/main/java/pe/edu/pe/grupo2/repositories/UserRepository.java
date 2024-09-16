@@ -33,6 +33,12 @@ public interface UserRepository extends JpaRepository<User, Integer> {
             "FROM User u " +
             "JOIN CentroReciclaje cr ON cr.us.idUser = u.idUser " +
             "WHERE u.idUser = :idUser")
-    List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclaje(@Param("idUser") Integer idUser);
+    public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclaje(@Param("idUser") Integer idUser);
+
+    @Query("SELECT u.nombres, u.edad, cr.direccion, cr.horario " +
+            "FROM User u " +
+            "JOIN CentroReciclaje cr ON cr.us.idUser = u.idUser " +
+            "WHERE cr.favoritos = :favoritos")
+    public List<UserCentroReciclajeDTO> findUserWithCentrosReciclajeFiltered(@Param("favoritos") Boolean favoritos);
 
 }
