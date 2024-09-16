@@ -2,6 +2,7 @@ package pe.edu.pe.grupo2.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.pe.grupo2.dtos.RolDTO;
 import pe.edu.pe.grupo2.entities.Rol;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/roles")
+@PreAuthorize("hasAuthority('ADMINISTRADOR')")
 public class RolController {
 
     @Autowired
