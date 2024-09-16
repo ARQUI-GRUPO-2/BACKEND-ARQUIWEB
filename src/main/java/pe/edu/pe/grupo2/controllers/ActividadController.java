@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.boot.Banner;
-import pe.edu.pe.grupo2.dtos.ActividadCentroDTO;
-import pe.edu.pe.grupo2.dtos.ActividadDTO;
-import pe.edu.pe.grupo2.dtos.ActividadRecompensasDTO;
+import pe.edu.pe.grupo2.dtos.*;
 import pe.edu.pe.grupo2.entities.Actividad;
 import pe.edu.pe.grupo2.serviceinterfaces.IActividadService;
 
@@ -78,9 +76,35 @@ public class ActividadController {
             dto.setPuntos(columna[1]);
             dto.setNombre_recompensa(columna[2]);
             listaDTO.add(dto);
-
         }
         return listaDTO;
     }
+    @GetMapping("/ActividadesPorCentro")
+    public List<ActividadesPorCentroDTO> actividadesPorCentro(){
+        List<String[]> lista = aS.ActividadesporCentro();
+        List<ActividadesPorCentroDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            ActividadesPorCentroDTO dto = new ActividadesPorCentroDTO();
+            dto.setId_centro_reciclaje(Integer.parseInt(columna[0]));
+            dto.setNumero_actividades(Integer.parseInt(columna[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+
+    @GetMapping("/ActividadesPorUsuario")
+    public List<ActividadesPorUsuarioDTO> actividadesPorUsuario(){
+        List<String[]> lista = aS.ActividadesporUsuario();
+        List<ActividadesPorUsuarioDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            ActividadesPorUsuarioDTO dto = new ActividadesPorUsuarioDTO();
+            dto.setId_user(Integer.parseInt(columna[0]));
+            dto.setNumeroactividades(Integer.parseInt(columna[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+
+
 
 }
