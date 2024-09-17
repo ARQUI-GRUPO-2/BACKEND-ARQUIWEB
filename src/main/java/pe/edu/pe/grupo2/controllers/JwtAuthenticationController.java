@@ -18,7 +18,7 @@ import pe.edu.pe.grupo2.serviceimplements.JwtUserDetailsService;
 
 //Clase 3
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
 public class JwtAuthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;
