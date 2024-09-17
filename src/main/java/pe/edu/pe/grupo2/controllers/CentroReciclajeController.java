@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/centros-de-reciclaje")
+@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
 @PreAuthorize("hasAuthority('USUARIO')")
 public class CentroReciclajeController {
 
