@@ -7,6 +7,9 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springdoc.core.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import io.swagger.v3.oas.models.servers.Server;
+
+import java.util.List;
 
 @Configuration
 public class SwaggerConfig {
@@ -18,7 +21,9 @@ public class SwaggerConfig {
                                 .type(SecurityScheme.Type.HTTP)
                                 .scheme("bearer")
                                 .bearerFormat("JWT")))
-                .addSecurityItem(new SecurityRequirement().addList("Ingrese Token:"));
+                .addSecurityItem(new SecurityRequirement().addList("Ingrese Token:"))
+        .servers(List.of(new Server().url("https://proud-radiance-production.up.railway.app")));
+
     }
 
     @Bean
