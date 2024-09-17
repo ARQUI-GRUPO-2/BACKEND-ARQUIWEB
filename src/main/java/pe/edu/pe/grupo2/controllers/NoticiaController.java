@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Noticias")
+@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
 @PreAuthorize("hasAuthority('ADMINISTRADOR')")
 public class NoticiaController {
     @Autowired
