@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/actividad")
+@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
 @PreAuthorize("hasAuthority('USUARIO')")
 public class ActividadController {
 
