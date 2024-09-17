@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -19,6 +18,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 
+import static org.springframework.security.config.Customizer.withDefaults;
 import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
 
 //@Profile(value = {"development", "production"})
@@ -60,22 +60,25 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         //Desde Spring Boot 3.1+
         httpSecurity
+                //.cors(withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req -> req
                         .requestMatchers(
+                                "/public/**",
                                 "/v3/api-docs/**",
                                 "/swagger-ui/**",
                                 "/swagger-ui.html",
                                 "/swagger-resources/**",
-                                "/webjars/**"
+                                "/webjars/**",
+                                "/"
                         ).permitAll()
                         .requestMatchers(antMatcher("/login")).permitAll()
                         .anyRequest().authenticated()
                 )
-                .httpBasic(Customizer.withDefaults())
+                .httpBasic(withDefaults())
                 .formLogin(AbstractHttpConfigurer::disable)
                 .exceptionHandling(e -> e.authenticationEntryPoint(jwtAuthenticationEntryPoint))
-                .sessionManagement(Customizer.withDefaults());
+                .sessionManagement(withDefaults());
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }
