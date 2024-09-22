@@ -5,6 +5,10 @@ import pe.edu.pe.grupo2.entities.TipoActividad;
 import java.util.List;
 
 public interface ITipoActividadService {
-    public void insert(TipoActividad tipoactividad);
-    public List<TipoActividad> list();
+    void insert(TipoActividad tipoactividad);
+    List<TipoActividad> list();
+
+    // Métodos para las nuevas queries
+    List<TipoActividad> findByInvitacionContaining(String text);
+    int countNonEmptyInvitations();
 }
