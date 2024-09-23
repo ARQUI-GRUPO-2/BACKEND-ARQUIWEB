@@ -13,7 +13,8 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/tipodeactividades")
-@PreAuthorize("hasAuthority('ADMINISTRADOR')")
+@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
+@PreAuthorize("hasAuthority('USUARIO')")
 public class TipoActividadController {
     @Autowired
     private ITipoActividadService tS;
