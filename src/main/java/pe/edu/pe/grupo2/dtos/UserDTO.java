@@ -1,6 +1,10 @@
 package pe.edu.pe.grupo2.dtos;
 
 
+import pe.edu.pe.grupo2.entities.Rol;
+
+import java.util.List;
+
 public class UserDTO {
     private int idUser;
     private String username;
@@ -10,10 +14,11 @@ public class UserDTO {
     private String dni;
     private int edad;
     private String genero;
-    private String informacionPersonal;
-    private String direccion;
+    private String distrito;
     private String telefono;
     private String correo;
+    private List<Rol> roles;
+
     private Boolean enabled;
 
     public int getIdUser() {
@@ -22,6 +27,22 @@ public class UserDTO {
 
     public void setIdUser(int idUser) {
         this.idUser = idUser;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getNombres() {
@@ -40,10 +61,6 @@ public class UserDTO {
         this.apellidos = apellidos;
     }
 
-    public String getUsername() {return username;}
-
-    public void setUsername(String username) {this.username = username;}
-
     public String getDni() {
         return dni;
     }
@@ -52,9 +69,13 @@ public class UserDTO {
         this.dni = dni;
     }
 
-    public int getEdad() {return edad;}
+    public int getEdad() {
+        return edad;
+    }
 
-    public void setEdad(int edad) {this.edad = edad;}
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
 
     public String getGenero() {
         return genero;
@@ -64,20 +85,12 @@ public class UserDTO {
         this.genero = genero;
     }
 
-    public String getInformacionPersonal() {
-        return informacionPersonal;
+    public String getDistrito() {
+        return distrito;
     }
 
-    public void setInformacionPersonal(String informacionPersonal) {
-        this.informacionPersonal = informacionPersonal;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setDdistrito(String distrito) {
+        this.distrito = distrito;
     }
 
     public String getTelefono() {
@@ -96,15 +109,19 @@ public class UserDTO {
         this.correo = correo;
     }
 
-    public String getPassword() {
-        return password;
+    public List<Rol> getRoles() {
+        return roles;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setRoles(List<Rol> roles) {
+        this.roles = roles;
     }
 
-    public Boolean getEnabled() {return enabled;}
+    public Boolean getEnabled() {
+        return enabled;
+    }
 
-    public void setEnabled(Boolean enabled) {this.enabled = enabled;}
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 }
