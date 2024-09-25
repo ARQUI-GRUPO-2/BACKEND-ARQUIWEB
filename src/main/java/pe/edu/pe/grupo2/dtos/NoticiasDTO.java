@@ -7,7 +7,7 @@ public class NoticiasDTO {
     private int idNoticia;
     private String tituloNoticia;
     private String informacionNoticia;
-    private LocalDate fechaNoticia;
+    private LocalDate fechaPublicacion;
 
     public int getIdNoticia() {
         return idNoticia;
@@ -33,11 +33,11 @@ public class NoticiasDTO {
         this.informacionNoticia = informacionNoticia;
     }
 
-    public LocalDate getFechaNoticia() {
-        return fechaNoticia;
+    public LocalDate getFechaPublicacion() {
+        return fechaPublicacion;
     }
 
-    public void setFechaNoticia(LocalDate fechaNoticia) {
-        this.fechaNoticia = fechaNoticia;
+    public void setFechaPublicacion(LocalDate fechaPublicacion) {
+        this.fechaPublicacion = fechaPublicacion;
     }
 }
