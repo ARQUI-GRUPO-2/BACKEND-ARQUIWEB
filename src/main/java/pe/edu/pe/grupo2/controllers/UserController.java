@@ -16,12 +16,12 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/usuarios")
 @CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
-@PreAuthorize("hasAuthority('ADMINISTRADOR')")
 public class UserController {
     @Autowired
     private UserService uS;
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<UserDTO> listar() {
 
         return uS.list().stream().map(x -> {
@@ -31,29 +31,34 @@ public class UserController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public void insertar(@RequestBody UserDTO dto) {
         ModelMapper m = new ModelMapper();
         User ur = m.map(dto, User.class);
         uS.insert(ur);
     }
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public UserDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m=new ModelMapper();
         UserDTO dto=m.map(uS.listId(id),UserDTO.class);
         return dto;
     }
     @PutMapping
+    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public void modificar(@RequestBody UserDTO dto) {
         ModelMapper m = new ModelMapper();
         User ur = m.map(dto, User.class);
         uS.update(ur);
     }
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public void eliminar(@PathVariable("id")Integer id) {
         uS.delete(id);
     }
 
     @GetMapping("/busquedas")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<UserDTO> buscar(@RequestParam String genero) {
 
         return uS.BuscarGenero(genero).stream().map(x -> {
@@ -62,10 +67,12 @@ public class UserController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/{id}/centros-reciclaje")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclaje(@PathVariable("id") Integer idUser) {
         return uS.obtenerUsuarioConCentrosDeReciclaje(idUser);
     }
     @GetMapping("/centros-reciclaje-filtrados")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclajeFiltrado(
             @RequestParam(required = false) int edad,
             @RequestParam(required = false) Boolean favoritos) {
