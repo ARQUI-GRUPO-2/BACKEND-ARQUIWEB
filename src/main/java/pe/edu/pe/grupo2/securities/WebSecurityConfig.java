@@ -65,9 +65,11 @@ public class WebSecurityConfig {
         httpSecurity
                 .cors(cors -> cors.configurationSource(request -> {
                 CorsConfiguration corsConfiguration = new CorsConfiguration();
-                corsConfiguration.setAllowedMethods(List.of("*")); //  (GET, POST, PUT, etc.)
+                corsConfiguration.setAllowedOrigins(List.of("https://proud-radiance-production.up.railway.app")); 
+                corsConfiguration.setAllowedMethods(List.of("*")); 
+                corsConfiguration.setAllowedHeaders(List.of("*")); 
                 return corsConfiguration;
-                }))
+            }))
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req -> req
                         .requestMatchers(
