@@ -65,10 +65,7 @@ public class WebSecurityConfig {
         httpSecurity
                 .cors(cors -> cors.configurationSource(request -> {
                 CorsConfiguration corsConfiguration = new CorsConfiguration();
-                corsConfiguration.setAllowedOrigins(List.of("*"));
                 corsConfiguration.setAllowedMethods(List.of("*")); //  (GET, POST, PUT, etc.)
-                corsConfiguration.setAllowedHeaders(List.of("*")); 
-                corsConfiguration.setAllowCredentials(true); 
                 return corsConfiguration;
                 }))
                 .csrf(AbstractHttpConfigurer::disable)
