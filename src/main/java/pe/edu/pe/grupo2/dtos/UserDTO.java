@@ -14,8 +14,7 @@ public class UserDTO {
     private String dni;
     private int edad;
     private String genero;
-    private String informacionPersonal;
-    private String direccion;
+    private String distrito;
     private String telefono;
     private String correo;
     private List<Rol> roles;
@@ -86,20 +85,12 @@ public class UserDTO {
         this.genero = genero;
     }
 
-    public String getInformacionPersonal() {
-        return informacionPersonal;
+    public String getDistrito() {
+        return distrito;
     }
 
-    public void setInformacionPersonal(String informacionPersonal) {
-        this.informacionPersonal = informacionPersonal;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setDdistrito(String distrito) {
+        this.distrito = distrito;
     }
 
     public String getTelefono() {

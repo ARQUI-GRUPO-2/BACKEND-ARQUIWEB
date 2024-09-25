@@ -1,14 +1,13 @@
 package pe.edu.pe.grupo2.dtos;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class NoticiasDTO {
     private int idNoticia;
     private String tituloNoticia;
     private String informacionNoticia;
-    private LocalTime fechaNoticia;
-    private String tipoNoticia;
-    private String consejo;
+    private LocalDate fechaNoticia;
 
     public int getIdNoticia() {
         return idNoticia;
@@ -34,27 +33,11 @@ public class NoticiasDTO {
         this.informacionNoticia = informacionNoticia;
     }
 
-    public LocalTime getFechaNoticia() {
+    public LocalDate getFechaNoticia() {
         return fechaNoticia;
     }
 
-    public void setFechaNoticia(LocalTime fechaNoticia) {
+    public void setFechaNoticia(LocalDate fechaNoticia) {
         this.fechaNoticia = fechaNoticia;
-    }
-
-    public String getTipoNoticia() {
-        return tipoNoticia;
-    }
-
-    public void setTipoNoticia(String tipoNoticia) {
-        this.tipoNoticia = tipoNoticia;
-    }
-
-    public String getConsejo() {
-        return consejo;
-    }
-
-    public void setConsejo(String consejo) {
-        this.consejo = consejo;
     }
 }
