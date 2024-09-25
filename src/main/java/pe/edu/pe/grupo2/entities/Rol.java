@@ -12,9 +12,6 @@ public class Rol {
     @Column(name = "nombreRol", nullable = false, length = 100)
     private String nombreRol;
 
-    @Column(name = "descripcion", nullable = false, length = 200)
-    private String descripcion;
-
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -22,10 +19,9 @@ public class Rol {
     public Rol() {
     }
 
-    public Rol(int idRol, String nombreRol, String descripcion) {
+    public Rol(int idRol, String nombreRol) {
         this.idRol = idRol;
         this.nombreRol = nombreRol;
-        this.descripcion = descripcion;
     }
 
     public int getIdRol() {return idRol;}
@@ -36,7 +32,4 @@ public class Rol {
 
     public void setNombreRol(String nombreRol) {this.nombreRol = nombreRol;}
 
-    public String getDescripcion() {return descripcion;}
-
-    public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
 }
