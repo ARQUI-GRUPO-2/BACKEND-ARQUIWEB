@@ -60,7 +60,14 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         //Desde Spring Boot 3.1+
         httpSecurity
-                .cors(withDefaults())
+                .cors(cors -> cors.configurationSource(request -> {
+                CorsConfiguration corsConfiguration = new CorsConfiguration();
+                corsConfiguration.setAllowedOrigins(List.of("*")); 
+                corsConfiguration.setAllowedMethods(List.of("*")); //  (GET, POST, PUT, etc.)
+                corsConfiguration.setAllowedHeaders(List.of("*")); 
+                corsConfiguration.setAllowCredentials(true); 
+                return corsConfiguration;
+                }))
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req -> req
                         .requestMatchers(
