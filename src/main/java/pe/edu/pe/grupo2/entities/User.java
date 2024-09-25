@@ -32,8 +32,8 @@ public class User {
     @Column(name = "informacionPersonal", nullable = false)
     private String informacionPersonal;
     
-    @Column(name = "direccion", nullable = false)
-    private String direccion;
+    @Column(name = "distrito", nullable = false)
+    private String distrito;
 
     @Column(name = "telefono", nullable = false, length = 9)
     private String telefono;
@@ -57,7 +57,7 @@ public class User {
     }
 
 
-    public User(int idUser, String nombres, String apellidos, String username, String dni, int edad, String genero, String informacionPersonal, String direccion, String telefono, String correo, String password, Boolean enabled) {
+    public User(int idUser, String nombres, String apellidos, String username, String dni, int edad, String genero, String informacionPersonal, String distrito, String telefono, String correo, String password, Boolean enabled) {
         this.idUser = idUser;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -66,7 +66,7 @@ public class User {
         this.edad = edad;
         this.genero = genero;
         this.informacionPersonal = informacionPersonal;
-        this.direccion = direccion;
+        this.distrito = distrito;
         this.telefono = telefono;
         this.correo = correo;
         this.password = password;
@@ -136,12 +136,12 @@ public class User {
         this.informacionPersonal = informacionPersonal;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getDistrito() {
+        return distrito;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setDistrito(String distrito) {
+        this.distrito = distrito;
     }
 
     public String getTelefono() {
