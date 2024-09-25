@@ -9,13 +9,13 @@ public class TipoActividad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_tipo_actividad;
     @Column(name = "invitacion",nullable = false,length = 225)
-    private Boolean invitacion;
+    private String invitacion;
     @Column(name = "reciclar",nullable = false,length = 225)
-    private Boolean reciclar;
+    private String reciclar;
 
     public TipoActividad() {
     }
-    public TipoActividad(int id_tipo_actividad, Boolean invitacion, Boolean reciclar) {
+    public TipoActividad(int id_tipo_actividad, String invitacion, String reciclar) {
         this.id_tipo_actividad = id_tipo_actividad;
         this.invitacion = invitacion;
         this.reciclar = reciclar;
@@ -25,11 +25,11 @@ public class TipoActividad {
 
     public void setId_tipo_actividad(int id_tipo_actividad) {this.id_tipo_actividad = id_tipo_actividad;}
 
-    public Boolean getInvitacion() {return invitacion;}
+    public String getInvitacion() {return invitacion;}
 
-    public void setInvitacion(Boolean invitacion) {this.invitacion = invitacion;}
+    public void setInvitacion(String invitacion) {this.invitacion = invitacion;}
 
-    public Boolean getReciclar() {return reciclar;}
+    public String getReciclar() {return reciclar;}
 
-    public void setReciclar(Boolean reciclar) {this.reciclar = reciclar;}
+    public void setReciclar(String reciclar) {this.reciclar = reciclar;}
 }
