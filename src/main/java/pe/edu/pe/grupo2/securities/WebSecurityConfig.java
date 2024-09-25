@@ -16,7 +16,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.servlet.HandlerExceptionResolver;
+
+import java.util.List;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
@@ -62,7 +65,7 @@ public class WebSecurityConfig {
         httpSecurity
                 .cors(cors -> cors.configurationSource(request -> {
                 CorsConfiguration corsConfiguration = new CorsConfiguration();
-                corsConfiguration.setAllowedOrigins(List.of("*")); 
+                corsConfiguration.setAllowedOrigins(List.of("*"));
                 corsConfiguration.setAllowedMethods(List.of("*")); //  (GET, POST, PUT, etc.)
                 corsConfiguration.setAllowedHeaders(List.of("*")); 
                 corsConfiguration.setAllowCredentials(true); 
