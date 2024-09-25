@@ -28,9 +28,6 @@ public class User {
     
     @Column(name = "genero", nullable = false, length = 9)
     private String genero;
-
-    @Column(name = "informacionPersonal", nullable = false)
-    private String informacionPersonal;
     
     @Column(name = "distrito", nullable = false)
     private String distrito;
@@ -53,11 +50,10 @@ public class User {
     private List<Rol> roles;
 
     public User() {
-
     }
 
 
-    public User(int idUser, String nombres, String apellidos, String username, String dni, int edad, String genero, String informacionPersonal, String distrito, String telefono, String correo, String password, Boolean enabled) {
+    public User(int idUser, String nombres, String apellidos, String username, String dni, int edad, String genero, String distrito, String telefono, String correo, String password, Boolean enabled) {
         this.idUser = idUser;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -65,13 +61,12 @@ public class User {
         this.dni = dni;
         this.edad = edad;
         this.genero = genero;
-        this.informacionPersonal = informacionPersonal;
         this.distrito = distrito;
         this.telefono = telefono;
         this.correo = correo;
         this.password = password;
-        this.enabled = false;
-
+        this.enabled = enabled;
+        this.roles = roles;
     }
 
     public int getIdUser() {
@@ -118,7 +113,9 @@ public class User {
         return edad;
     }
 
-    public void setEdad(int edad) {this.edad = edad;}
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
 
     public String getGenero() {
         return genero;
@@ -126,14 +123,6 @@ public class User {
 
     public void setGenero(String genero) {
         this.genero = genero;
-    }
-
-    public String getInformacionPersonal() {
-        return informacionPersonal;
-    }
-
-    public void setInformacionPersonal(String informacionPersonal) {
-        this.informacionPersonal = informacionPersonal;
     }
 
     public String getDistrito() {

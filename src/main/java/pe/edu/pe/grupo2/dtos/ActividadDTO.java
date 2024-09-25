@@ -11,7 +11,7 @@ public class ActividadDTO {
     private String fecha_recepcion;
     private String descripcion;
     private String nombre;
-    private String puntos;
+    private Double puntos;
     private String cantidad;
     private String ubicacion;
 
@@ -35,9 +35,9 @@ public class ActividadDTO {
 
     public void setNombre(String nombre) {this.nombre = nombre;}
 
-    public String getPuntos() {return puntos;}
+    public Double getPuntos() {return puntos;}
 
-    public void setPuntos(String puntos) {this.puntos = puntos;}
+    public void setPuntos(Double puntos) {this.puntos = puntos;}
 
     public String getCantidad() {return cantidad;}
 

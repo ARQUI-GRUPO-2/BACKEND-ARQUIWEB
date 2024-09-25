@@ -22,21 +22,14 @@ public class Noticias {
     @Column(name = "fecha_publicacion", nullable = false)
     private LocalDate fechaPublicacion;
 
-    @Column(name = "tipo", nullable = false, length = 20)
-    private String tipo;
-
-    @Column(name = "consejos", nullable = false)
-    private String consejos;
 
     public Noticias() {}
 
-    public Noticias(int idNoticias, String titulo, String informacion, LocalDate fechaPublicacion, String tipo, String consejos) {
+    public Noticias(int idNoticias, String titulo, String informacion, LocalDate fechaPublicacion) {
         this.idNoticias = idNoticias;
         this.titulo = titulo;
         this.informacion = informacion;
         this.fechaPublicacion = fechaPublicacion;
-        this.tipo = tipo;
-        this.consejos = consejos;
     }
 
     public int getIdNoticias() {
@@ -71,19 +64,4 @@ public class Noticias {
         this.fechaPublicacion = fechaPublicacion;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getConsejos() {
-        return consejos;
-    }
-
-    public void setConsejos(String consejos) {
-        this.consejos = consejos;
-    }
 }
