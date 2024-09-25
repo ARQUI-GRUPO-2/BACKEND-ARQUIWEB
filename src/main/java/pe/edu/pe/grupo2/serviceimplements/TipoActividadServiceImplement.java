@@ -14,9 +14,22 @@ public class TipoActividadServiceImplement implements ITipoActividadService {
     private ITipoActividadRepository tR;
 
     @Override
-    public List<TipoActividad> list() {return tR.findAll();
+    public List<TipoActividad> list() {
+        return tR.findAll();
     }
+
     @Override
-    public void insert(TipoActividad tipoactividad) {tR.save(tipoactividad);
+    public void insert(TipoActividad tipoactividad) {
+        tR.save(tipoactividad);
+    }
+
+    @Override
+    public List<TipoActividad> findByInvitacionContaining(String text) {
+        return tR.findByInvitacionContaining(text);
+    }
+
+    @Override
+    public int countNonEmptyInvitations() {
+        return tR.countNonEmptyInvitations();
     }
 }
