@@ -15,7 +15,7 @@ public class Actividad {
     @Column(name = "nombre",nullable = false, length = 100)
     private String nombre;
     @Column(name = "puntos",nullable = false, length = 155)
-    private String puntos;
+    private Double puntos;
     @Column(name = "cantidad",nullable = false, length = 150)
     private String cantidad;
     @Column(name = "ubicacion",nullable = false, length = 225)
@@ -33,7 +33,7 @@ public class Actividad {
     private User u;
     public Actividad() {}
 
-    public Actividad(int idActividad, String fecha_recepcion, String descripcion, String nombre, String puntos, String cantidad, String ubicacion, TipoActividad ta, CentroReciclaje cr, User u) {
+    public Actividad(int idActividad, String fecha_recepcion, String descripcion, String nombre, Double puntos, String cantidad, String ubicacion, TipoActividad ta, CentroReciclaje cr, User u) {
         this.idActividad = idActividad;
         this.fecha_recepcion = fecha_recepcion;
         this.descripcion = descripcion;
@@ -80,11 +80,11 @@ public class Actividad {
         this.nombre = nombre;
     }
 
-    public String getPuntos() {
+    public Double getPuntos() {
         return puntos;
     }
 
-    public void setPuntos(String puntos) {
+    public void setPuntos(Double puntos) {
         this.puntos = puntos;
     }
 

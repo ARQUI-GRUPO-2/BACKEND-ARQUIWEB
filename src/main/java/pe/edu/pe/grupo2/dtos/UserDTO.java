@@ -10,7 +10,6 @@ public class UserDTO {
     private String dni;
     private int edad;
     private String genero;
-    private String informacionPersonal;
     private String distrito;
     private String telefono;
     private String correo;
@@ -62,14 +61,6 @@ public class UserDTO {
 
     public void setGenero(String genero) {
         this.genero = genero;
-    }
-
-    public String getInformacionPersonal() {
-        return informacionPersonal;
-    }
-
-    public void setInformacionPersonal(String informacionPersonal) {
-        this.informacionPersonal = informacionPersonal;
     }
 
     public String getDistrito() {
