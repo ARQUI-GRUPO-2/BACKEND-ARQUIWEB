@@ -50,7 +50,6 @@ public class User {
     private List<Rol> roles;
 
     public User() {
-
     }
 
 
@@ -66,8 +65,8 @@ public class User {
         this.telefono = telefono;
         this.correo = correo;
         this.password = password;
-        this.enabled = false;
-
+        this.enabled = enabled;
+        this.roles = roles;
     }
 
     public int getIdUser() {
@@ -114,7 +113,9 @@ public class User {
         return edad;
     }
 
-    public void setEdad(int edad) {this.edad = edad;}
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
 
     public String getGenero() {
         return genero;
