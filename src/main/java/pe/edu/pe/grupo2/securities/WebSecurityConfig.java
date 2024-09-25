@@ -66,7 +66,7 @@ public class WebSecurityConfig {
                 .cors(cors -> cors.configurationSource(request -> {
                 CorsConfiguration corsConfiguration = new CorsConfiguration();
                 corsConfiguration.setAllowedOrigins(List.of("https://proud-radiance-production.up.railway.app")); 
-                corsConfiguration.setAllowedMethods(List.of("*")); 
+                corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE")); 
                 corsConfiguration.setAllowedHeaders(List.of("*")); 
                 return corsConfiguration;
             }))
