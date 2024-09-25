@@ -54,11 +54,19 @@ public class CentroReciclajeDTO {
         this.horario = horario;
     }
 
-    public Boolean getFavoritos() { return favoritos; }
+    public Boolean getFavoritos() {
+        return favoritos;
+    }
 
-    public void setFavoritos(Boolean favoritos) { this.favoritos  = favoritos; }
+    public void setFavoritos(Boolean favoritos) {
+        this.favoritos = favoritos;
+    }
 
-    public User getUs() {return us; }
+    public User getUs() {
+        return us;
+    }
 
-    public void setUs(User us) { this.us = us; }
+    public void setUs(User us) {
+        this.us = us;
+    }
 }
