@@ -16,10 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.servlet.HandlerExceptionResolver;
-
-import java.util.List;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
@@ -61,9 +58,8 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-        //Desde Spring Boot 3.1+
         httpSecurity
-                ..cors(withDefaults())
+                .cors(withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req -> req
                         .requestMatchers(
@@ -73,10 +69,10 @@ public class WebSecurityConfig {
                                 "/swagger-ui.html",
                                 "/swagger-resources/**",
                                 "/webjars/**",
+                                "/api/**",
                                 "/"
                         ).permitAll()
                         .requestMatchers(antMatcher("/login")).permitAll()
-                        .requestMatchers(HttpMethod.POST, "/**").authenticated()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults())
