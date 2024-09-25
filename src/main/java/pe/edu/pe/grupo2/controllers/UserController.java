@@ -20,6 +20,14 @@ public class UserController {
     @Autowired
     private UserService uS;
 
+    
+    @PostMapping
+    public void insertar(@RequestBody UserDTO dto) {
+        ModelMapper m = new ModelMapper();
+        User ur = m.map(dto, User.class);
+        uS.insert(ur);
+    }
+    
     @GetMapping
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<UserDTO> listar() {
@@ -30,13 +38,6 @@ public class UserController {
         }).collect(Collectors.toList());
     }
 
-    @PostMapping
-    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
-    public void insertar(@RequestBody UserDTO dto) {
-        ModelMapper m = new ModelMapper();
-        User ur = m.map(dto, User.class);
-        uS.insert(ur);
-    }
     @GetMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public UserDTO listarId(@PathVariable("id") Integer id) {
