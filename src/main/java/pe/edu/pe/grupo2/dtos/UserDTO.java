@@ -11,7 +11,7 @@ public class UserDTO {
     private int edad;
     private String genero;
     private String informacionPersonal;
-    private String direccion;
+    private String distrito;
     private String telefono;
     private String correo;
     private Boolean enabled;
@@ -72,12 +72,12 @@ public class UserDTO {
         this.informacionPersonal = informacionPersonal;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getDistrito() {
+        return distrito;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setDdistrito(String distrito) {
+        this.distrito = distrito;
     }
 
     public String getTelefono() {

@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/tipodeactividades")
 @CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
-@PreAuthorize("hasAuthority('ADMINISTRADOR')")
+@PreAuthorize("hasAuthority('USUARIO')")
 public class TipoActividadController {
     @Autowired
     private ITipoActividadService tS;
