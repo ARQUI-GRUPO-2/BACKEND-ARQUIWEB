@@ -20,7 +20,6 @@ public class UserController {
     @Autowired
     private UserService uS;
 
-    
     @PostMapping
     @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public void insertar(@RequestBody UserDTO dto) {

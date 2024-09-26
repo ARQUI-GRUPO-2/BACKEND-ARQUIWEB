@@ -12,7 +12,7 @@ public interface ICentroReciclajeService {
     public void update(CentroReciclaje centroReciclaje);
 
     public List<String[]> actividadxnombreService();
-    public List<String[]> masActividadMenosReciclaje();
-    public List<String[]> masVisitasCentro( String direccion);
+    public List<String[]> centroPopular();
+    public List<String[]> centroUsuarios();
 
 }
