@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pe.edu.pe.grupo2.dtos.UserCentroReciclajeDTO;
 import pe.edu.pe.grupo2.entities.User;
 
+import java.time.LocalTime;
 import java.util.List;
 
 @Repository
@@ -40,5 +41,15 @@ public interface UserRepository extends JpaRepository<User, Integer> {
             "JOIN CentroReciclaje cr ON cr.us.idUser = u.idUser " +
             "WHERE cr.favoritos = :favoritos")
     public List<UserCentroReciclajeDTO> findUserWithCentrosReciclajeFiltered(@Param("favoritos") Boolean favoritos);
+
+    //Cantidad de Notificaciones de un usuario en un rango de horas
+    @Query(value = "SELECT us.nombres, COUNT(*) AS cantidad_notif " +
+            "FROM notificacion AS noti " +
+            "INNER JOIN usuario AS us ON noti.id_usuario = us.id_usuario " +
+            "WHERE noti.fecha_notificacion BETWEEN :horaInicio AND :horaFin " +
+            "GROUP BY us.nombres",
+            nativeQuery = true)
+    public List<String[]> Cantidadnotificaciones_deusuario_rangohoras(@Param("horaInicio") LocalTime horaInicio, @Param("horaFin") LocalTime horaFin);
+
 
 }

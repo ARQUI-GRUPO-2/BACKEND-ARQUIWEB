@@ -5,11 +5,14 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.pe.grupo2.dtos.CantidadNotiUsuarioDTO;
 import pe.edu.pe.grupo2.dtos.UserCentroReciclajeDTO;
 import pe.edu.pe.grupo2.dtos.UserDTO;
 import pe.edu.pe.grupo2.entities.User;
 import pe.edu.pe.grupo2.serviceinterfaces.UserService;
 
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -80,5 +83,19 @@ public class UserController {
 
         return uS.obtenerUsuarioConCentrosDeReciclajeFavorito(favoritos);
     }
+    @GetMapping("/conteo_notificaciones_rangoHoras")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public List<CantidadNotiUsuarioDTO> Cantidadnotificaciones_deusuario_rangohoras(@RequestParam LocalTime horaInicio, @RequestParam LocalTime horaFin) {
+        List<String[]> filaLista = uS.Cantidadnotificaciones_deusuario_rangohoras(horaInicio, horaFin);
+        List<CantidadNotiUsuarioDTO> dtoLista = new ArrayList<>();
+        for(String[] columna: filaLista){
+            CantidadNotiUsuarioDTO dto = new CantidadNotiUsuarioDTO();
+            dto.setNombres(columna[0]);
+            dto.setCantidad_notif(Integer.parseInt(columna[1]));
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }
+
 
 }
