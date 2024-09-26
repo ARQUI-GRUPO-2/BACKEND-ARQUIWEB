@@ -18,7 +18,6 @@ public class UserDTO {
     private String telefono;
     private String correo;
     private List<Rol> roles;
-
     private Boolean enabled;
 
     public int getIdUser() {
@@ -89,7 +88,7 @@ public class UserDTO {
         return distrito;
     }
 
-    public void setDdistrito(String distrito) {
+    public void setDistrito(String distrito) {
         this.distrito = distrito;
     }
 
