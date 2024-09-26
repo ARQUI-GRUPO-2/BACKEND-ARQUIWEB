@@ -11,6 +11,7 @@ import pe.edu.pe.grupo2.dtos.UserDTO;
 import pe.edu.pe.grupo2.entities.User;
 import pe.edu.pe.grupo2.serviceinterfaces.UserService;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -85,8 +86,8 @@ public class UserController {
     }
     @GetMapping("/conteo_notificaciones_rangoHoras")
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<CantidadNotiUsuarioDTO> Cantidadnotificaciones_deusuario_rangohoras(@RequestParam LocalTime horaInicio, @RequestParam LocalTime horaFin) {
-        List<String[]> filaLista = uS.Cantidadnotificaciones_deusuario_rangohoras(horaInicio, horaFin);
+    public List<CantidadNotiUsuarioDTO> Cantidadnotificaciones_deusuario_rangohoras(@RequestParam LocalDate diaInicio, @RequestParam LocalDate diaFin) {
+        List<String[]> filaLista = uS.Cantidadnotificaciones_deusuario_rangohoras(diaInicio, diaFin);
         List<CantidadNotiUsuarioDTO> dtoLista = new ArrayList<>();
         for(String[] columna: filaLista){
             CantidadNotiUsuarioDTO dto = new CantidadNotiUsuarioDTO();

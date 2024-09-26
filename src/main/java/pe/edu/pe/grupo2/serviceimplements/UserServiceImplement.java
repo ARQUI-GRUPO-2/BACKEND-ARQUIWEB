@@ -11,7 +11,7 @@ import pe.edu.pe.grupo2.repositories.UserRepository;
 import pe.edu.pe.grupo2.serviceinterfaces.UserService;
 
 
-import java.time.LocalTime;
+import java.time.LocalDate;
 import java.util.List;
 @Service
 public class UserServiceImplement implements UserService {
@@ -59,8 +59,8 @@ public class UserServiceImplement implements UserService {
         return uR.findUserWithCentrosReciclajeFiltered(favoritos);
     }
     @Override
-    public List<String[]> Cantidadnotificaciones_deusuario_rangohoras(LocalTime horaInicio, LocalTime horaFin) {
-        return uR.Cantidadnotificaciones_deusuario_rangohoras(horaInicio, horaFin);
+    public List<String[]> Cantidadnotificaciones_deusuario_rangohoras(LocalDate diaInicio, LocalDate diaFin) {
+        return uR.Cantidadnotificaciones_deusuario_rangohoras(diaInicio, diaFin);
     }
 
 }
