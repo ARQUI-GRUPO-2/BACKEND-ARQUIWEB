@@ -38,7 +38,7 @@ public interface IActividadRepository extends JpaRepository<Actividad,Integer> {
             "    COUNT(a.id_actividad) AS numero_actividades, \n" +
             "    SUM(CAST(a.puntos AS INTEGER)) AS total_puntos\n" +
             "FROM \n" +
-            "    actividad a\n" +
+            "    actividad a \n" +
             "INNER JOIN \n" +
             "    usuario u ON a.id_user = u.id_user\n" +
             "GROUP BY \n" +

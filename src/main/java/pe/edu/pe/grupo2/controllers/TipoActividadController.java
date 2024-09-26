@@ -4,7 +4,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.pe.grupo2.dtos.ActividadDTO;
 import pe.edu.pe.grupo2.dtos.TipoActividadDTO;
+import pe.edu.pe.grupo2.entities.Actividad;
 import pe.edu.pe.grupo2.entities.TipoActividad;
 import pe.edu.pe.grupo2.serviceinterfaces.ITipoActividadService;
 
@@ -33,6 +35,25 @@ public class TipoActividadController {
         ModelMapper t = new ModelMapper();
         TipoActividad ta = t.map(dto, TipoActividad.class);
         tS.insert(ta);
+    }
+
+    @GetMapping("/{id}")
+    public TipoActividadDTO listarId(@PathVariable("id") Integer id) {
+        ModelMapper m=new ModelMapper();
+        TipoActividadDTO dto = m.map(tS.listId(id),TipoActividadDTO.class);
+        return dto;
+    }
+
+    @PutMapping
+    public void update(@RequestBody TipoActividadDTO dto) {
+        ModelMapper m = new ModelMapper();
+        TipoActividad tc = m.map(dto, TipoActividad.class);
+        tS.update(tc);
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id") Integer id) {
+        tS.delete(id);
     }
 
     // Nuevo endpoint para obtener actividades que contienen un texto específico en la invitación

@@ -112,6 +112,7 @@ public class ActividadController {
             ActividadesPorUsuarioDTO dto = new ActividadesPorUsuarioDTO();
             dto.setId_user(Integer.parseInt(columna[0]));
             dto.setNumeroactividades(Integer.parseInt(columna[1]));
+            dto.setTotal_puntos(Integer.parseInt(columna[2]));
             listaDTO.add(dto);
         }
         return listaDTO;
