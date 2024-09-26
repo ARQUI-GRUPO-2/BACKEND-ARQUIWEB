@@ -19,13 +19,13 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/recompensas")
 @CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
-@PreAuthorize("hasAuthority('ADMINISTRADOR')")
 public class RecompensasController {
     @Autowired
     private
     IRecompensasService vs;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public void registrar(@RequestBody RecompensasDTO dto) {
         ModelMapper m = new ModelMapper();
         Recompensas d = m.map(dto, Recompensas.class);
@@ -33,6 +33,7 @@ public class RecompensasController {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public RecompensasDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m=new ModelMapper();
         RecompensasDTO dto = m.map(vs.listId(id),RecompensasDTO.class);
@@ -40,6 +41,7 @@ public class RecompensasController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public List<RecompensasDTO> listar() {
         return vs.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -48,11 +50,13 @@ public class RecompensasController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public void eliminar(@PathVariable("id") Integer id) {
         vs.delete(id);
     }
 
     @PutMapping
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public void modificar(@RequestBody RecompensasDTO dto) {
         ModelMapper m = new ModelMapper();
         Recompensas d = m.map(dto, Recompensas.class);
@@ -60,6 +64,7 @@ public class RecompensasController {
     }
 
     @GetMapping("/mas_reclamada")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<MostClaimedRewardDTO> cantidad(){
         List<String[]> lista=vs.cantidadRecompensas();
         List<MostClaimedRewardDTO> listaDTO=new ArrayList<>();
@@ -73,6 +78,7 @@ public class RecompensasController {
     }
 
     @GetMapping("/proxvencer")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<CloseToExpireDTO> proxvencimiento(){
         List<String[]> lista=vs.proximoVencimiento();
         List<CloseToExpireDTO> listaDTO=new ArrayList<>();

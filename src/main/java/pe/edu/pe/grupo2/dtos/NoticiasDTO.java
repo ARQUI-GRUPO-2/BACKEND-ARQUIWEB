@@ -4,40 +4,40 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class NoticiasDTO {
-    private int idNoticia;
-    private String tituloNoticia;
-    private String informacionNoticia;
-    private LocalDate fechaNoticia;
+    private int idNoticias;
+    private String titulo;
+    private String informacion;
+    private LocalDate fechaPublicacion;
 
-    public int getIdNoticia() {
-        return idNoticia;
+    public int getIdNoticias() {
+        return idNoticias;
     }
 
-    public void setIdNoticia(int idNoticia) {
-        this.idNoticia = idNoticia;
+    public void setIdNoticias(int idNoticias) {
+        this.idNoticias = idNoticias;
     }
 
-    public String getTituloNoticia() {
-        return tituloNoticia;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setTituloNoticia(String tituloNoticia) {
-        this.tituloNoticia = tituloNoticia;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public String getInformacionNoticia() {
-        return informacionNoticia;
+    public String getInformacion() {
+        return informacion;
     }
 
-    public void setInformacionNoticia(String informacionNoticia) {
-        this.informacionNoticia = informacionNoticia;
+    public void setInformacion(String informacion) {
+        this.informacion = informacion;
     }
 
-    public LocalDate getFechaNoticia() {
-        return fechaNoticia;
+    public LocalDate getFechaPublicacion() {
+        return fechaPublicacion;
     }
 
-    public void setFechaNoticia(LocalDate fechaNoticia) {
-        this.fechaNoticia = fechaNoticia;
+    public void setFechaPublicacion(LocalDate fechaPublicacion) {
+        this.fechaPublicacion = fechaPublicacion;
     }
 }

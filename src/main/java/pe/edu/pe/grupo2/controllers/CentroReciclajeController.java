@@ -15,13 +15,13 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/centros-de-reciclaje")
 @CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
-@PreAuthorize("hasAuthority('USUARIO')")
 public class CentroReciclajeController {
 
     @Autowired
     private ICentroReciclajeService cS;
 
     @GetMapping
+    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public List<CentroReciclajeDTO> listarCentroReciclaje() {
         return cS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -30,6 +30,7 @@ public class CentroReciclajeController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public void registrarCentroReciclaje(@RequestBody CentroReciclajeDTO dto) {
         ModelMapper m = new ModelMapper();
         CentroReciclaje d = m.map(dto, CentroReciclaje.class);
@@ -37,11 +38,13 @@ public class CentroReciclajeController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public void eliminarCentroReciclaje(@PathVariable("id") Integer id) {
         cS.delete(id);
     }
 
     @PutMapping
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public void modificarCentroReciclaje(@RequestBody CentroReciclajeDTO dto) {
         ModelMapper m = new ModelMapper();
         CentroReciclaje d = m.map(dto, CentroReciclaje.class);
@@ -49,6 +52,7 @@ public class CentroReciclajeController {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public CentroReciclajeDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m = new ModelMapper();
         CentroReciclajeDTO dto = m.map(cS.listId(id), CentroReciclajeDTO.class);
@@ -56,6 +60,7 @@ public class CentroReciclajeController {
     }
 
     @GetMapping("/actividades")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<ActividadCentroDTO> obtenerActividadesxCentroReciclaje() {
         List<String[]> lista = cS.actividadxnombreService();
         List<ActividadCentroDTO> listaDTO = new ArrayList<>();
@@ -69,28 +74,29 @@ public class CentroReciclajeController {
         return listaDTO;
     }
 
-    @GetMapping("/mas_actividad_menos_reciclado")
-    public List<MoreActivityLessRecyclingDTO> masActMenosRec() {
-        List<String[]> lista = cS.masActividadMenosReciclaje();
-        List<MoreActivityLessRecyclingDTO> listaDTO = new ArrayList<>();
-        for (String[] columna : lista) {
-            MoreActivityLessRecyclingDTO dto = new MoreActivityLessRecyclingDTO();
+    @GetMapping("/mas-usuarios")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public List<CenterUsersDTO> centroMasUsuarios() {
+        List<String[]> lista = cS.centroUsuarios();
+        List<CenterUsersDTO> listaDTO = new ArrayList<>();
+        for (String[] columna:lista) {
+            CenterUsersDTO dto = new CenterUsersDTO();
             dto.setDireccion(columna[0]);
-            dto.setTotalActividades(Integer.parseInt(columna[1]));
-            dto.setTotalReciclado(Double.parseDouble(columna[2]));
+            dto.setCantidadUsuarios(Integer.parseInt(columna[1]));
             listaDTO.add(dto);
         }
         return listaDTO;
     }
 
-    @GetMapping("/mas_visitados")
-    public List<MostVisitedCentersDTO> centrosMasVisitados(@RequestParam(name = "direccion", required = false, defaultValue = "") String direccion) {
-        List<String[]> lista = cS.masVisitasCentro(direccion);
-        List<MostVisitedCentersDTO> listaDTO = new ArrayList<>();
-        for (String[] columna : lista) {
-            MostVisitedCentersDTO dto = new MostVisitedCentersDTO();
+    @GetMapping("/mas_popular")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public List<CenterFavoriteDTO> centroMasPopular() {
+        List<String[]> lista = cS.centroPopular();
+        List<CenterFavoriteDTO> listaDTO = new ArrayList<>();
+        for (String[] columna:lista) {
+            CenterFavoriteDTO dto = new CenterFavoriteDTO();
             dto.setDireccion(columna[0]);
-            dto.setCantidadVisitas(Integer.parseInt(columna[2]));
+            dto.setCantidadFavoritos(Integer.parseInt(columna[1]));
             listaDTO.add(dto);
         }
         return listaDTO;
