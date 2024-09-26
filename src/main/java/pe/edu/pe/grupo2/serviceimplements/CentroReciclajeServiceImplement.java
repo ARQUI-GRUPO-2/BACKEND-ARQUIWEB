@@ -35,9 +35,8 @@ public class CentroReciclajeServiceImplement implements ICentroReciclajeService 
     }
 
     @Override
-    public List<String[]> masActividadMenosReciclaje() {return cR.findMasActividadMenosReciclaje();}
+    public List<String[]> centroPopular() { return cR.centroPopular(); }
 
     @Override
-    public  List<String[]> masVisitasCentro(String direccion) {return cR.masVisitasCentro(direccion);}
-
+    public List<String[]> centroUsuarios() { return cR.centroUsuarios(); }
 }

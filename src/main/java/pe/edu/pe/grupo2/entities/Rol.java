@@ -19,17 +19,33 @@ public class Rol {
     public Rol() {
     }
 
-    public Rol(int idRol, String nombreRol) {
+    public Rol(int idRol, String nombreRol, User user) {
         this.idRol = idRol;
+        this.nombreRol = nombreRol;
+        this.user = user;
+    }
+
+    public int getIdRol() {
+        return idRol;
+    }
+
+    public void setIdRol(int idRol) {
+        this.idRol = idRol;
+    }
+
+    public String getNombreRol() {
+        return nombreRol;
+    }
+
+    public void setNombreRol(String nombreRol) {
         this.nombreRol = nombreRol;
     }
 
-    public int getIdRol() {return idRol;}
+    public User getUser() {
+        return user;
+    }
 
-    public void setIdRol(int idRol) {this.idRol = idRol;}
-
-    public String getNombreRol() {return nombreRol;}
-
-    public void setNombreRol(String nombreRol) {this.nombreRol = nombreRol;}
-
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
