@@ -81,8 +81,8 @@ public class CentroReciclajeController {
         List<CenterUsersDTO> listaDTO = new ArrayList<>();
         for (String[] columna:lista) {
             CenterUsersDTO dto = new CenterUsersDTO();
-            dto.setDireccion(columna[1]);
-            dto.setCantidadUsuarios(Integer.parseInt(columna[2]));
+            dto.setDireccion(columna[0]);
+            dto.setCantidadUsuarios(Integer.parseInt(columna[1]));
             listaDTO.add(dto);
         }
         return listaDTO;
