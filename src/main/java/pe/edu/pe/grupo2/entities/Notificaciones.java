@@ -3,6 +3,7 @@ package pe.edu.pe.grupo2.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
@@ -19,7 +20,7 @@ public class Notificaciones {
     private Boolean estado;
 
     @Column(name = "fecha_notificacion", nullable = false)
-    private LocalTime fecha;
+    private LocalDate fecha;
 
     @ManyToOne
     @JoinColumn(name = "idNoticias")
@@ -33,7 +34,7 @@ public class Notificaciones {
 
     }
 
-    public Notificaciones(int idNotificaciones, String mensaje, Boolean estado, LocalTime fecha,Noticias noti, User us ) {
+    public Notificaciones(int idNotificaciones, String mensaje, Boolean estado, LocalDate fecha,Noticias noti, User us ) {
         this.idNotificaciones = idNotificaciones;
         this.mensaje = mensaje;
         this.estado = false;
@@ -64,11 +65,11 @@ public class Notificaciones {
         this.estado = estado;
     }
 
-    public LocalTime getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalTime fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 

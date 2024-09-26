@@ -20,27 +20,18 @@ public interface ICentroReciclajeRepository extends JpaRepository<CentroReciclaj
             "WHERE a.nombre = 'Invitar' \n")
     public List<String[]> actividadxnombre();
 
+    @Query(value = "SELECT c.direccion, COUNT(*) AS cantidad_favoritos \n" +
+            " FROM centro_reciclaje c \n" +
+            " WHERE c.favoritos = TRUE \n" +
+            " GROUP BY c.direccion \n" +
+            " ORDER BY cantidad_favoritos DESC;", nativeQuery = true)
+    public List<String[]> centroPopular();
 
-    //CONSULTA PARA HUB09
-    @Query(value = "SELECT c.direccion, COUNT(a.id_actividad) AS cantidad_visitas\n" +
-            "FROM centro_reciclaje c\n" +
-            "JOIN Actividad a ON c.id_centro_reciclaje = a.id_centro_reciclaje\n" +
-            "WHERE c.direccion LIKE '%parte_direccion%'\n" +
-            "GROUP BY c.direccion\n" +
-            "ORDER BY cantidad_visitas DESC;", nativeQuery = true)
-    public  List<String[]> masVisitasCentro(@Param("direccion") String direccion);
-
-    //CONSULTA PARA HUB10
-    @Query (value = "SELECT c.direccion, \n" +
-            "       COUNT(a.id_actividad) AS total_actividades, \n" +
-            "       SUM(CAST(a.cantidad AS numeric)) AS total_reciclado\n" +
-            "FROM centro_reciclaje c\n" +
-            "JOIN Actividad a ON c.id_centro_reciclaje = a.id_centro_reciclaje\n" +
-            "GROUP BY c.direccion\n" +
-            "HAVING COUNT(a.id_actividad) > 10 AND SUM(CAST(a.cantidad AS numeric)) < 50\n" +
-            "ORDER BY total_actividades DESC;\n", nativeQuery = true)
-    public List<String[]>  findMasActividadMenosReciclaje();
-
+    @Query(value ="SELECT c.direccion, COUNT(DISTINCT c.id_user) AS cantidadUsuarios " +
+            " FROM centro_reciclaje c " +
+            " INNER JOIN usuario u ON c.id_user = u.id_user " +
+            " GROUP BY c.direccion", nativeQuery = true)
+    public List<String[]> centroUsuarios();
 
 }
 

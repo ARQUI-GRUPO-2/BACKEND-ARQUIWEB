@@ -19,6 +19,17 @@ public class TipoActividadServiceImplement implements ITipoActividadService {
     }
 
     @Override
+    public TipoActividad listId(int id) {return tR.findById(id).orElse(new TipoActividad());}
+
+    @Override
+    public void update(TipoActividad tipoactividad) {
+        tR.save(tipoactividad);
+    }
+    @Override
+    public void delete(int id) {
+        tR.deleteById(id);
+    }
+    @Override
     public void insert(TipoActividad tipoactividad) {
         tR.save(tipoactividad);
     }
@@ -32,4 +43,9 @@ public class TipoActividadServiceImplement implements ITipoActividadService {
     public int countNonEmptyInvitations() {
         return tR.countNonEmptyInvitations();
     }
+
+
+
+
+
 }
