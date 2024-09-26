@@ -27,7 +27,7 @@ public interface ICentroReciclajeRepository extends JpaRepository<CentroReciclaj
             "ORDER BY cantidad_favoritos DESC;", nativeQuery = true)
     public List<String[]> centroPopular();
 
-    @Query(value ="SELECT c.id_centro_reciclaje, c.direccion, COUNT(c.id_user) AS numero_de_usuarios\n" +
+    @Query(value ="SELECT c.direccion AS direccion, COUNT(c.id_user) AS cantidadUsuarios\n" +
             "FROM centro_reciclaje c\n" +
             "GROUP BY c.id_centro_reciclaje, c.direccion\n" +
             "HAVING COUNT(c.id_user) > 1", nativeQuery = true)
