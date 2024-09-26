@@ -20,10 +20,10 @@ public interface ICentroReciclajeRepository extends JpaRepository<CentroReciclaj
             "WHERE a.nombre = 'Invitar' \n")
     public List<String[]> actividadxnombre();
 
-    @Query(value = "SELECT c.id_centro_reciclaje, c.direccion, COUNT(*) AS cantidad_favoritos \n" +
+    @Query(value = "SELECT c.direccion, COUNT(*) AS cantidad_favoritos \n" +
             "FROM centro_reciclaje c \n" +
             "WHERE c.favoritos = TRUE \n" +
-            "GROUP BY c.id_centro_reciclaje, c.direccion \n" +
+            "GROUP BY c.direccion \n" +
             "ORDER BY cantidad_favoritos DESC;", nativeQuery = true)
     public List<String[]> centroPopular();
 
