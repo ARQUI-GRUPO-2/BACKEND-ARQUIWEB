@@ -1,13 +1,17 @@
 package pe.edu.pe.grupo2.dtos;
 
 public class TipoActividadDTO {
-    private int id_tipo_de_actividad;
+    private int id_tipo_actividad;
     private String invitacion;
     private String reciclar;
 
-    public int getId_tipo_de_actividad() {return id_tipo_de_actividad;}
+    public int getId_tipo_actividad() {
+        return id_tipo_actividad;
+    }
 
-    public void setId_tipo_de_actividad(int id_tipo_de_actividad) {this.id_tipo_de_actividad = id_tipo_de_actividad;}
+    public void setId_tipo_actividad(int id_tipo_actividad) {
+        this.id_tipo_actividad = id_tipo_actividad;
+    }
 
     public String getInvitacion() {
         return invitacion;
