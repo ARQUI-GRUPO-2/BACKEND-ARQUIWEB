@@ -74,30 +74,30 @@ public class CentroReciclajeController {
         return listaDTO;
     }
 
-    @GetMapping("/mas_actividad_menos_reciclado")
+    @GetMapping("/mas-usuarios")
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<MoreActivityLessRecyclingDTO> masActMenosRec() {
-        List<String[]> lista = cS.masActividadMenosReciclaje();
-        List<MoreActivityLessRecyclingDTO> listaDTO = new ArrayList<>();
+    public List<CenterUsersDTO> centroMasUsuarios() {
+        List<String[]> lista = cS.centroUsuarios();
+        List<CenterUsersDTO> listaDTO = new ArrayList<>();
         for (String[] columna : lista) {
-            MoreActivityLessRecyclingDTO dto = new MoreActivityLessRecyclingDTO();
+            CenterUsersDTO dto = new CenterUsersDTO();
             dto.setDireccion(columna[0]);
-            dto.setTotalActividades(Integer.parseInt(columna[1]));
-            dto.setTotalReciclado(Double.parseDouble(columna[2]));
+            dto.setCantidadUsuarios(Integer.parseInt(columna[1]));
             listaDTO.add(dto);
         }
         return listaDTO;
     }
 
-    @GetMapping("/mas_visitados")
+
+    @GetMapping("/mas_popular")
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<MostVisitedCentersDTO> centrosMasVisitados(@RequestParam(name = "direccion", required = false, defaultValue = "") String direccion) {
-        List<String[]> lista = cS.masVisitasCentro(direccion);
-        List<MostVisitedCentersDTO> listaDTO = new ArrayList<>();
+    public List<CenterFavoriteDTO> centroPopular() {
+        List<String[]> lista = cS.centroPopular();
+        List<CenterFavoriteDTO> listaDTO = new ArrayList<>();
         for (String[] columna : lista) {
-            MostVisitedCentersDTO dto = new MostVisitedCentersDTO();
+            CenterFavoriteDTO dto = new CenterFavoriteDTO();
             dto.setDireccion(columna[0]);
-            dto.setCantidadVisitas(Integer.parseInt(columna[2]));
+            dto.setCantidadFavoritos(Integer.parseInt(columna[1]));
             listaDTO.add(dto);
         }
         return listaDTO;
