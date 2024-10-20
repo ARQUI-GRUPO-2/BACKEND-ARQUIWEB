@@ -2,9 +2,11 @@ package pe.edu.pe.grupo2.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.pe.grupo2.dtos.*;
+import pe.edu.pe.grupo2.dtos.ActividadCentroDTO;
+import pe.edu.pe.grupo2.dtos.CenterFavoriteDTO;
+import pe.edu.pe.grupo2.dtos.CenterUsersDTO;
+import pe.edu.pe.grupo2.dtos.CentroReciclajeDTO;
 import pe.edu.pe.grupo2.entities.CentroReciclaje;
 import pe.edu.pe.grupo2.serviceinterfaces.ICentroReciclajeService;
 
@@ -14,14 +16,14 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/centros-de-reciclaje")
-@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
+//@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
 public class CentroReciclajeController {
 
     @Autowired
     private ICentroReciclajeService cS;
 
     @GetMapping
-    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
+    //   @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public List<CentroReciclajeDTO> listarCentroReciclaje() {
         return cS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -30,7 +32,7 @@ public class CentroReciclajeController {
     }
 
     @PostMapping
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public void registrarCentroReciclaje(@RequestBody CentroReciclajeDTO dto) {
         ModelMapper m = new ModelMapper();
         CentroReciclaje d = m.map(dto, CentroReciclaje.class);
@@ -38,13 +40,13 @@ public class CentroReciclajeController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public void eliminarCentroReciclaje(@PathVariable("id") Integer id) {
         cS.delete(id);
     }
 
     @PutMapping
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //  @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public void modificarCentroReciclaje(@RequestBody CentroReciclajeDTO dto) {
         ModelMapper m = new ModelMapper();
         CentroReciclaje d = m.map(dto, CentroReciclaje.class);
@@ -52,7 +54,7 @@ public class CentroReciclajeController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
+    //  @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public CentroReciclajeDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m = new ModelMapper();
         CentroReciclajeDTO dto = m.map(cS.listId(id), CentroReciclajeDTO.class);
@@ -60,7 +62,7 @@ public class CentroReciclajeController {
     }
 
     @GetMapping("/actividades")
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<ActividadCentroDTO> obtenerActividadesxCentroReciclaje() {
         List<String[]> lista = cS.actividadxnombreService();
         List<ActividadCentroDTO> listaDTO = new ArrayList<>();
@@ -75,7 +77,7 @@ public class CentroReciclajeController {
     }
 
     @GetMapping("/mas-usuarios")
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<CenterUsersDTO> centroMasUsuarios() {
         List<String[]> lista = cS.centroUsuarios();
         List<CenterUsersDTO> listaDTO = new ArrayList<>();
@@ -89,7 +91,7 @@ public class CentroReciclajeController {
     }
 
     @GetMapping("/mas_popular")
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<CenterFavoriteDTO> centroMasPopular() {
         List<String[]> lista = cS.centroPopular();
         List<CenterFavoriteDTO> listaDTO = new ArrayList<>();

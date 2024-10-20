@@ -15,4 +15,8 @@ public interface UserService {
     public List<User> BuscarGenero(String genero);
     public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclaje(int idUser);
     public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclajeFavorito(Boolean favoritos);
+<<<<<<< Updated upstream
+=======
+    public List<String[]> Cantidadnotificaciones_deusuario_rangohoras(LocalDate horaInicio, LocalDate horaFin);
+>>>>>>> Stashed changes
 }
