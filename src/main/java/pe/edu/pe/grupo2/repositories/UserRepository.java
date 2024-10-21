@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pe.edu.pe.grupo2.dtos.UserCentroReciclajeDTO;
 import pe.edu.pe.grupo2.entities.User;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository
@@ -41,8 +42,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
             "WHERE cr.favoritos = :favoritos")
     public List<UserCentroReciclajeDTO> findUserWithCentrosReciclajeFiltered(@Param("favoritos") Boolean favoritos);
 
-<<<<<<< Updated upstream
-=======
     //Cantidad de Notificaciones de un usuario en un rango de horas
     @Query(value = "SELECT us.nombres, COUNT(*) AS cantidad_notif " +
             "FROM notificacion AS noti " +
@@ -52,6 +51,4 @@ public interface UserRepository extends JpaRepository<User, Integer> {
             nativeQuery = true)
     public List<String[]> Cantidadnotificaciones_deusuario_rangohoras(@Param("horaInicio") LocalDate horaInicio, @Param("horaFin") LocalDate horaFin);
 
-
->>>>>>> Stashed changes
 }
