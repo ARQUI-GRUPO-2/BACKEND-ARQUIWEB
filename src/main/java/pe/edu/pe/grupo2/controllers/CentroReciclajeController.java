@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/centros-de-reciclaje")
+@RequestMapping("/centros-reciclaje")
 //@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
 public class CentroReciclajeController {
 
