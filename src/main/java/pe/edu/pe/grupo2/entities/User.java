@@ -44,15 +44,14 @@ public class User {
     @Column(name = "enabled")
     private Boolean enabled;
 
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "user_id")
-    private List<Rol> roles;
+    private Rol roles;
 
     public User() {
     }
 
-    public User(int idUser, String nombres, String apellidos, String username, String dni, int edad, String genero, String distrito, String telefono, String correo, String password, Boolean enabled, List<Rol> roles) {
+    public User(int idUser, String nombres, String apellidos, String username, String dni, int edad, String genero, String distrito, String telefono, String correo, String password, Boolean enabled, Rol roles) {
         this.idUser = idUser;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -164,13 +163,21 @@ public class User {
         this.enabled = enabled;
     }
 
-    public List<Rol> getRoles() {
+    public Rol getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Rol> roles) {
+    public void setRoles(Rol roles) {
         this.roles = roles;
     }
+
+    //public List<Rol> getRoles() {
+    //   return roles;
+    // }
+
+    // public void setRoles(List<Rol> roles) {
+    //     this.roles = roles;
+    // }
 }
 
 
