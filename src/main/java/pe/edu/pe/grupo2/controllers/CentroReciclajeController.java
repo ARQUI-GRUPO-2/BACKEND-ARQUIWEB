@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/centros-reciclaje")
+@RequestMapping("/centroreciclaje")
 //@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
 public class CentroReciclajeController {
 
@@ -33,7 +33,7 @@ public class CentroReciclajeController {
 
     @PostMapping
     //    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public void registrarCentroReciclaje(@RequestBody CentroReciclajeDTO dto) {
+    public void registrar(@RequestBody CentroReciclajeDTO dto) {
         ModelMapper m = new ModelMapper();
         CentroReciclaje d = m.map(dto, CentroReciclaje.class);
         cS.insert(d);
@@ -41,13 +41,13 @@ public class CentroReciclajeController {
 
     @DeleteMapping("/{id}")
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public void eliminarCentroReciclaje(@PathVariable("id") Integer id) {
+    public void eliminar(@PathVariable("id") Integer id) {
         cS.delete(id);
     }
 
     @PutMapping
     //  @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public void modificarCentroReciclaje(@RequestBody CentroReciclajeDTO dto) {
+    public void modificar(@RequestBody CentroReciclajeDTO dto) {
         ModelMapper m = new ModelMapper();
         CentroReciclaje d = m.map(dto, CentroReciclaje.class);
         cS.update(d);
