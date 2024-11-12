@@ -66,19 +66,19 @@ public class UserController {
             return m.map(x, UserDTO.class);
         }).collect(Collectors.toList());
     }
-    @GetMapping("/{id}/centros-reciclaje")
+    /*@GetMapping("/{id}/centros-reciclaje")
     //  @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclaje(@PathVariable("id") Integer idUser) {
         return uS.obtenerUsuarioConCentrosDeReciclaje(idUser);
     }
-    @GetMapping("/centros-reciclaje-filtrados")
+    /*@GetMapping("/centros-reciclaje-filtrados")
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclajeFiltrado(
             @RequestParam(required = false) int edad,
             @RequestParam(required = false) Boolean favoritos) {
 
         return uS.obtenerUsuarioConCentrosDeReciclajeFavorito(favoritos);
-    }
+    }*/
 
     @GetMapping("/conteo_notificaciones_rangoHoras")
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")

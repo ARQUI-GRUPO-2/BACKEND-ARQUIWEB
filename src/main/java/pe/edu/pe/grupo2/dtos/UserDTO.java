@@ -17,7 +17,7 @@ public class UserDTO {
     private String distrito;
     private String telefono;
     private String correo;
-    private List<Rol> roles;
+    private Rol roles;
     private Boolean enabled;
 
     public int getIdUser() {
@@ -108,11 +108,11 @@ public class UserDTO {
         this.correo = correo;
     }
 
-    public List<Rol> getRoles() {
+    public Rol getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Rol> roles) {
+    public void setRoles(Rol roles) {
         this.roles = roles;
     }
 

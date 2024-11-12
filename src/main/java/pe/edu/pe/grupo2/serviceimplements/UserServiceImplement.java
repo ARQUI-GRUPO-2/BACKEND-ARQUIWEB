@@ -47,11 +47,11 @@ public class UserServiceImplement implements UserService {
     }
 
     @Override
-    public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclaje(int idUser) {
+    public List<String> obtenerUsuarioConCentrosDeReciclaje(int idUser) {
         return uR.obtenerUsuarioConCentrosDeReciclaje(idUser);
     }
     @Override
-    public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclajeFavorito(Boolean favoritos) {
+    public List<String> obtenerUsuarioConCentrosDeReciclajeFavorito(Boolean favoritos) {
         return uR.findUserWithCentrosReciclajeFiltered(favoritos);
     }
 

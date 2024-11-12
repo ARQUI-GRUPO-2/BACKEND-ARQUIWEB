@@ -45,7 +45,8 @@ public class User {
     private Boolean enabled;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "idRol")
+    //user_id
     private Rol roles;
 
     public User() {
