@@ -13,8 +13,8 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/roles")
-@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
-@PreAuthorize("hasAuthority('ADMINISTRADOR')")
+//@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
+//@PreAuthorize("hasAuthority('ADMINISTRADOR')")
 public class RolController {
 
     @Autowired

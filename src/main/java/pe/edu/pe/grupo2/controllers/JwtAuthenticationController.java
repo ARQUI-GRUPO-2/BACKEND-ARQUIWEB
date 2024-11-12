@@ -18,7 +18,7 @@ import pe.edu.pe.grupo2.serviceimplements.JwtUserDetailsService;
 
 //Clase 3
 @RestController
-@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
+@CrossOrigin
 public class JwtAuthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -44,5 +44,7 @@ public class JwtAuthenticationController {
         } catch (BadCredentialsException e) {
             throw new Exception("INVALID_CREDENTIALS", e);
         }
+
+
     }
 }

@@ -21,7 +21,7 @@ public class CentroReciclaje {
     private String longitud;
 
     @Column(name = "horario", nullable = false)
-    private LocalTime horario;
+    private String horario;
 
     @Column(name = "favoritos")
     private Boolean favoritos;
@@ -34,7 +34,7 @@ public class CentroReciclaje {
 
     }
 
-    public CentroReciclaje(int idCentroReciclaje, String direccion, String latitud, String longitud, String tipoReciclaje, LocalTime horario, Boolean favoritos, User us) {
+    public CentroReciclaje(int idCentroReciclaje, String direccion, String latitud, String longitud, String tipoReciclaje, String horario, Boolean favoritos, User us) {
         this.idCentroReciclaje = idCentroReciclaje;
         this.direccion = direccion;
         this.latitud = latitud;
@@ -76,13 +76,9 @@ public class CentroReciclaje {
         this.longitud = longitud;
     }
 
-    public LocalTime getHorario() {
-        return horario;
-    }
+    public String getHorario() {return horario;}
 
-    public void setHorario(LocalTime horario) {
-        this.horario = horario;
-    }
+    public void setHorario(String horario) {this.horario = horario;}
 
     public Boolean getFavoritos() { return favoritos; }
 

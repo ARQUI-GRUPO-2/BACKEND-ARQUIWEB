@@ -20,14 +20,14 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/actividad")
-@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
+//@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
 
 public class ActividadController {
 
     @Autowired
     private IActividadService aS;
     @GetMapping
-    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
+    //   @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public List<ActividadDTO> listar() {
 
         return aS.list().stream().map(x->{
@@ -37,7 +37,7 @@ public class ActividadController {
     }
 
     @PostMapping
-    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
+    //  @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public void insertar(@RequestBody ActividadDTO dto) {
         ModelMapper m=new ModelMapper();
         Actividad ac = m.map(dto, Actividad.class);
@@ -45,7 +45,7 @@ public class ActividadController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
+    //   @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public ActividadDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m=new ModelMapper();
         ActividadDTO dto = m.map(aS.listId(id),ActividadDTO.class);
@@ -53,7 +53,7 @@ public class ActividadController {
     }
 
     @PutMapping
-    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
+    //  @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public void update(@RequestBody ActividadDTO dto) {
         ModelMapper m = new ModelMapper();
         Actividad ac = m.map(dto, Actividad.class);
@@ -61,13 +61,13 @@ public class ActividadController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public void eliminar(@PathVariable("id") Integer id) {
         aS.delete(id);
     }
 
     @GetMapping("/busquedas")
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<ActividadDTO> buscar(@RequestParam String nombre) {
 
         return aS.buscarNombre(nombre).stream().map(x -> {
@@ -76,7 +76,7 @@ public class ActividadController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/recompensas")
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //  @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<ActividadRecompensasDTO> obtenerpuntosxactividad(){
         List<String[]> lista = aS.puntosxactividadService();
         List<ActividadRecompensasDTO> listaDTO = new ArrayList<>();
@@ -90,7 +90,7 @@ public class ActividadController {
         return listaDTO;
     }
     @GetMapping("/ActividadesPorCentro")
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<ActividadesPorCentroDTO> actividadesPorCentro(){
         List<String[]> lista = aS.ActividadesporCentro();
         List<ActividadesPorCentroDTO> listaDTO = new ArrayList<>();
@@ -104,7 +104,7 @@ public class ActividadController {
     }
 
     @GetMapping("/ActividadesPorUsuario")
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<ActividadesPorUsuarioDTO> actividadesPorUsuario(){
         List<String[]> lista = aS.ActividadesporUsuario();
         List<ActividadesPorUsuarioDTO> listaDTO = new ArrayList<>();
@@ -117,7 +117,4 @@ public class ActividadController {
         }
         return listaDTO;
     }
-
-
-
 }

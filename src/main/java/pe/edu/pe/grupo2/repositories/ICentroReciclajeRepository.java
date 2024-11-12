@@ -34,4 +34,3 @@ public interface ICentroReciclajeRepository extends JpaRepository<CentroReciclaj
     public List<String[]> centroUsuarios();
 
 }
-

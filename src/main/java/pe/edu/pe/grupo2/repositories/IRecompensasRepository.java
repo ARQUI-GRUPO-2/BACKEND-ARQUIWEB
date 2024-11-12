@@ -21,3 +21,4 @@ public interface IRecompensasRepository extends JpaRepository<Recompensas, Integ
             " ORDER BY fecha_vencimiento ASC;", nativeQuery = true)
     public List<String[]> proximoVencimiento();
 }
+
