@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/Notificaciones")
+@RequestMapping("/notificaciones")
 //@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
 public class NotificacionesController {
     @Autowired
