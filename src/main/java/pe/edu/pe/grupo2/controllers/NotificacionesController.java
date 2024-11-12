@@ -19,7 +19,7 @@ public class NotificacionesController {
     private INotificacionesService nR;
 
     @GetMapping
-    // @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
+    //    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public List<NotificacionesDTO> listar() {
 
         return nR.list().stream().map(x -> {
@@ -28,21 +28,21 @@ public class NotificacionesController {
         }).collect(Collectors.toList());
     }
     @PostMapping
-    // @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public void insertar(@RequestBody NotificacionesDTO dto) {
         ModelMapper m = new ModelMapper();
         Notificaciones nt = m.map(dto, Notificaciones.class);
         nR.insert(nt);
     }
     @GetMapping("/{id}")
-    // @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
+    //    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public NotificacionesDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m=new ModelMapper();
         NotificacionesDTO dto=m.map(nR.listId(id),NotificacionesDTO.class);
         return dto;
     }
     @PutMapping
-    // @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public void modificar(@RequestBody NotificacionesDTO dto) {
         ModelMapper m = new ModelMapper();
         Notificaciones ur = m.map(dto, Notificaciones.class);

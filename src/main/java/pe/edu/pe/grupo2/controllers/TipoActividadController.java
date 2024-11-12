@@ -21,7 +21,7 @@ public class TipoActividadController {
     private ITipoActividadService tS;
 
     @GetMapping
-    //@PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
+    //   @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public List<TipoActividadDTO> listar() {
         return tS.list().stream().map(x -> {
             ModelMapper t = new ModelMapper();
@@ -30,7 +30,7 @@ public class TipoActividadController {
     }
 
     @PostMapping
-    //PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
+    //   @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public void insertar(@RequestBody TipoActividadDTO dto) {
         ModelMapper t = new ModelMapper();
         TipoActividad ta = t.map(dto, TipoActividad.class);
@@ -56,7 +56,6 @@ public class TipoActividadController {
         tS.delete(id);
     }
 
-    // Nuevo endpoint para obtener actividades que contienen un texto específico en la invitación
     @GetMapping("/buscarPorInvitacion")
     // @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<TipoActividadDTO> buscarPorInvitacion(@RequestParam("texto") String texto) {
@@ -66,9 +65,8 @@ public class TipoActividadController {
         }).collect(Collectors.toList());
     }
 
-    // Nuevo endpoint para contar actividades con invitaciones no vacías
     @GetMapping("/contarInvitacionesNoVacias")
-    // @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //  @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public int contarInvitacionesNoVacias() {
         return tS.countNonEmptyInvitations();
     }

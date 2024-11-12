@@ -16,14 +16,13 @@ public class Rol {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    public Rol() {
-    }
+    /*public Rol() {
+    }*/
 
-    public Rol(int idRol, String nombreRol, User user) {
+   /* public Rol(int idRol, String nombreRol) {
         this.idRol = idRol;
         this.nombreRol = nombreRol;
-        this.user = user;
-    }
+    } */
 
     public int getIdRol() {
         return idRol;
