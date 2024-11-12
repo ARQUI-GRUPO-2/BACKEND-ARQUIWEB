@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 @Table(name = "Usuario")
 public class User {
- @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUser;
 
@@ -47,27 +47,7 @@ public class User {
     @JsonIgnore
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
-    //private Rol roles;
     private List<Rol> rol;
-
-   /* public User() {
-    } */
-
-   /* public User(int idUser, String nombres, String apellidos, String username, String dni, int edad, String genero, String distrito, String telefono, String correo, String password, Boolean enabled, Rol roles) {
-        this.idUser = idUser;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.username = username;
-        this.dni = dni;
-        this.edad = edad;
-        this.genero = genero;
-        this.distrito = distrito;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.password = password;
-        this.enabled = enabled;
-        this.roles = roles;
-    } */
 
     public int getIdUser() {
         return idUser;
@@ -165,15 +145,6 @@ public class User {
         this.enabled = enabled;
     }
 
-    //public Rol getRoles() {
-    //  return roles;
-    //}
-
-    //public void setRoles(Rol roles) {
-    //    this.roles = roles;
-    //}
-
-
     public List<Rol> getRol() {
         return rol;
     }
@@ -181,3 +152,4 @@ public class User {
     public void setRol(List<Rol> rol) {
         this.rol = rol;
     }
+}
