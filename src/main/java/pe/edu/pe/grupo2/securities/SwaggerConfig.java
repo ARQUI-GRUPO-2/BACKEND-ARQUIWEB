@@ -22,7 +22,8 @@ public class SwaggerConfig {
                                 .scheme("bearer")
                                 .bearerFormat("JWT")))
                 .addSecurityItem(new SecurityRequirement().addList("Ingrese Token:"))
-        .servers(List.of(new Server().url("https://proud-radiance-production.up.railway.app")));
+//        .servers(List.of(new Server().url("https://proud-radiance-production.up.railway.app")));
+        .servers(List.of(new Server().url("http://localhost:4200")));
 
     }
 

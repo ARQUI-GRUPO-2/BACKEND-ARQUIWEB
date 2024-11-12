@@ -24,4 +24,5 @@ public class JwtResponse implements Serializable {
         super();
         this.jwttoken = jwttoken;
     }
+
 }
