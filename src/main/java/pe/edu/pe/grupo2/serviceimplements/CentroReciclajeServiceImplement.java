@@ -40,3 +40,4 @@ public class CentroReciclajeServiceImplement implements ICentroReciclajeService 
     @Override
     public List<String[]> centroUsuarios() { return cR.centroUsuarios(); }
 }
+

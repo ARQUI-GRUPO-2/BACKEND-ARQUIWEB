@@ -10,6 +10,7 @@ import pe.edu.pe.grupo2.dtos.CentroReciclajeDTO;
 import pe.edu.pe.grupo2.entities.CentroReciclaje;
 import pe.edu.pe.grupo2.serviceinterfaces.ICentroReciclajeService;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

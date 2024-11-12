@@ -22,8 +22,8 @@ public class ActividadController {
 
     @Autowired
     private IActividadService aS;
-    @GetMapping
- //   @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
+     @GetMapping
+    //   @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public List<ActividadDTO> listar() {
 
         return aS.list().stream().map(x->{
@@ -33,7 +33,7 @@ public class ActividadController {
     }
 
     @PostMapping
-  //  @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
+    //  @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public void insertar(@RequestBody ActividadDTO dto) {
         ModelMapper m=new ModelMapper();
         Actividad ac = m.map(dto, Actividad.class);
@@ -41,7 +41,7 @@ public class ActividadController {
     }
 
     @GetMapping("/{id}")
- //   @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
+    //   @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public ActividadDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m=new ModelMapper();
         ActividadDTO dto = m.map(aS.listId(id),ActividadDTO.class);
@@ -113,7 +113,4 @@ public class ActividadController {
         }
         return listaDTO;
     }
-
-
-
 }

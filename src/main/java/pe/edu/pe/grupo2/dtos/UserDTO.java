@@ -6,7 +6,7 @@ import pe.edu.pe.grupo2.entities.Rol;
 import java.util.List;
 
 public class UserDTO {
-    private int idUser;
+      private int idUser;
     private String username;
     private String password;
     private String nombres;
@@ -17,7 +17,6 @@ public class UserDTO {
     private String distrito;
     private String telefono;
     private String correo;
-    private Rol roles;
     private Boolean enabled;
 
     public int getIdUser() {
@@ -106,14 +105,6 @@ public class UserDTO {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    public Rol getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Rol roles) {
-        this.roles = roles;
     }
 
     public Boolean getEnabled() {

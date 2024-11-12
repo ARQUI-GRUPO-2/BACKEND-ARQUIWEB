@@ -64,5 +64,5 @@ public class NoticiaController {
             return m.map(x, NoticiasDTO.class);
         }).collect(Collectors.toList());
     }
-    
+
 }

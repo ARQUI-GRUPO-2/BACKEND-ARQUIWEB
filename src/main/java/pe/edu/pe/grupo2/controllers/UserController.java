@@ -7,6 +7,7 @@ import pe.edu.pe.grupo2.dtos.UserCentroReciclajeDTO;
 import pe.edu.pe.grupo2.dtos.UserDTO;
 import pe.edu.pe.grupo2.entities.User;
 import pe.edu.pe.grupo2.serviceinterfaces.UserService;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ public class UserController {
         User ur = m.map(dto, User.class);
         uS.insert(ur);
     }
-    
+
     @GetMapping
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<UserDTO> listar() {
@@ -66,19 +67,6 @@ public class UserController {
             return m.map(x, UserDTO.class);
         }).collect(Collectors.toList());
     }
-    /*@GetMapping("/{id}/centros-reciclaje")
-    //  @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclaje(@PathVariable("id") Integer idUser) {
-        return uS.obtenerUsuarioConCentrosDeReciclaje(idUser);
-    }
-    /*@GetMapping("/centros-reciclaje-filtrados")
-    //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclajeFiltrado(
-            @RequestParam(required = false) int edad,
-            @RequestParam(required = false) Boolean favoritos) {
-
-        return uS.obtenerUsuarioConCentrosDeReciclajeFavorito(favoritos);
-    }*/
 
     @GetMapping("/conteo_notificaciones_rangoHoras")
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
@@ -93,5 +81,4 @@ public class UserController {
         }
         return dtoLista;
     }
-
 }
