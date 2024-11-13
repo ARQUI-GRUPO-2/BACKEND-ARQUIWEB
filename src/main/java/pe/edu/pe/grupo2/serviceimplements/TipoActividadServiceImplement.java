@@ -34,15 +34,7 @@ public class TipoActividadServiceImplement implements ITipoActividadService {
         tR.save(tipoactividad);
     }
 
-    @Override
-    public List<TipoActividad> findByInvitacionContaining(String text) {
-        return tR.findByInvitacionContaining(text);
-    }
 
-    @Override
-    public int countNonEmptyInvitations() {
-        return tR.countNonEmptyInvitations();
-    }
 
 
 
