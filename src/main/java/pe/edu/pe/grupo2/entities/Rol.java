@@ -12,10 +12,6 @@ public class Rol {
     @Column(name = "nombreRol", nullable = false, length = 100)
     private String nombreRol;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
     public int getIdRol() {
         return idRol;
     }
@@ -32,11 +28,4 @@ public class Rol {
         this.nombreRol = nombreRol;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

@@ -17,6 +17,7 @@ public class UserDTO {
     private String distrito;
     private String telefono;
     private String correo;
+    private Rol rol;
     private Boolean enabled;
 
     public int getIdUser() {
@@ -113,5 +114,13 @@ public class UserDTO {
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 }

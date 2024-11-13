@@ -44,10 +44,9 @@ public class User {
     @Column(name = "enabled")
     private Boolean enabled;
 
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private List<Rol> rol;
+    @ManyToOne
+    @JoinColumn(name = "rol_id")
+    private Rol rol;
 
     public int getIdUser() {
         return idUser;
@@ -145,11 +144,11 @@ public class User {
         this.enabled = enabled;
     }
 
-    public List<Rol> getRol() {
+    public Rol getRol() {
         return rol;
     }
 
-    public void setRol(List<Rol> rol) {
+    public void setRol(Rol rol) {
         this.rol = rol;
     }
 }
