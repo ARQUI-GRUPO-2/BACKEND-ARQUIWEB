@@ -46,9 +46,13 @@ public class CentroReciclajeDTO {
         this.longitud = longitud;
     }
 
-    public String getHorario() { return horario; }
+    public String getHorario() {
+        return horario;
+    }
 
-    public void setHorario(String horario) { this.horario = horario;  }
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
 
     public Boolean getFavoritos() {
         return favoritos;
