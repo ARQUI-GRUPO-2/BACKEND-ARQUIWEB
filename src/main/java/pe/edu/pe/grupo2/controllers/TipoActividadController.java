@@ -53,18 +53,18 @@ public class TipoActividadController {
         tS.delete(id);
     }
 
-    @GetMapping("/buscarPorInvitacion")
+    //@GetMapping("/buscarPorInvitacion")
     // @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<TipoActividadDTO> buscarPorInvitacion(@RequestParam("texto") String texto) {
-        return tS.findByInvitacionContaining(texto).stream().map(x -> {
-            ModelMapper t = new ModelMapper();
-            return t.map(x, TipoActividadDTO.class);
-        }).collect(Collectors.toList());
-    }
+    //public List<TipoActividadDTO> buscarPorInvitacion(@RequestParam("texto") String texto) {
+    //    return tS.findByInvitacionContaining(texto).stream().map(x -> {
+    //        ModelMapper t = new ModelMapper();
+    //        return t.map(x, TipoActividadDTO.class);
+    //    }).collect(Collectors.toList());
+    //}
 
-    @GetMapping("/contarInvitacionesNoVacias")
+    //@GetMapping("/contarInvitacionesNoVacias")
     //  @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public int contarInvitacionesNoVacias() {
-        return tS.countNonEmptyInvitations();
-    }
+    //public int contarInvitacionesNoVacias() {
+    //    return tS.countNonEmptyInvitations();
+    //}
 }

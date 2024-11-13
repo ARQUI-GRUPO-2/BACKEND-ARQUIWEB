@@ -2,8 +2,7 @@ package pe.edu.pe.grupo2.dtos;
 
 public class TipoActividadDTO {
     private int id_tipo_actividad;
-    private String invitacion;
-    private String reciclar;
+    private String descripcion;
 
     public int getId_tipo_actividad() {
         return id_tipo_actividad;
@@ -13,19 +12,12 @@ public class TipoActividadDTO {
         this.id_tipo_actividad = id_tipo_actividad;
     }
 
-    public String getInvitacion() {
-        return invitacion;
+
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setInvitacion(String invitacion) {
-        this.invitacion = invitacion;
-    }
-
-    public String getReciclar() {
-        return reciclar;
-    }
-
-    public void setReciclar(String reciclar) {
-        this.reciclar = reciclar;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

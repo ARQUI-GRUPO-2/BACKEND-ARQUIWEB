@@ -12,7 +12,5 @@ public interface ITipoActividadService {
     public void update(TipoActividad tipoActividad);
     public void delete(int id);
     // Métodos para las nuevas queries
-    List<TipoActividad> findByInvitacionContaining(String text);
-    int countNonEmptyInvitations();
 
 }
