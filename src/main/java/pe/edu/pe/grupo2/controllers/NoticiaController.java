@@ -3,7 +3,6 @@ package pe.edu.pe.grupo2.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.pe.grupo2.dtos.NoticiasDTO;
 import pe.edu.pe.grupo2.entities.Noticias;

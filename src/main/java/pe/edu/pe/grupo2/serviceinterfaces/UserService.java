@@ -15,8 +15,8 @@ public interface UserService {
     public void update(User u);
     public void delete(int id);
     public List<User> BuscarGenero(String genero);
-    public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclaje(int idUser);
-    public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclajeFavorito(Boolean favoritos);
+    public List<String> obtenerUsuarioConCentrosDeReciclaje(int idUser);
+    public List<String> obtenerUsuarioConCentrosDeReciclajeFavorito(Boolean favoritos);
     public List<String[]> Cantidadnotificaciones_deusuario_rangohoras(LocalDate horaInicio, LocalDate horaFin);
 
 }

@@ -2,17 +2,13 @@ package pe.edu.pe.grupo2.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.boot.Banner;
-import pe.edu.pe.grupo2.dtos.*;
+import pe.edu.pe.grupo2.dtos.ActividadDTO;
+import pe.edu.pe.grupo2.dtos.ActividadRecompensasDTO;
+import pe.edu.pe.grupo2.dtos.ActividadesPorCentroDTO;
+import pe.edu.pe.grupo2.dtos.ActividadesPorUsuarioDTO;
 import pe.edu.pe.grupo2.entities.Actividad;
 import pe.edu.pe.grupo2.serviceinterfaces.IActividadService;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +22,7 @@ public class ActividadController {
 
     @Autowired
     private IActividadService aS;
-    @GetMapping
+     @GetMapping
     //   @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public List<ActividadDTO> listar() {
 

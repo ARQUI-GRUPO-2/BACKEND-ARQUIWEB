@@ -2,11 +2,8 @@ package pe.edu.pe.grupo2.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.pe.grupo2.dtos.ActividadDTO;
 import pe.edu.pe.grupo2.dtos.TipoActividadDTO;
-import pe.edu.pe.grupo2.entities.Actividad;
 import pe.edu.pe.grupo2.entities.TipoActividad;
 import pe.edu.pe.grupo2.serviceinterfaces.ITipoActividadService;
 
@@ -56,18 +53,18 @@ public class TipoActividadController {
         tS.delete(id);
     }
 
-    @GetMapping("/buscarPorInvitacion")
+    //@GetMapping("/buscarPorInvitacion")
     // @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<TipoActividadDTO> buscarPorInvitacion(@RequestParam("texto") String texto) {
-        return tS.findByInvitacionContaining(texto).stream().map(x -> {
-            ModelMapper t = new ModelMapper();
-            return t.map(x, TipoActividadDTO.class);
-        }).collect(Collectors.toList());
-    }
+    //public List<TipoActividadDTO> buscarPorInvitacion(@RequestParam("texto") String texto) {
+    //    return tS.findByInvitacionContaining(texto).stream().map(x -> {
+    //        ModelMapper t = new ModelMapper();
+    //        return t.map(x, TipoActividadDTO.class);
+    //    }).collect(Collectors.toList());
+    //}
 
-    @GetMapping("/contarInvitacionesNoVacias")
+    //@GetMapping("/contarInvitacionesNoVacias")
     //  @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public int contarInvitacionesNoVacias() {
-        return tS.countNonEmptyInvitations();
-    }
+    //public int contarInvitacionesNoVacias() {
+    //    return tS.countNonEmptyInvitations();
+    //}
 }

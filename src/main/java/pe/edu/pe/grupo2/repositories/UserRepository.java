@@ -22,10 +22,12 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
 
     //INSERTAR ROLES
-    @Transactional
-    @Modifying
-    @Query(value = "insert into roles (rol, user_id) VALUES (:rol, :user_id)", nativeQuery = true)
-    public void insRol(@Param("rol") String authority, @Param("user_id") Long user_id);
+    //@Transactional
+    //@Modifying
+    //@Query(value = "insert into roles (rol, user_id) VALUES (:rol, :user_id)", nativeQuery = true)
+    //public void insRol(@Param("rol") String authority, @Param("user_id") Long user_id);
+    //@Query(value = "insert into roles (rol, idRol) VALUES (:rol, :user_id)", nativeQuery = true)
+    //public void insRol(@Param("rol") String authority, @Param("user_id") Long user_id);
 
     @Query("select ur from User ur where ur.genero like %:genero%")
     public List<User> BuscarGenero(@Param("genero") String Genero);
@@ -34,13 +36,13 @@ public interface UserRepository extends JpaRepository<User, Integer> {
             "FROM User u " +
             "JOIN CentroReciclaje cr ON cr.us.idUser = u.idUser " +
             "WHERE u.idUser = :idUser")
-    public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclaje(@Param("idUser") Integer idUser);
+    public List<String> obtenerUsuarioConCentrosDeReciclaje(@Param("idUser") Integer idUser);
 
     @Query("SELECT u.nombres, u.edad, cr.direccion, cr.horario " +
             "FROM User u " +
             "JOIN CentroReciclaje cr ON cr.us.idUser = u.idUser " +
             "WHERE cr.favoritos = :favoritos")
-    public List<UserCentroReciclajeDTO> findUserWithCentrosReciclajeFiltered(@Param("favoritos") Boolean favoritos);
+    public List<String> findUserWithCentrosReciclajeFiltered(@Param("favoritos") Boolean favoritos);
 
     //Cantidad de Notificaciones de un usuario en un rango de horas
     @Query(value = "SELECT us.nombres, COUNT(*) AS cantidad_notif " +
@@ -50,5 +52,4 @@ public interface UserRepository extends JpaRepository<User, Integer> {
             "GROUP BY us.nombres",
             nativeQuery = true)
     public List<String[]> Cantidadnotificaciones_deusuario_rangohoras(@Param("horaInicio") LocalDate horaInicio, @Param("horaFin") LocalDate horaFin);
-
 }

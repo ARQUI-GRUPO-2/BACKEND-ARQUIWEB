@@ -2,9 +2,7 @@ package pe.edu.pe.grupo2.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.pe.grupo2.dtos.ActividadDTO;
 import pe.edu.pe.grupo2.dtos.CloseToExpireDTO;
 import pe.edu.pe.grupo2.dtos.MostClaimedRewardDTO;
 import pe.edu.pe.grupo2.dtos.RecompensasDTO;

@@ -1,9 +1,6 @@
 package pe.edu.pe.grupo2.controllers;
-
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.pe.grupo2.dtos.CantidadNotiUsuarioDTO;
 import pe.edu.pe.grupo2.dtos.UserCentroReciclajeDTO;
@@ -34,7 +31,6 @@ public class UserController {
     @GetMapping
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<UserDTO> listar() {
-
         return uS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, UserDTO.class);
@@ -70,19 +66,6 @@ public class UserController {
             return m.map(x, UserDTO.class);
         }).collect(Collectors.toList());
     }
-    @GetMapping("/{id}/centros-reciclaje")
-    //  @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclaje(@PathVariable("id") Integer idUser) {
-        return uS.obtenerUsuarioConCentrosDeReciclaje(idUser);
-    }
-    @GetMapping("/centros-reciclaje-filtrados")
-    //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclajeFiltrado(
-            @RequestParam(required = false) int edad,
-            @RequestParam(required = false) Boolean favoritos) {
-
-        return uS.obtenerUsuarioConCentrosDeReciclajeFavorito(favoritos);
-    }
 
     @GetMapping("/conteo_notificaciones_rangoHoras")
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
@@ -97,5 +80,4 @@ public class UserController {
         }
         return dtoLista;
     }
-
 }

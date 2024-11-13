@@ -44,30 +44,9 @@ public class User {
     @Column(name = "enabled")
     private Boolean enabled;
 
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    //private Rol roles;
-    private List<Rol> rol;
-
-   /* public User() {
-    } */
-
-   /* public User(int idUser, String nombres, String apellidos, String username, String dni, int edad, String genero, String distrito, String telefono, String correo, String password, Boolean enabled, Rol roles) {
-        this.idUser = idUser;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.username = username;
-        this.dni = dni;
-        this.edad = edad;
-        this.genero = genero;
-        this.distrito = distrito;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.password = password;
-        this.enabled = enabled;
-        this.roles = roles;
-    } */
+    @ManyToOne
+    @JoinColumn(name = "rol_id")
+    private Rol rol;
 
     public int getIdUser() {
         return idUser;
@@ -165,22 +144,11 @@ public class User {
         this.enabled = enabled;
     }
 
-    //public Rol getRoles() {
-    //  return roles;
-    //}
-
-    //public void setRoles(Rol roles) {
-    //    this.roles = roles;
-    //}
-
-
-    public List<Rol> getRol() {
+    public Rol getRol() {
         return rol;
     }
 
-    public void setRol(List<Rol> rol) {
+    public void setRol(Rol rol) {
         this.rol = rol;
     }
 }
-
-

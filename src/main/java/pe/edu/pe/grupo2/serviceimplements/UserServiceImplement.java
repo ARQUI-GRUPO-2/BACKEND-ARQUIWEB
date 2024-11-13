@@ -1,8 +1,4 @@
 package pe.edu.pe.grupo2.serviceimplements;
-
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.pe.grupo2.dtos.UserCentroReciclajeDTO;
@@ -51,11 +47,11 @@ public class UserServiceImplement implements UserService {
     }
 
     @Override
-    public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclaje(int idUser) {
+    public List<String> obtenerUsuarioConCentrosDeReciclaje(int idUser) {
         return uR.obtenerUsuarioConCentrosDeReciclaje(idUser);
     }
     @Override
-    public List<UserCentroReciclajeDTO> obtenerUsuarioConCentrosDeReciclajeFavorito(Boolean favoritos) {
+    public List<String> obtenerUsuarioConCentrosDeReciclajeFavorito(Boolean favoritos) {
         return uR.findUserWithCentrosReciclajeFiltered(favoritos);
     }
 
@@ -63,5 +59,4 @@ public class UserServiceImplement implements UserService {
     public List<String[]> Cantidadnotificaciones_deusuario_rangohoras(LocalDate horaInicio, LocalDate horaFin) {
         return uR.Cantidadnotificaciones_deusuario_rangohoras(horaInicio, horaFin);
     }
-
 }
