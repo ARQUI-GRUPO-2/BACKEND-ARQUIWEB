@@ -15,10 +15,10 @@ public class CentroReciclaje {
     private String direccion;
 
     @Column(name = "latitud", nullable = false, length = 100)
-    private String latitud;
+    private float latitud;
 
     @Column(name = "longitud", nullable = false, length = 2100)
-    private String longitud;
+    private float longitud;
 
     @Column(name = "horario", nullable = false)
     private String horario;
@@ -34,7 +34,7 @@ public class CentroReciclaje {
 
     }
 
-    public CentroReciclaje(int idCentroReciclaje, String direccion, String latitud, String longitud, String tipoReciclaje, String horario, Boolean favoritos, User us) {
+    public CentroReciclaje(int idCentroReciclaje, String direccion, float latitud, float longitud, String tipoReciclaje, String horario, Boolean favoritos, User us) {
         this.idCentroReciclaje = idCentroReciclaje;
         this.direccion = direccion;
         this.latitud = latitud;
@@ -60,19 +60,19 @@ public class CentroReciclaje {
         this.direccion = direccion;
     }
 
-    public String getLatitud() {
+    public float getLatitud() {
         return latitud;
     }
 
-    public void setLatitud(String latitud) {
+    public void setLatitud(float latitud) {
         this.latitud = latitud;
     }
 
-    public String getLongitud() {
+    public float getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(String longitud) {
+    public void setLongitud(float longitud) {
         this.longitud = longitud;
     }
 
