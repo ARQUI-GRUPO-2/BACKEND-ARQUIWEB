@@ -1,11 +1,15 @@
 package pe.edu.pe.grupo2.serviceinterfaces;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import pe.edu.pe.grupo2.dtos.UserCentroReciclajeDTO;
+import pe.edu.pe.grupo2.dtos.UserDTO;
 import pe.edu.pe.grupo2.entities.User;
+import pe.edu.pe.grupo2.repositories.UserRepository;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public interface UserService {
 
@@ -19,5 +23,8 @@ public interface UserService {
     public List<String> obtenerUsuarioConCentrosDeReciclaje(int idUser);
     public List<String> obtenerUsuarioConCentrosDeReciclajeFavorito(Boolean favoritos);
     public List<String[]> Cantidadnotificaciones_deusuario_rangodias(LocalDate diaInicio, LocalDate diaFin);
+
+    /*public List<User> getAllUsers(); // Obtener todos los usuarios (para ADMIN)
+    public List<User> getUsersByUsername(String username); // Obtener solo el perfil de un usuario*/
 
 }
