@@ -4,6 +4,7 @@ import pe.edu.pe.grupo2.dtos.UserCentroReciclajeDTO;
 import pe.edu.pe.grupo2.entities.User;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 public interface UserService {
@@ -17,6 +18,6 @@ public interface UserService {
     public List<User> BuscarGenero(String genero);
     public List<String> obtenerUsuarioConCentrosDeReciclaje(int idUser);
     public List<String> obtenerUsuarioConCentrosDeReciclajeFavorito(Boolean favoritos);
-    public List<String[]> Cantidadnotificaciones_deusuario_rangohoras(LocalDate horaInicio, LocalDate horaFin);
+    public List<String[]> Cantidadnotificaciones_deusuario_rangodias(LocalDate diaInicio, LocalDate diaFin);
 
 }
