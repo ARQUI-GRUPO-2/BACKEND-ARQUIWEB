@@ -3,6 +3,7 @@ package pe.edu.pe.grupo2.serviceinterfaces;
 import org.springframework.stereotype.Service;
 import pe.edu.pe.grupo2.entities.Rol;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IRolService {
@@ -15,4 +16,6 @@ public interface IRolService {
     Rol listId(int idRol);
 
     public void update(Rol rol);
+
+    public List<String[]> cantidadUsuariosPorRol();
 }

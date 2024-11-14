@@ -26,7 +26,7 @@ public class CentroReciclaje {
     @Column(name = "favoritos")
     private Boolean favoritos;
 
-    @ManyToOne /*PARA HACER RELACION FK  */
+    @ManyToOne
     @JoinColumn(name = "idUser")
     private User us;
 
