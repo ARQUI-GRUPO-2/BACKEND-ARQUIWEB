@@ -95,7 +95,7 @@ public class UserController {
     }
 
 
-    @GetMapping("/conteo_notificaciones_rangoDias")
+    @GetMapping("/conteo_notificaciones_rangodias")
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<CantidadNotiUsuarioDTO> Cantidadnotificaciones_deusuario_rangodias(@RequestParam LocalDate diaInicio, @RequestParam LocalDate diaFin) {
         List<String[]> filaLista = uS.Cantidadnotificaciones_deusuario_rangodias(diaInicio, diaFin);

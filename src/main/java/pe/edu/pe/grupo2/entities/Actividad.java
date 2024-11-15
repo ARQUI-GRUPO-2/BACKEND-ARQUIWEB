@@ -12,8 +12,7 @@ public class Actividad {
     private int idActividad;
     @Column(name = "fecha_recepcion",nullable = false, length = 225)
     private LocalDate fecha_recepcion;
-    @Column(name = "nombre",nullable = false, length = 100)
-    private String nombre;
+
     @Column(name = "puntos",nullable = false, length = 155)
     private Double puntos;
     @Column(name = "cantidad",nullable = false, length = 150)
@@ -31,14 +30,11 @@ public class Actividad {
     private User u;
     public Actividad() {}
 
-    public Actividad(int idActividad, LocalDate fecha_recepcion, String descripcion, String nombre, Double puntos, String cantidad, /*String ubicacion*/ TipoActividad ta, CentroReciclaje cr, User u) {
+    public Actividad(int idActividad, LocalDate fecha_recepcion, Double puntos, String cantidad,  TipoActividad ta, CentroReciclaje cr, User u) {
         this.idActividad = idActividad;
         this.fecha_recepcion = fecha_recepcion;
-        //this.descripcion = descripcion;
-        this.nombre = nombre;
         this.puntos = puntos;
         this.cantidad = cantidad;
-        //this.ubicacion = ubicacion;
         this.ta = ta;
         this.cr = cr;
         this.u = u;
@@ -60,14 +56,6 @@ public class Actividad {
 
     public void setFecha_recepcion(LocalDate fecha_recepcion) {
         this.fecha_recepcion = fecha_recepcion;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public Double getPuntos() {
