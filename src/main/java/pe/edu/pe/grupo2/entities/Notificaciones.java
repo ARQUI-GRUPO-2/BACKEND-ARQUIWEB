@@ -16,9 +16,6 @@ public class Notificaciones {
     @Column(name="mensaje", nullable = false, length = 225)
     private String mensaje;
 
-    @Column(name="estado")
-    private Boolean estado;
-
     @Column(name = "fecha_notificacion", nullable = false)
     private LocalDate fecha;
 
@@ -34,10 +31,9 @@ public class Notificaciones {
 
     }
 
-    public Notificaciones(int idNotificaciones, String mensaje, Boolean estado, LocalDate fecha,Noticias noti, User us ) {
+    public Notificaciones(int idNotificaciones, String mensaje, LocalDate fecha,Noticias noti, User us ) {
         this.idNotificaciones = idNotificaciones;
         this.mensaje = mensaje;
-        this.estado = false;
         this.fecha = fecha;
         this.noti = noti;
         this.us = us;
@@ -55,15 +51,7 @@ public class Notificaciones {
         return mensaje;
     }
 
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
-    }
-
-    public Boolean getEstado() {return estado;}
-
-    public void setEstado(Boolean estado) {
-        this.estado = estado;
-    }
+    public void setMensaje(String mensaje) { this.mensaje = mensaje; }
 
     public LocalDate getFecha() {
         return fecha;

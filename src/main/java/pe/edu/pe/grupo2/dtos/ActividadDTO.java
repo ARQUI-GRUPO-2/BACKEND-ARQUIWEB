@@ -11,7 +11,6 @@ public class ActividadDTO {
 
     private int idActividad;
     private LocalDate fecha_recepcion;
-    private String nombre;
     private Double puntos;
     private String cantidad;
     private TipoActividad ta;
@@ -25,10 +24,6 @@ public class ActividadDTO {
     public LocalDate getFecha_recepcion() {return fecha_recepcion;}
 
     public void setFecha_recepcion(LocalDate fecha_recepcion) {this.fecha_recepcion = fecha_recepcion;}
-
-    public String getNombre() {return nombre;}
-
-    public void setNombre(String nombre) {this.nombre = nombre;}
 
     public Double getPuntos() {return puntos;}
 

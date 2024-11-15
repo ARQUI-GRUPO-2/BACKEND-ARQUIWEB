@@ -10,9 +10,7 @@ public interface IActividadService {
     public Actividad listId(int id);
     public void update(Actividad a);
     public void delete(int id);
-    public List<Actividad> buscarNombre(String nombre);
 
-    public List<String[]> puntosxactividadService();
     public List<String[]> ActividadesporCentro();
     public List<String[]> ActividadesporUsuario();
 

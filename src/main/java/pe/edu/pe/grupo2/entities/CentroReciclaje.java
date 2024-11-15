@@ -40,7 +40,7 @@ public class CentroReciclaje {
         this.latitud = latitud;
         this.longitud = longitud;
         this.horario = horario;
-        this.favoritos = false;
+        this.favoritos = favoritos;
         this.us = us;
     }
     
