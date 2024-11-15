@@ -11,7 +11,6 @@ public class NotificacionesDTO {
     private int idNotificacion;
     private String mensaje;
     private LocalDate fecha;
-    private Noticias noti;
 
     public int getIdNotificacion() {
         return idNotificacion;
@@ -29,21 +28,12 @@ public class NotificacionesDTO {
         this.mensaje = mensaje;
     }
 
-
     public LocalDate getFecha() {
         return fecha;
     }
 
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
-    }
-
-    public Noticias getNoti() {
-        return noti;
-    }
-
-    public void setNoti(Noticias noti) {
-        this.noti = noti;
     }
 
 }
