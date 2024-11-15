@@ -13,6 +13,7 @@ import pe.edu.pe.grupo2.repositories.UserRepository;
 import pe.edu.pe.grupo2.serviceinterfaces.UserService;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -92,6 +93,22 @@ public class UserController {
             return m.map(x, UserDTO.class);
         }).collect(Collectors.toList());
     }
+
+
+    @GetMapping("/conteo_notificaciones_rangodias")
+    //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public List<CantidadNotiUsuarioDTO> Cantidadnotificaciones_deusuario_rangodias(@RequestParam LocalDate diaInicio, @RequestParam LocalDate diaFin) {
+        List<String[]> filaLista = uS.Cantidadnotificaciones_deusuario_rangodias(diaInicio, diaFin);
+        List<CantidadNotiUsuarioDTO> dtoLista = new ArrayList<>();
+        for(String[] columna: filaLista){
+            CantidadNotiUsuarioDTO dto = new CantidadNotiUsuarioDTO();
+            dto.setNombres(columna[0]);
+            dto.setCantidad_notif(Integer.parseInt(columna[1]));
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }
+
 }
 
 

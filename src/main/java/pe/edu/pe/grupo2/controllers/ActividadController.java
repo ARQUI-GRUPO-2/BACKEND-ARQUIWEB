@@ -62,29 +62,7 @@ public class ActividadController {
         aS.delete(id);
     }
 
-    @GetMapping("/busquedas")
-    //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<ActividadDTO> buscar(@RequestParam String nombre) {
 
-        return aS.buscarNombre(nombre).stream().map(x -> {
-            ModelMapper m = new ModelMapper();
-            return m.map(x, ActividadDTO.class);
-        }).collect(Collectors.toList());
-    }
-    @GetMapping("/recompensas")
-    //  @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<ActividadRecompensasDTO> obtenerpuntosxactividad(){
-        List<String[]> lista = aS.puntosxactividadService();
-        List<ActividadRecompensasDTO> listaDTO = new ArrayList<>();
-        for (String[] columna : lista) {
-            ActividadRecompensasDTO dto = new ActividadRecompensasDTO();
-            dto.setNombre(columna[0]);
-            dto.setPuntos(columna[1]);
-            dto.setNombre_recompensa(columna[2]);
-            listaDTO.add(dto);
-        }
-        return listaDTO;
-    }
     @GetMapping("/ActividadesPorCentro")
     //    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<ActividadesPorCentroDTO> actividadesPorCentro(){

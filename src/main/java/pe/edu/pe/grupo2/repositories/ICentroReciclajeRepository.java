@@ -14,11 +14,6 @@ public interface ICentroReciclajeRepository extends JpaRepository<CentroReciclaj
     @Query("SELECT acr FROM CentroReciclaje acr WHERE acr.direccion LIKE %:direccion%")
     public List<CentroReciclaje> findByDireccion(@Param("direccion") String direccion);
 
-    @Query(value = "SELECT  a.nombre, cr.direccion \n" +
-            "FROM CentroReciclaje cr \n" +
-            "JOIN Actividad a ON a.cr.idCentroReciclaje = cr.idCentroReciclaje \n" +
-            "WHERE a.nombre = 'Invitar' \n")
-    public List<String[]> actividadxnombre();
 
     @Query(value = "SELECT c.direccion, COUNT(*) AS cantidad_favoritos \n" +
             " FROM centro_reciclaje c \n" +

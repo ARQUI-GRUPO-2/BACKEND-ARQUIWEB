@@ -62,20 +62,6 @@ public class CentroReciclajeController {
         return dto;
     }
 
-    @GetMapping("/actividades")
-    //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<ActividadCentroDTO> obtenerActividadesxCentroReciclaje() {
-        List<String[]> lista = cS.actividadxnombreService();
-        List<ActividadCentroDTO> listaDTO = new ArrayList<>();
-        for (String[] columna : lista) {
-            ActividadCentroDTO dto = new ActividadCentroDTO();
-            dto.setNombre(columna[0]);
-            dto.setDireccion(columna[1]);
-            listaDTO.add(dto);
-
-        }
-        return listaDTO;
-    }
 
     @GetMapping("/mas-usuarios")
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")

@@ -7,7 +7,6 @@ import java.time.LocalDate;
 public class RecompensasDTO {
     private int idRecompensas;
     private String nombreRecompensa;
-    private String codigoQR;
     private LocalDate fechaVencimiento;
     private String descripcionRecompensa;
 
@@ -29,13 +28,6 @@ public class RecompensasDTO {
         this.nombreRecompensa = nombreRecompensa;
     }
 
-    public String getCodigoQR() {
-        return codigoQR;
-    }
-
-    public void setCodigoQR(String codigoQR) {
-        this.codigoQR = codigoQR;
-    }
 
     public LocalDate getFechaVencimiento() {
         return fechaVencimiento;

@@ -17,8 +17,6 @@ public class Recompensas {
     @Column(name = "descripcionRecompensa", nullable = false, length = 200)
     private String descripcionRecompensa;
 
-    @Column(name = "codigoQR", nullable = false, length = 1000)
-    private String codigoQR;
 
     @Column(name = "fechaVencimiento", nullable = false)
     private LocalDate fechaVencimiento;
@@ -30,10 +28,9 @@ public class Recompensas {
     public Recompensas() {
     }
 
-    public Recompensas(int idRecompensas, String nombreRecompensa, String codigoQR, LocalDate fechaVencimiento,String descripcionRecompensa) {
+    public Recompensas(int idRecompensas, String nombreRecompensa, LocalDate fechaVencimiento,String descripcionRecompensa) {
         this.idRecompensas = idRecompensas;
         this.nombreRecompensa = nombreRecompensa;
-        this.codigoQR = codigoQR;
         this.fechaVencimiento = fechaVencimiento;
         this.descripcionRecompensa = descripcionRecompensa;
     }
@@ -54,13 +51,6 @@ public class Recompensas {
         this.nombreRecompensa = nombreRecompensa;
     }
 
-    public String getCodigoQR() {
-        return codigoQR;
-    }
-
-    public void setCodigoQR(String codigoQR) {
-        this.codigoQR = codigoQR;
-    }
 
     public LocalDate getFechaVencimiento() {
         return fechaVencimiento;

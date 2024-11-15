@@ -8,8 +8,8 @@ public class CentroReciclajeDTO {
 
     private int idCentroReciclaje;
     private String direccion;
-    private String latitud;
-    private String longitud;
+    private float latitud;
+    private float longitud;
     private String horario;
     private Boolean favoritos;
     private User us;
@@ -30,19 +30,19 @@ public class CentroReciclajeDTO {
         this.direccion = direccion;
     }
 
-    public String getLatitud() {
+    public float getLatitud() {
         return latitud;
     }
 
-    public void setLatitud(String latitud) {
+    public void setLatitud(float latitud) {
         this.latitud = latitud;
     }
 
-    public String getLongitud() {
+    public float getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(String longitud) {
+    public void setLongitud(float longitud) {
         this.longitud = longitud;
     }
 

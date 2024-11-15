@@ -10,10 +10,8 @@ import java.time.LocalTime;
 public class NotificacionesDTO {
     private int idNotificacion;
     private String mensaje;
-    private Boolean estado;
     private LocalDate fecha;
     private Noticias noti;
-    private User us;
 
     public int getIdNotificacion() {
         return idNotificacion;
@@ -31,13 +29,6 @@ public class NotificacionesDTO {
         this.mensaje = mensaje;
     }
 
-    public Boolean getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Boolean estado) {
-        this.estado = estado;
-    }
 
     public LocalDate getFecha() {
         return fecha;
@@ -55,11 +46,4 @@ public class NotificacionesDTO {
         this.noti = noti;
     }
 
-    public User getUs() {
-        return us;
-    }
-
-    public void setUs(User us) {
-        this.us = us;
-    }
 }
