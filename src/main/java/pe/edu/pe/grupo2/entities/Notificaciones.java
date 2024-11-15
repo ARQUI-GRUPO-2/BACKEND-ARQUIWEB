@@ -23,20 +23,16 @@ public class Notificaciones {
     @JoinColumn(name = "idNoticias")
     private Noticias noti;
 
-    @ManyToOne
-    @JoinColumn(name = "idUser")
-    private User us;
 
     public Notificaciones() {
 
     }
 
-    public Notificaciones(int idNotificaciones, String mensaje, LocalDate fecha,Noticias noti, User us ) {
+    public Notificaciones(int idNotificaciones, String mensaje, LocalDate fecha,Noticias noti) {
         this.idNotificaciones = idNotificaciones;
         this.mensaje = mensaje;
         this.fecha = fecha;
         this.noti = noti;
-        this.us = us;
     }
 
     public int getIdNotificaciones() {
@@ -69,7 +65,4 @@ public class Notificaciones {
         this.noti = noti;
     }
 
-    public User getUs() {return us;}
-
-    public void setUs(User us) {this.us = us;}
 }
