@@ -48,12 +48,13 @@ public class UserServiceImplement implements UserService {
     }
 
     @Override
-    public void update(User u) {
+    public void update(User ur) {
         // Verificar si la contraseña ha cambiado
-        if (u.getPassword() != null) {
-            String encryptedPassword = passwordEncoder.encode(u.getPassword());
-            u.setPassword(encryptedPassword);
+        if (ur.getPassword() != null) {
+            String encryptedPassword = passwordEncoder.encode(ur.getPassword());
+            ur.setPassword(encryptedPassword);
         }
+        uR.save(uR.save(ur));
     }
 
     @Override

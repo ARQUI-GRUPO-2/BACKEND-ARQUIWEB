@@ -15,9 +15,8 @@ public interface UserService {
 
     public List<User> list();
     public void insert(User u);
-
     public User listId(int id);
-    public void update(User u);
+    public void update(User ur);
     public void delete(int id);
     public List<User> BuscarGenero(String genero);
     public List<String> obtenerUsuarioConCentrosDeReciclaje(int idUser);

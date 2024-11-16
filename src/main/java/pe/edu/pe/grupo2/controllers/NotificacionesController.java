@@ -21,13 +21,12 @@ import java.util.stream.Collectors;
 //@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
 public class NotificacionesController {
     @Autowired
-    private INotificacionesService nR;
+    private INotificacionesService nS;
 
     @GetMapping
     //    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public List<NotificacionesDTO> listar() {
-
-        return nR.list().stream().map(x -> {
+        return nS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, NotificacionesDTO.class);
         }).collect(Collectors.toList());
@@ -38,15 +37,15 @@ public class NotificacionesController {
     public void insertar(@RequestBody NotificacionesDTO dto) {
         ModelMapper m = new ModelMapper();
         Notificaciones nt = m.map(dto, Notificaciones.class);
-        nR.insert(nt);
+        nS.insert(nt);
     }
 
     @GetMapping("/{id}")
     //    @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
     public NotificacionesDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m = new ModelMapper();
-        NotificacionesDTO dto = m.map(nR.listId(id), NotificacionesDTO.class);
-        return dto;
+        NotificacionesDTO dto = m.map(nS.listId(id), NotificacionesDTO.class);
+        return  dto;
     }
 
     @PutMapping
@@ -54,19 +53,19 @@ public class NotificacionesController {
     public void modificar(@RequestBody NotificacionesDTO dto) {
         ModelMapper m = new ModelMapper();
         Notificaciones ur = m.map(dto, Notificaciones.class);
-        nR.update(ur);
+        nS.update(ur);
     }
 
     @DeleteMapping("/{id}")
     //  @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public void eliminar(@PathVariable("id") Integer id) {
-        nR.delete(id);
+        nS.delete(id);
     }
 
     @GetMapping("/promedioNotificacionesPorDiaUsuario")
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<PromedioNotificacionesDTO> PromedioNotificacionesPorDiaUsuario(@RequestParam LocalDate fechaInicio, @RequestParam LocalDate fechaFin, @RequestParam int userId) {
-        List<String[]> filaLista = nR.PromedioNotificacionesPorDiaUsuario(fechaInicio, fechaFin, userId);
+        List<String[]> filaLista = nS.PromedioNotificacionesPorDiaUsuario(fechaInicio, fechaFin, userId);
         List<PromedioNotificacionesDTO> dtoLista = new ArrayList<>();
         for (String[] columna : filaLista) {
             PromedioNotificacionesDTO dto = new PromedioNotificacionesDTO();
@@ -80,7 +79,7 @@ public class NotificacionesController {
     @GetMapping("/top3UsuariosConMasNotificaciones")
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<Top3UsuariosDTO> Top3UsuariosConMasNotificaciones(@RequestParam LocalDate fechaInicio, @RequestParam LocalDate fechaFin) {
-        List<String[]> filaLista = nR.Top3UsuariosConMasNotificaciones(fechaInicio, fechaFin);
+        List<String[]> filaLista = nS.Top3UsuariosConMasNotificaciones(fechaInicio, fechaFin);
         List<Top3UsuariosDTO> dtoLista = new ArrayList<>();
         for (String[] columna : filaLista) {
             Top3UsuariosDTO dto = new Top3UsuariosDTO();

@@ -48,6 +48,25 @@ public class User {
     @JoinColumn(name = "rol_id")
     private Rol rol;
 
+    public User() {
+    }
+
+    public User(int idUser, String nombres, String apellidos, String username, String dni, int edad, String genero, String distrito, String telefono, String correo, String password, Boolean enabled, Rol rol) {
+        this.idUser = idUser;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.username = username;
+        this.dni = dni;
+        this.edad = edad;
+        this.genero = genero;
+        this.distrito = distrito;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.password = password;
+        this.enabled = enabled;
+        this.rol = rol;
+    }
+
     public int getIdUser() {
         return idUser;
     }

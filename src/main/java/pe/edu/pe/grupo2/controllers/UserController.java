@@ -24,8 +24,7 @@ import java.util.stream.Collectors;
 public class UserController {
     @Autowired
     private UserService uS;
-    @Autowired
-    private UserRepository uR;
+
 
     @PostMapping
     //  @PreAuthorize("hasAnyAuthority('USUARIO','ADMINISTRADOR')")
