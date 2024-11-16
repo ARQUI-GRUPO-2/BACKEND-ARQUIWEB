@@ -64,8 +64,8 @@ public class UserServiceImplement implements UserService {
     }
 
     @Override
-    public List<User> BuscarGenero(String genero) {
-        return uR.BuscarGenero(genero);
+    public List<User> BuscarDistrito(String distrito) {
+        return uR.BuscarDistrito(distrito);
     }
 
     @Override

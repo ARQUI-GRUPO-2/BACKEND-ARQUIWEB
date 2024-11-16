@@ -85,9 +85,8 @@ public class UserController {
 
     @GetMapping("/busquedas")
     //  @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<UserDTO> buscar(@RequestParam String genero) {
-
-        return uS.BuscarGenero(genero).stream().map(x -> {
+    public List<UserDTO> buscarDistrito(@RequestParam String distrito) {
+        return uS.BuscarDistrito(distrito).stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, UserDTO.class);
         }).collect(Collectors.toList());
