@@ -22,7 +22,7 @@ public class Recompensas {
     private LocalDate fechaVencimiento;
 
     @ManyToOne
-    @JoinColumn(name="idActividad")
+    @JoinColumn(name = "idActividad")
     private Actividad ac;
 
     public Recompensas() {

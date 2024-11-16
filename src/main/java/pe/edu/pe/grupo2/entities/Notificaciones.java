@@ -19,18 +19,13 @@ public class Notificaciones {
     @Column(name = "fecha_notificacion", nullable = false)
     private LocalDate fecha;
 
-    @ManyToOne
-    @JoinColumn(name = "idUser")
-    private User user;
-
     public Notificaciones() {
     }
 
-    public Notificaciones(int idNotificaciones, String mensaje, LocalDate fecha, User user) {
+    public Notificaciones(int idNotificaciones, String mensaje, LocalDate fecha) {
         this.idNotificaciones = idNotificaciones;
         this.mensaje = mensaje;
         this.fecha = fecha;
-        this.user = user;
     }
 
     public int getIdNotificaciones() {
@@ -55,13 +50,5 @@ public class Notificaciones {
 
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

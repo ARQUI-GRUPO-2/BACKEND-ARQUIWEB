@@ -11,7 +11,6 @@ public class NotificacionesDTO {
     private int idNotificaciones;
     private String mensaje;
     private LocalDate fecha;
-    private User user;
 
     public int getIdNotificaciones() {
         return idNotificaciones;
@@ -37,11 +36,4 @@ public class NotificacionesDTO {
         this.fecha = fecha;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }
