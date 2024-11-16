@@ -6,6 +6,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.pe.grupo2.dtos.CantidadNotiUsuarioDTO;
+import pe.edu.pe.grupo2.dtos.ObtenerCantidadUsuariosPorDistritoDTO;
 import pe.edu.pe.grupo2.dtos.UserCentroReciclajeDTO;
 import pe.edu.pe.grupo2.dtos.UserDTO;
 import pe.edu.pe.grupo2.entities.User;
@@ -102,6 +103,20 @@ public class UserController {
             CantidadNotiUsuarioDTO dto = new CantidadNotiUsuarioDTO();
             dto.setNombres(columna[0]);
             dto.setCantidad_notif(Integer.parseInt(columna[1]));
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }
+
+    @GetMapping("/obtenercantidadUsuariosporDistrito")
+    //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public List<ObtenerCantidadUsuariosPorDistritoDTO> ObtenerCantidadUsuariosPorDistrito() {
+        List<String[]> filaLista = uS.ObtenerCantidadUsuariosPorDistrito();
+        List<ObtenerCantidadUsuariosPorDistritoDTO> dtoLista = new ArrayList<>();
+        for(String[] columna: filaLista){
+            ObtenerCantidadUsuariosPorDistritoDTO dto = new ObtenerCantidadUsuariosPorDistritoDTO();
+            dto.setDistrito(columna[0]);
+            dto.setCantidadusuarios(Integer.parseInt(columna[1]));
             dtoLista.add(dto);
         }
         return dtoLista;

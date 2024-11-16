@@ -55,4 +55,11 @@ public interface UserRepository extends JpaRepository<User, Integer> {
             "GROUP BY us.nombres",
             nativeQuery = true)
     public List<String[]> Cantidadnotificaciones_deusuario_rangodias(@Param("diaInicio") LocalDate diaInicio, @Param("diaFin") LocalDate diaFin);
+
+    @Query(value = "SELECT us.distrito, COUNT(*) AS cantidad_usuarios " +
+                "FROM usuario AS us " +
+                "GROUP BY us.distrito " +
+                "ORDER BY cantidad_usuarios DESC",
+                nativeQuery = true)
+    public List<String[]> ObtenerCantidadUsuariosPorDistrito();
 }

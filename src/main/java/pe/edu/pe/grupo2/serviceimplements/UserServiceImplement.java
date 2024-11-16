@@ -82,6 +82,11 @@ public class UserServiceImplement implements UserService {
         return uR.Cantidadnotificaciones_deusuario_rangodias(diaInicio, diaFin);
     }
 
+    @Override
+    public List<String[]> ObtenerCantidadUsuariosPorDistrito() {
+        return uR.ObtenerCantidadUsuariosPorDistrito();
+    }
+
     /*@Override
     public List<User> getAllUsers() {
         return uR.findAll(); // Devuelve todos los usuarios de la base de datos
