@@ -30,7 +30,7 @@ public class Actividad {
     private User u;
     public Actividad() {}
 
-    public Actividad(int idActividad, LocalDate fecha_recepcion, Double puntos, String cantidad,  TipoActividad ta, CentroReciclaje cr, User u) {
+    public Actividad(int idActividad, LocalDate fecha_recepcion, int puntos, int cantidad,  TipoActividad ta, CentroReciclaje cr, User u) {
         this.idActividad = idActividad;
         this.fecha_recepcion = fecha_recepcion;
         this.puntos = puntos;
@@ -58,19 +58,19 @@ public class Actividad {
         this.fecha_recepcion = fecha_recepcion;
     }
 
-    public Double getPuntos() {
+    public int getPuntos() {
         return puntos;
     }
 
-    public void setPuntos(Double puntos) {
+    public void setPuntos(int puntos) {
         this.puntos = puntos;
     }
 
-    public String getCantidad() {
+    public int getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(String cantidad) {
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 

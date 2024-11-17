@@ -11,8 +11,8 @@ public class ActividadDTO {
 
     private int idActividad;
     private LocalDate fecha_recepcion;
-    private Double puntos;
-    private String cantidad;
+    private int puntos;
+    private int cantidad;
     private TipoActividad ta;
     private CentroReciclaje cr;
     private User u;
@@ -25,13 +25,13 @@ public class ActividadDTO {
 
     public void setFecha_recepcion(LocalDate fecha_recepcion) {this.fecha_recepcion = fecha_recepcion;}
 
-    public Double getPuntos() {return puntos;}
+    public int getPuntos() {return puntos;}
 
-    public void setPuntos(Double puntos) {this.puntos = puntos;}
+    public void setPuntos(int puntos) {this.puntos = puntos;}
 
-    public String getCantidad() {return cantidad;}
+    public int getCantidad() {return cantidad;}
 
-    public void setCantidad(String cantidad) {this.cantidad = cantidad;}
+    public void setCantidad(int cantidad) {this.cantidad = cantidad;}
 
     public TipoActividad getTa() {return ta;}
     public void setTa(TipoActividad ta) {this.ta = ta;}
