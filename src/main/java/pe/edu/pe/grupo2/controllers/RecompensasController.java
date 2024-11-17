@@ -61,19 +61,19 @@ public class RecompensasController {
         vs.update(d);
     }
 
-    @GetMapping("/mas_reclamada")
+    //@GetMapping("/mas_reclamada")
     //  @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<MostClaimedRewardDTO> cantidad(){
-        List<String[]> lista=vs.cantidadRecompensas();
-        List<MostClaimedRewardDTO> listaDTO=new ArrayList<>();
-        for(String[] columna:lista){
-            MostClaimedRewardDTO dto=new MostClaimedRewardDTO();
-            dto.setRecompensa(columna[0]);
-            dto.setCantidadreclamos(Integer.parseInt(columna[1]));
-            listaDTO.add(dto);
-        }
-        return listaDTO;
-    }
+    //public List<MostClaimedRewardDTO> cantidad(){
+    //  List<String[]> lista=vs.cantidadRecompensas();
+    //  List<MostClaimedRewardDTO> listaDTO=new ArrayList<>();
+    //  for(String[] columna:lista){
+    //      MostClaimedRewardDTO dto=new MostClaimedRewardDTO();
+    //      dto.setRecompensa(columna[0]);
+    //      dto.setCantidadreclamos(Integer.parseInt(columna[1]));
+    //      listaDTO.add(dto);
+    //  }
+    //  return listaDTO;
+    //}
 
     @GetMapping("/proxvencer")
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")

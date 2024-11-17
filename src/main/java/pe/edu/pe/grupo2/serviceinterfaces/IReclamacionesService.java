@@ -12,5 +12,6 @@ public interface IReclamacionesService {
     public Reclamaciones listId(int idReclamaciones);
     public void delete(int idReclamaciones);
     public void update(Reclamaciones reclamaciones);
+    public List<String[]> cantidadReclamaciones();
 
 }

@@ -12,7 +12,5 @@ public interface IRecompensasService {
     public void delete(int idRecompensas);
     public void update(Recompensas recompensas);
 
-    public List<String[]> cantidadRecompensas();
-
     public List<String[]> proximoVencimiento();
 }
