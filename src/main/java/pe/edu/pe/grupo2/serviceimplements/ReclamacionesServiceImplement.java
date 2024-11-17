@@ -37,4 +37,9 @@ public class ReclamacionesServiceImplement implements IReclamacionesService {
     public void update(Reclamaciones reclamaciones) {
         rR.save(reclamaciones);
     }
+
+    @Override
+    public List<String[]> cantidadReclamaciones() {
+        return rR.cantidadReclamaciones();
+    }
 }
