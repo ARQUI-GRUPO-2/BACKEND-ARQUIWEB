@@ -41,4 +41,9 @@ public class JwtUserDetailsService implements UserDetailsService {
         UserDetails ud = new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.getEnabled(), true, true, true, roles);
         return ud;
     }
+
+
+    public User getUserByUsername(String username) {
+        return repo.findByUsername(username);
+    }
 }

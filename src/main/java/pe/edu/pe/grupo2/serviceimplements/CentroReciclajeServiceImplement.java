@@ -31,7 +31,7 @@ public class CentroReciclajeServiceImplement implements ICentroReciclajeService 
 
 
     @Override
-    public List<String[]> centroPopular() { return cR.centroPopular(); }
+    public List<String[]> centroFavoritos() { return cR.centroFavoritos(); }
 
     @Override
     public List<String[]> centroUsuarios() { return cR.centroUsuarios(); }

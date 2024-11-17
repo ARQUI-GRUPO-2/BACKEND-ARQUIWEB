@@ -14,9 +14,9 @@ public class Actividad {
     private LocalDate fecha_recepcion;
 
     @Column(name = "puntos",nullable = false, length = 155)
-    private Double puntos;
+    private int puntos;
     @Column(name = "cantidad",nullable = false, length = 150)
-    private String cantidad;
+    private int cantidad;
     @ManyToOne
     @JoinColumn(name = "id_tipo_de_actividad")
     private TipoActividad ta;

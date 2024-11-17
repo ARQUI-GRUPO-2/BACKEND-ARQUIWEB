@@ -48,12 +48,34 @@ public class UserServiceImplement implements UserService {
     }
 
     @Override
-    public void update(User u) {
-        // Verificar si la contraseña ha cambiado
-        if (u.getPassword() != null) {
-            String encryptedPassword = passwordEncoder.encode(u.getPassword());
-            u.setPassword(encryptedPassword);
+    public void update(User ur) {
+        User existingUser = uR.findById(ur.getIdUser()).orElse(null);
+
+        if (existingUser != null) {
+            // Verificar si el campo de contraseña no está vacío o nulo
+            if (ur.getPassword() != null && !ur.getPassword().isEmpty()) {
+                // Encriptar y actualizar la nueva contraseña
+                existingUser.setPassword(passwordEncoder.encode(ur.getPassword()));
+            }
+
+            // Actualizar otros campos
+            existingUser.setNombres(ur.getNombres());
+            existingUser.setApellidos(ur.getApellidos());
+            existingUser.setUsername(ur.getUsername());
+            existingUser.setDni(ur.getDni());
+            existingUser.setEdad(ur.getEdad());
+            existingUser.setGenero(ur.getGenero());
+            existingUser.setDistrito(ur.getDistrito());
+            existingUser.setTelefono(ur.getTelefono());
+            existingUser.setCorreo(ur.getCorreo());
+            existingUser.setEnabled(ur.getEnabled());
+            existingUser.setRol(ur.getRol());
+
+            // Guardar los cambios en la base de datos
+            uR.save(existingUser);
         }
+
+
     }
 
     @Override
@@ -63,22 +85,19 @@ public class UserServiceImplement implements UserService {
     }
 
     @Override
-    public List<User> BuscarGenero(String genero) {
-        return uR.BuscarGenero(genero);
+    public List<User> BuscarDistrito(String distrito) {
+        return uR.BuscarDistrito(distrito);
     }
 
-    @Override
-    public List<String> obtenerUsuarioConCentrosDeReciclaje(int idUser) {
-        return uR.obtenerUsuarioConCentrosDeReciclaje(idUser);
-    }
-    @Override
-    public List<String> obtenerUsuarioConCentrosDeReciclajeFavorito(Boolean favoritos) {
-        return uR.findUserWithCentrosReciclajeFiltered(favoritos);
-    }
 
     @Override
     public List<String[]> Cantidadnotificaciones_deusuario_rangodias(LocalDate diaInicio, LocalDate diaFin) {
         return uR.Cantidadnotificaciones_deusuario_rangodias(diaInicio, diaFin);
+    }
+
+    @Override
+    public List<String[]> ObtenerCantidadUsuariosPorDistrito() {
+        return uR.ObtenerCantidadUsuariosPorDistrito();
     }
 
     /*@Override

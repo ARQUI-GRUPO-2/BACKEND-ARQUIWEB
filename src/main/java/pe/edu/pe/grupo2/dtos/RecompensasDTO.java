@@ -1,6 +1,7 @@
 package pe.edu.pe.grupo2.dtos;
 
 import pe.edu.pe.grupo2.entities.Actividad;
+import pe.edu.pe.grupo2.entities.User;
 
 import java.time.LocalDate;
 
@@ -9,8 +10,6 @@ public class RecompensasDTO {
     private String nombreRecompensa;
     private LocalDate fechaVencimiento;
     private String descripcionRecompensa;
-
-    private Actividad ac;
 
     public int getIdRecompensas() {
         return idRecompensas;
@@ -35,14 +34,6 @@ public class RecompensasDTO {
 
     public void setFechaVencimiento(LocalDate fechaVencimiento) {
         this.fechaVencimiento = fechaVencimiento;
-    }
-
-    public Actividad getAc() {
-        return ac;
-    }
-
-    public void setAc(Actividad ac) {
-        this.ac = ac;
     }
 
     public String getDescripcionRecompensa() {

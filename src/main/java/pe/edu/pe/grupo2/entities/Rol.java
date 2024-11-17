@@ -12,6 +12,14 @@ public class Rol {
     @Column(name = "nombreRol", nullable = false, length = 100)
     private String nombreRol;
 
+    public Rol() {
+    }
+
+    public Rol(int idRol, String nombreRol) {
+        this.idRol = idRol;
+        this.nombreRol = nombreRol;
+    }
+
     public int getIdRol() {
         return idRol;
     }
