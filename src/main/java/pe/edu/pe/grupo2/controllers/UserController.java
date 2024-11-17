@@ -7,6 +7,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.pe.grupo2.dtos.CantidadNotiUsuarioDTO;
 import pe.edu.pe.grupo2.dtos.ObtenerCantidadUsuariosPorDistritoDTO;
+
 import pe.edu.pe.grupo2.dtos.UserCentroReciclajeDTO;
 import pe.edu.pe.grupo2.dtos.UserDTO;
 import pe.edu.pe.grupo2.entities.User;
@@ -105,6 +106,20 @@ public class UserController {
         }
         return dtoLista;
     }
+    @GetMapping("/conteo_notificaciones_rangoHoras")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public List<CantidadNotiUsuarioDTO> Cantidadnotificaciones_deusuario_rangohoras(@RequestParam LocalDate diaInicio, @RequestParam LocalDate diaFin) {
+        List<String[]> filaLista = uS.Cantidadnotificaciones_deusuario_rangohoras(diaInicio, diaFin);
+        List<CantidadNotiUsuarioDTO> dtoLista = new ArrayList<>();
+        for(String[] columna: filaLista){
+            CantidadNotiUsuarioDTO dto = new CantidadNotiUsuarioDTO();
+            dto.setNombres(columna[0]);
+            dto.setCantidad_notif(Integer.parseInt(columna[1]));
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }
+
 
 }
 

@@ -13,9 +13,7 @@ import pe.edu.pe.grupo2.serviceinterfaces.UserService;
 
 
 import java.time.LocalDate;
-
 import java.time.LocalTime;
-
 import java.util.Collections;
 
 import java.util.List;
@@ -98,6 +96,10 @@ public class UserServiceImplement implements UserService {
     @Override
     public List<String[]> ObtenerCantidadUsuariosPorDistrito() {
         return uR.ObtenerCantidadUsuariosPorDistrito();
+    }
+    @Override
+    public List<String[]> Cantidadnotificaciones_deusuario_rangohoras(LocalDate diaInicio, LocalDate diaFin) {
+        return uR.Cantidadnotificaciones_deusuario_rangohoras(diaInicio, diaFin);
     }
 
     /*@Override

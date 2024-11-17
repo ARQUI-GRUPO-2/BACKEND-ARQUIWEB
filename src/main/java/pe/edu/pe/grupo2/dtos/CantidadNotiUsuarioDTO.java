@@ -1,6 +1,7 @@
 package pe.edu.pe.grupo2.dtos;
 
 public class CantidadNotiUsuarioDTO {
+ 
         private String nombres;
         private int cantidad_notif;
 
