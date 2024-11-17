@@ -21,18 +21,15 @@ public class Recompensas {
     @Column(name = "fechaVencimiento", nullable = false)
     private LocalDate fechaVencimiento;
 
-    @ManyToOne
-    @JoinColumn(name="idActividad")
-    private Actividad ac;
 
     public Recompensas() {
     }
 
-    public Recompensas(int idRecompensas, String nombreRecompensa, LocalDate fechaVencimiento,String descripcionRecompensa) {
+    public Recompensas(int idRecompensas, String nombreRecompensa, String descripcionRecompensa, LocalDate fechaVencimiento) {
         this.idRecompensas = idRecompensas;
         this.nombreRecompensa = nombreRecompensa;
-        this.fechaVencimiento = fechaVencimiento;
         this.descripcionRecompensa = descripcionRecompensa;
+        this.fechaVencimiento = fechaVencimiento;
     }
 
     public int getIdRecompensas() {
@@ -51,6 +48,13 @@ public class Recompensas {
         this.nombreRecompensa = nombreRecompensa;
     }
 
+    public String getDescripcionRecompensa() {
+        return descripcionRecompensa;
+    }
+
+    public void setDescripcionRecompensa(String descripcionRecompensa) {
+        this.descripcionRecompensa = descripcionRecompensa;
+    }
 
     public LocalDate getFechaVencimiento() {
         return fechaVencimiento;
@@ -58,21 +62,5 @@ public class Recompensas {
 
     public void setFechaVencimiento(LocalDate fechaVencimiento) {
         this.fechaVencimiento = fechaVencimiento;
-    }
-
-    public Actividad getAc() {
-        return ac;
-    }
-
-    public void setAc(Actividad ac) {
-        this.ac = ac;
-    }
-
-    public String getDescripcionRecompensa() {
-        return descripcionRecompensa;
-    }
-
-    public void setDescripcionRecompensa(String descripcionRecompensa) {
-        this.descripcionRecompensa = descripcionRecompensa;
     }
 }

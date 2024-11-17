@@ -15,17 +15,19 @@ public interface ICentroReciclajeRepository extends JpaRepository<CentroReciclaj
     public List<CentroReciclaje> findByDireccion(@Param("direccion") String direccion);
 
 
-    @Query(value = "SELECT c.direccion, COUNT(*) AS cantidad_favoritos \n" +
-            " FROM centro_reciclaje c \n" +
-            " WHERE c.favoritos = TRUE \n" +
-            " GROUP BY c.direccion \n" +
-            " ORDER BY cantidad_favoritos DESC;", nativeQuery = true)
-    public List<String[]> centroPopular();
+    @Query(value = "SELECT c.direccion, COUNT(f.id_centro_reciclaje) AS cantidad_favoritos\n" +
+            "FROM centro_reciclaje c \n" +
+            "LEFT JOIN favoritos f ON c.id_centro_reciclaje = f.id_centro_reciclaje\n" +
+            "WHERE f.id_centro_reciclaje IS NOT NULL\n" +
+            "GROUP BY c.direccion\n" +
+            "ORDER BY cantidad_favoritos DESC", nativeQuery = true)
+    public List<String[]> centroFavoritos();
 
-    @Query(value ="SELECT c.direccion, COUNT(DISTINCT c.id_user) AS cantidadUsuarios " +
-            " FROM centro_reciclaje c " +
-            " INNER JOIN usuario u ON c.id_user = u.id_user " +
-            " GROUP BY c.direccion", nativeQuery = true)
+    @Query(value ="SELECT c.direccion, COUNT(DISTINCT a.id_User) AS cantidadUsuarios \n" +
+            " FROM centro_reciclaje c \n" +
+            " INNER JOIN actividad a ON c.id_centro_Reciclaje = a.id_centro_reciclaje \n" +
+            " GROUP BY c.direccion \n" +
+            " ORDER BY cantidadUsuarios DESC", nativeQuery = true)
     public List<String[]> centroUsuarios();
 
 }

@@ -71,7 +71,7 @@ public class CentroReciclajeController {
         for (String[] columna:lista) {
             CenterUsersDTO dto = new CenterUsersDTO();
             dto.setDireccion(columna[0]);
-            dto.setCantidadUsuarios(Integer.parseInt(columna[1]));
+            dto.setUsername(columna[1]);
             listaDTO.add(dto);
         }
         return listaDTO;
@@ -79,8 +79,8 @@ public class CentroReciclajeController {
 
     @GetMapping("/mas_popular")
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<CenterFavoriteDTO> centroMasPopular() {
-        List<String[]> lista = cS.centroPopular();
+    public List<CenterFavoriteDTO> centroMasFavoritos() {
+        List<String[]> lista = cS.centroFavoritos();
         List<CenterFavoriteDTO> listaDTO = new ArrayList<>();
         for (String[] columna:lista) {
             CenterFavoriteDTO dto = new CenterFavoriteDTO();

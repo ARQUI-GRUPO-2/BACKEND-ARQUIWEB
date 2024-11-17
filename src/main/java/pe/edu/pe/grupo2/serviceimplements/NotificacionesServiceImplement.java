@@ -40,7 +40,7 @@ public class NotificacionesServiceImplement implements INotificacionesService {
 
     @Override
     public void update(Notificaciones n) {
-        nR.save(n);
+        nR.save(nR.save(n));
 
     }
 

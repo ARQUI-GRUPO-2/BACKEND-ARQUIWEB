@@ -15,16 +15,13 @@ public interface UserService {
 
     public List<User> list();
     public void insert(User u);
-
     public User listId(int id);
-    public void update(User u);
+    public void update(User ur);
     public void delete(int id);
-    public List<User> BuscarGenero(String genero);
-    public List<String> obtenerUsuarioConCentrosDeReciclaje(int idUser);
-    public List<String> obtenerUsuarioConCentrosDeReciclajeFavorito(Boolean favoritos);
-    public List<String[]> Cantidadnotificaciones_deusuario_rangodias(LocalDate diaInicio, LocalDate diaFin);
+    public List<User> BuscarDistrito(String distrito);
 
-    /*public List<User> getAllUsers(); // Obtener todos los usuarios (para ADMIN)
-    public List<User> getUsersByUsername(String username); // Obtener solo el perfil de un usuario*/
+    public List<String[]> Cantidadnotificaciones_deusuario_rangodias(LocalDate diaInicio, LocalDate diaFin);
+    public List<String[]> ObtenerCantidadUsuariosPorDistrito();
+
 
 }
