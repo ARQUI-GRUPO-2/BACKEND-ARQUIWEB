@@ -14,23 +14,21 @@ public class Recompensas {
     @Column(name = "nombreRecompensa", nullable = false, length = 200)
     private String nombreRecompensa;
 
-    @Column(name = "codigoQR", nullable = false, length = 1000)
-    private String codigoQR;
+    @Column(name = "descripcionRecompensa", nullable = false, length = 200)
+    private String descripcionRecompensa;
+
 
     @Column(name = "fechaVencimiento", nullable = false)
     private LocalDate fechaVencimiento;
 
-    @ManyToOne
-    @JoinColumn(name="idActividad")
-    private Actividad ac;
 
     public Recompensas() {
     }
 
-    public Recompensas(int idRecompensas, String nombreRecompensa, String codigoQR, LocalDate fechaVencimiento) {
+    public Recompensas(int idRecompensas, String nombreRecompensa, String descripcionRecompensa, LocalDate fechaVencimiento) {
         this.idRecompensas = idRecompensas;
         this.nombreRecompensa = nombreRecompensa;
-        this.codigoQR = codigoQR;
+        this.descripcionRecompensa = descripcionRecompensa;
         this.fechaVencimiento = fechaVencimiento;
     }
 
@@ -50,12 +48,12 @@ public class Recompensas {
         this.nombreRecompensa = nombreRecompensa;
     }
 
-    public String getCodigoQR() {
-        return codigoQR;
+    public String getDescripcionRecompensa() {
+        return descripcionRecompensa;
     }
 
-    public void setCodigoQR(String codigoQR) {
-        this.codigoQR = codigoQR;
+    public void setDescripcionRecompensa(String descripcionRecompensa) {
+        this.descripcionRecompensa = descripcionRecompensa;
     }
 
     public LocalDate getFechaVencimiento() {
@@ -64,13 +62,5 @@ public class Recompensas {
 
     public void setFechaVencimiento(LocalDate fechaVencimiento) {
         this.fechaVencimiento = fechaVencimiento;
-    }
-
-    public Actividad getAc() {
-        return ac;
-    }
-
-    public void setAc(Actividad ac) {
-        this.ac = ac;
     }
 }

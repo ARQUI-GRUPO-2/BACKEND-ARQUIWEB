@@ -13,6 +13,7 @@ public class ActividadServiceImplement implements IActividadService {
 
     @Autowired
     private IActividadRepository aR;
+
     @Override
     public List<Actividad> list() {return aR.findAll();}
     @Override
@@ -28,12 +29,7 @@ public class ActividadServiceImplement implements IActividadService {
     @Override
     public void delete(int id){
         aR.deleteById(id);}
-    @Override
-    public List<Actividad> buscarNombre(String nombre){ return aR.buscarNombre(nombre);}
 
-    @Override
-    public List<String[]> puntosxactividadService() {return aR.puntosxactividad();
-    }
 
     @Override
     public List<String[]> ActividadesporCentro() {

@@ -6,6 +6,7 @@ import pe.edu.pe.grupo2.entities.Rol;
 import pe.edu.pe.grupo2.repositories.IRolRepository;
 import pe.edu.pe.grupo2.serviceinterfaces.IRolService;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -28,4 +29,9 @@ public class RolServiceImplement implements IRolService {
 
     @Override
     public void update(Rol rol) { rR.save(rol); }
+
+    @Override
+    public List<String[]> cantidadUsuariosPorRol() {
+        return rR.cantidadUsuariosPorRol();
+    }
 }

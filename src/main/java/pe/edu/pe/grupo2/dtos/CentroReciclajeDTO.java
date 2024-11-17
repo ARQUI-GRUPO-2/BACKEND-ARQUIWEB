@@ -8,11 +8,8 @@ public class CentroReciclajeDTO {
 
     private int idCentroReciclaje;
     private String direccion;
-    private String latitud;
-    private String longitud;
-    private LocalTime horario;
-    private Boolean favoritos;
-    private User us;
+    private float latitud;
+    private float longitud;
 
     public int getIdCentroReciclaje() {
         return idCentroReciclaje;
@@ -30,43 +27,20 @@ public class CentroReciclajeDTO {
         this.direccion = direccion;
     }
 
-    public String getLatitud() {
+    public float getLatitud() {
         return latitud;
     }
 
-    public void setLatitud(String latitud) {
+    public void setLatitud(float latitud) {
         this.latitud = latitud;
     }
 
-    public String getLongitud() {
+    public float getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(String longitud) {
+    public void setLongitud(float longitud) {
         this.longitud = longitud;
     }
 
-    public LocalTime getHorario() {
-        return horario;
-    }
-
-    public void setHorario(LocalTime horario) {
-        this.horario = horario;
-    }
-
-    public Boolean getFavoritos() {
-        return favoritos;
-    }
-
-    public void setFavoritos(Boolean favoritos) {
-        this.favoritos = favoritos;
-    }
-
-    public User getUs() {
-        return us;
-    }
-
-    public void setUs(User us) {
-        this.us = us;
-    }
 }

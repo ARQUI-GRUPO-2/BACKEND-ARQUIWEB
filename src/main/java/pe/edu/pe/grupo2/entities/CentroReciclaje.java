@@ -15,35 +15,22 @@ public class CentroReciclaje {
     private String direccion;
 
     @Column(name = "latitud", nullable = false, length = 100)
-    private String latitud;
+    private float latitud;
 
     @Column(name = "longitud", nullable = false, length = 2100)
-    private String longitud;
-
-    @Column(name = "horario", nullable = false)
-    private LocalTime horario;
-
-    @Column(name = "favoritos")
-    private Boolean favoritos;
-
-    @ManyToOne /*PARA HACER RELACION FK  */
-    @JoinColumn(name = "idUser")
-    private User us;
+    private float longitud;
 
     public CentroReciclaje() {
 
     }
 
-    public CentroReciclaje(int idCentroReciclaje, String direccion, String latitud, String longitud, String tipoReciclaje, LocalTime horario, Boolean favoritos, User us) {
+    public CentroReciclaje(int idCentroReciclaje, String direccion, float latitud, float longitud) {
         this.idCentroReciclaje = idCentroReciclaje;
         this.direccion = direccion;
         this.latitud = latitud;
         this.longitud = longitud;
-        this.horario = horario;
-        this.favoritos = false;
-        this.us = us;
     }
-    
+
     public int getIdCentroReciclaje() {
         return idCentroReciclaje;
     }
@@ -60,35 +47,20 @@ public class CentroReciclaje {
         this.direccion = direccion;
     }
 
-    public String getLatitud() {
+    public float getLatitud() {
         return latitud;
     }
 
-    public void setLatitud(String latitud) {
+    public void setLatitud(float latitud) {
         this.latitud = latitud;
     }
 
-    public String getLongitud() {
+    public float getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(String longitud) {
+    public void setLongitud(float longitud) {
         this.longitud = longitud;
     }
 
-    public LocalTime getHorario() {
-        return horario;
-    }
-
-    public void setHorario(LocalTime horario) {
-        this.horario = horario;
-    }
-
-    public Boolean getFavoritos() { return favoritos; }
-
-    public void setFavoritos(Boolean favoritos) { this.favoritos = favoritos; }
-
-    public User getUs() { return us;}
-
-    public void setUs(User us) { this.us = us;}
 }

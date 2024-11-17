@@ -5,24 +5,19 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "Rol")
 public class Rol {
-    @Id
+   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idRol;
 
     @Column(name = "nombreRol", nullable = false, length = 100)
     private String nombreRol;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
     public Rol() {
     }
 
-    public Rol(int idRol, String nombreRol, User user) {
+    public Rol(int idRol, String nombreRol) {
         this.idRol = idRol;
         this.nombreRol = nombreRol;
-        this.user = user;
     }
 
     public int getIdRol() {
@@ -41,11 +36,4 @@ public class Rol {
         this.nombreRol = nombreRol;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

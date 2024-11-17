@@ -29,14 +29,11 @@ public class CentroReciclajeServiceImplement implements ICentroReciclajeService 
     @Override
     public void update(CentroReciclaje centroReciclaje) { cR.save(centroReciclaje); }
 
-    @Override
-    public List<String[]> actividadxnombreService() {
-        return cR.actividadxnombre();
-    }
 
     @Override
-    public List<String[]> centroPopular() { return cR.centroPopular(); }
+    public List<String[]> centroFavoritos() { return cR.centroFavoritos(); }
 
     @Override
     public List<String[]> centroUsuarios() { return cR.centroUsuarios(); }
 }
+

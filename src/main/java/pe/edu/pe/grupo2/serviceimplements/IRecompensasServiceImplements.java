@@ -38,11 +38,6 @@ public class IRecompensasServiceImplements implements IRecompensasService {
     }
 
     @Override
-    public List<String[]> cantidadRecompensas() {
-        return rR.cantidadRecompensas();
-    }
-
-    @Override
     public List<String[]> proximoVencimiento() {
         return rR.proximoVencimiento();
     }

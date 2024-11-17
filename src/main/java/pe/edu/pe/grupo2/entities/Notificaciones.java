@@ -16,31 +16,16 @@ public class Notificaciones {
     @Column(name="mensaje", nullable = false, length = 225)
     private String mensaje;
 
-    @Column(name="estado")
-    private Boolean estado;
-
     @Column(name = "fecha_notificacion", nullable = false)
     private LocalDate fecha;
 
-    @ManyToOne
-    @JoinColumn(name = "idNoticias")
-    private Noticias noti;
-
-    @ManyToOne
-    @JoinColumn(name = "idUser")
-    private User us;
-
     public Notificaciones() {
-
     }
 
-    public Notificaciones(int idNotificaciones, String mensaje, Boolean estado, LocalDate fecha,Noticias noti, User us ) {
+    public Notificaciones(int idNotificaciones, String mensaje, LocalDate fecha) {
         this.idNotificaciones = idNotificaciones;
         this.mensaje = mensaje;
-        this.estado = false;
         this.fecha = fecha;
-        this.noti = noti;
-        this.us = us;
     }
 
     public int getIdNotificaciones() {
@@ -59,12 +44,6 @@ public class Notificaciones {
         this.mensaje = mensaje;
     }
 
-    public Boolean getEstado() {return estado;}
-
-    public void setEstado(Boolean estado) {
-        this.estado = estado;
-    }
-
     public LocalDate getFecha() {
         return fecha;
     }
@@ -72,16 +51,4 @@ public class Notificaciones {
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
-
-    public Noticias getNoti() {
-        return noti;
-    }
-
-    public void setNoti(Noticias noti) {
-        this.noti = noti;
-    }
-
-    public User getUs() {return us;}
-
-    public void setUs(User us) {this.us = us;}
 }

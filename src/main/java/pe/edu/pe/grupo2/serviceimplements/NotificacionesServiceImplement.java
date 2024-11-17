@@ -1,12 +1,14 @@
 package pe.edu.pe.grupo2.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import pe.edu.pe.grupo2.entities.Notificaciones;
 import pe.edu.pe.grupo2.entities.User;
 import pe.edu.pe.grupo2.repositories.INotificacionesRepository;
 import pe.edu.pe.grupo2.serviceinterfaces.INotificacionesService;
 
+import java.time.LocalDate;
 import java.util.List;
 @Service
 public class NotificacionesServiceImplement implements INotificacionesService {
@@ -38,7 +40,19 @@ public class NotificacionesServiceImplement implements INotificacionesService {
 
     @Override
     public void update(Notificaciones n) {
-        nR.save(n);
+        nR.save(nR.save(n));
 
     }
+
+    @Override
+    public List<String[]> PromedioNotificacionesPorDiaUsuario(LocalDate fechaInicio, LocalDate fechaFin, int userId) {
+        return nR.PromedioNotificacionesPorDiaUsuario(fechaInicio, fechaFin, userId);
+    }
+
+    @Override
+    public List<String[]> Top3UsuariosConMasNotificaciones(LocalDate fechaInicio, LocalDate fechaFin) {
+        return nR.Top3UsuariosConMasNotificaciones(fechaInicio, fechaFin);
+    }
+
+
 }

@@ -22,13 +22,13 @@ public class User {
 
     @Column(name = "dni", nullable = false, length = 8)
     private String dni;
-    
+
     @Column(name = "edad", nullable = false, length = 3)
     private int edad;
-    
+
     @Column(name = "genero", nullable = false, length = 9)
     private String genero;
-    
+
     @Column(name = "distrito", nullable = false)
     private String distrito;
 
@@ -44,15 +44,14 @@ public class User {
     @Column(name = "enabled")
     private Boolean enabled;
 
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private List<Rol> roles;
+    @ManyToOne
+    @JoinColumn(name = "rol_id")
+    private Rol rol;
 
     public User() {
     }
 
-    public User(int idUser, String nombres, String apellidos, String username, String dni, int edad, String genero, String distrito, String telefono, String correo, String password, Boolean enabled, List<Rol> roles) {
+    public User(int idUser, String nombres, String apellidos, String username, String dni, int edad, String genero, String distrito, String telefono, String correo, String password, Boolean enabled, Rol rol) {
         this.idUser = idUser;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -65,7 +64,7 @@ public class User {
         this.correo = correo;
         this.password = password;
         this.enabled = enabled;
-        this.roles = roles;
+        this.rol = rol;
     }
 
     public int getIdUser() {
@@ -164,13 +163,11 @@ public class User {
         this.enabled = enabled;
     }
 
-    public List<Rol> getRoles() {
-        return roles;
+    public Rol getRol() {
+        return rol;
     }
 
-    public void setRoles(List<Rol> roles) {
-        this.roles = roles;
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 }
-
-

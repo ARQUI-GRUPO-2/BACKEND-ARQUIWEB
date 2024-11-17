@@ -8,19 +8,16 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class NotificacionesDTO {
-    private int idNotificacion;
+    private int idNotificaciones;
     private String mensaje;
-    private Boolean estado;
     private LocalDate fecha;
-    private Noticias noti;
-    private User us;
 
-    public int getIdNotificacion() {
-        return idNotificacion;
+    public int getIdNotificaciones() {
+        return idNotificaciones;
     }
 
-    public void setIdNotificacion(int idNotificacion) {
-        this.idNotificacion = idNotificacion;
+    public void setIdNotificaciones(int idNotificaciones) {
+        this.idNotificaciones = idNotificaciones;
     }
 
     public String getMensaje() {
@@ -31,14 +28,6 @@ public class NotificacionesDTO {
         this.mensaje = mensaje;
     }
 
-    public Boolean getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Boolean estado) {
-        this.estado = estado;
-    }
-
     public LocalDate getFecha() {
         return fecha;
     }
@@ -47,19 +36,4 @@ public class NotificacionesDTO {
         this.fecha = fecha;
     }
 
-    public Noticias getNoti() {
-        return noti;
-    }
-
-    public void setNoti(Noticias noti) {
-        this.noti = noti;
-    }
-
-    public User getUs() {
-        return us;
-    }
-
-    public void setUs(User us) {
-        this.us = us;
-    }
 }

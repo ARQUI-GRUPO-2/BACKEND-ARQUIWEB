@@ -4,10 +4,10 @@ import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
+import io.swagger.v3.oas.models.servers.Server;
 import org.springdoc.core.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import io.swagger.v3.oas.models.servers.Server;
 
 import java.util.List;
 
@@ -22,7 +22,8 @@ public class SwaggerConfig {
                                 .scheme("bearer")
                                 .bearerFormat("JWT")))
                 .addSecurityItem(new SecurityRequirement().addList("Ingrese Token:"))
-        .servers(List.of(new Server().url("https://proud-radiance-production.up.railway.app")));
+    .servers(List.of(new Server().url("https://grupo-2arqui-production-backend.up.railway.app")));
+  //      .servers(List.of(new Server().url("http://localhost:4200")));
 
     }
 

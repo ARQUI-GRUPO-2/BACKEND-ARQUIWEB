@@ -7,18 +7,10 @@ import java.util.List;
 
 public interface IRecompensasService {
     public void insert(Recompensas recompensas);
-
     public List<Recompensas> list();
-
     public Recompensas listId(int idRecompensas);
-
     public void delete(int idRecompensas);
-
-    //Recompensas listId(int idRecompensas);
-
     public void update(Recompensas recompensas);
-
-    public List<String[]> cantidadRecompensas();
 
     public List<String[]> proximoVencimiento();
 }

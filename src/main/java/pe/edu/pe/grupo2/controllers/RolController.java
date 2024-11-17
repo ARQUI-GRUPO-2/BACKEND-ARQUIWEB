@@ -2,19 +2,20 @@ package pe.edu.pe.grupo2.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.pe.grupo2.dtos.CantidadUsuarioporRolDTO;
 import pe.edu.pe.grupo2.dtos.RolDTO;
 import pe.edu.pe.grupo2.entities.Rol;
 import pe.edu.pe.grupo2.serviceinterfaces.IRolService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/roles")
-@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
-@PreAuthorize("hasAuthority('ADMINISTRADOR')")
+//@CrossOrigin(origins = "https://proud-radiance-production.up.railway.app")
+//@PreAuthorize("hasAuthority('ADMINISTRADOR')")
 public class RolController {
 
     @Autowired
@@ -52,5 +53,18 @@ public class RolController {
         ModelMapper m=new ModelMapper();
         RolDTO dto=m.map(rS.listId(id),RolDTO.class);
         return dto;
+    }
+    @GetMapping("/cantidaddeUsuariosPorRol")
+    //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public List<CantidadUsuarioporRolDTO> cantidadUsuariosPorRol() {
+        List<String[]> filaLista = rS.cantidadUsuariosPorRol();
+        List<CantidadUsuarioporRolDTO> dtoLista = new ArrayList<>();
+        for(String[] columna: filaLista){
+            CantidadUsuarioporRolDTO dto = new CantidadUsuarioporRolDTO();
+            dto.setNombres(columna[0]);
+            dto.setCantidad_usuarios(Integer.parseInt(columna[1]));
+            dtoLista.add(dto);
+        }
+        return dtoLista;
     }
 }

@@ -1,16 +1,15 @@
 package pe.edu.pe.grupo2.dtos;
 
 import pe.edu.pe.grupo2.entities.Actividad;
+import pe.edu.pe.grupo2.entities.User;
 
 import java.time.LocalDate;
 
 public class RecompensasDTO {
     private int idRecompensas;
     private String nombreRecompensa;
-    private String codigoQR;
     private LocalDate fechaVencimiento;
-
-    private Actividad ac;
+    private String descripcionRecompensa;
 
     public int getIdRecompensas() {
         return idRecompensas;
@@ -28,13 +27,6 @@ public class RecompensasDTO {
         this.nombreRecompensa = nombreRecompensa;
     }
 
-    public String getCodigoQR() {
-        return codigoQR;
-    }
-
-    public void setCodigoQR(String codigoQR) {
-        this.codigoQR = codigoQR;
-    }
 
     public LocalDate getFechaVencimiento() {
         return fechaVencimiento;
@@ -44,11 +36,11 @@ public class RecompensasDTO {
         this.fechaVencimiento = fechaVencimiento;
     }
 
-    public Actividad getAc() {
-        return ac;
+    public String getDescripcionRecompensa() {
+        return descripcionRecompensa;
     }
 
-    public void setAc(Actividad ac) {
-        this.ac = ac;
+    public void setDescripcionRecompensa(String descripcionRecompensa) {
+        this.descripcionRecompensa = descripcionRecompensa;
     }
 }
