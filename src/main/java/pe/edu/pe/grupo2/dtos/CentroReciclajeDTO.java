@@ -11,7 +11,6 @@ public class CentroReciclajeDTO {
     private float latitud;
     private float longitud;
     private String horario;
-    private Boolean favoritos;
     private User us;
 
     public int getIdCentroReciclaje() {
@@ -52,14 +51,6 @@ public class CentroReciclajeDTO {
 
     public void setHorario(String horario) {
         this.horario = horario;
-    }
-
-    public Boolean getFavoritos() {
-        return favoritos;
-    }
-
-    public void setFavoritos(Boolean favoritos) {
-        this.favoritos = favoritos;
     }
 
     public User getUs() {

@@ -23,9 +23,6 @@ public class CentroReciclaje {
     @Column(name = "horario", nullable = false)
     private String horario;
 
-    @Column(name = "favoritos")
-    private Boolean favoritos;
-
     @ManyToOne
     @JoinColumn(name = "idUser")
     private User us;
@@ -34,16 +31,15 @@ public class CentroReciclaje {
 
     }
 
-    public CentroReciclaje(int idCentroReciclaje, String direccion, float latitud, float longitud, String tipoReciclaje, String horario, Boolean favoritos, User us) {
+    public CentroReciclaje(int idCentroReciclaje, String direccion, float latitud, float longitud, String horario, User us) {
         this.idCentroReciclaje = idCentroReciclaje;
         this.direccion = direccion;
         this.latitud = latitud;
         this.longitud = longitud;
         this.horario = horario;
-        this.favoritos = favoritos;
         this.us = us;
     }
-    
+
     public int getIdCentroReciclaje() {
         return idCentroReciclaje;
     }
@@ -79,10 +75,6 @@ public class CentroReciclaje {
     public String getHorario() {return horario;}
 
     public void setHorario(String horario) {this.horario = horario;}
-
-    public Boolean getFavoritos() { return favoritos; }
-
-    public void setFavoritos(Boolean favoritos) { this.favoritos = favoritos; }
 
     public User getUs() { return us;}
 

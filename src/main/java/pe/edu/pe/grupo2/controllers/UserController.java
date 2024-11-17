@@ -45,22 +45,6 @@ public class UserController {
     }
 
 
-   /* @GetMapping
-        public List<UserDTO> listar(@AuthenticationPrincipal User currentUser) {
-            ModelMapper m = new ModelMapper();
-
-            // Verificar el rol del usuario
-            if ("ADMI".equals(currentUser.getRol().getNombreRol())) {
-                // Si es admin, listar todos los usuarios
-                return uS.list().stream().map(x -> m.map(x, UserDTO.class)).collect(Collectors.toList());
-            } else if ("CLIENTE".equals(currentUser.getRol().getNombreRol())) {
-                // Si es cliente, listar solo su propio usuario
-                return List.of(m.map(currentUser, UserDTO.class));
-            }
-
-            // Si el rol no es válido, retornar lista vacía
-            return List.of();
-        }*/
 
     @GetMapping("/{id}")
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")

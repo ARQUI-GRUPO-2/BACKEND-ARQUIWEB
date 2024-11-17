@@ -72,10 +72,7 @@ public class UserServiceImplement implements UserService {
     public List<String> obtenerUsuarioConCentrosDeReciclaje(int idUser) {
         return uR.obtenerUsuarioConCentrosDeReciclaje(idUser);
     }
-    @Override
-    public List<String> obtenerUsuarioConCentrosDeReciclajeFavorito(Boolean favoritos) {
-        return uR.findUserWithCentrosReciclajeFiltered(favoritos);
-    }
+
 
     @Override
     public List<String[]> Cantidadnotificaciones_deusuario_rangodias(LocalDate diaInicio, LocalDate diaFin) {

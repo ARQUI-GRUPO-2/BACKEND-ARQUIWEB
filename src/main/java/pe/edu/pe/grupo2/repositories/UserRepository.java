@@ -33,11 +33,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
             "WHERE u.idUser = :idUser")
     public List<String> obtenerUsuarioConCentrosDeReciclaje(@Param("idUser") Integer idUser);
 
-    @Query("SELECT u.nombres, u.edad, cr.direccion, cr.horario " +
-            "FROM User u " +
-            "JOIN CentroReciclaje cr ON cr.us.idUser = u.idUser " +
-            "WHERE cr.favoritos = :favoritos")
-    public List<String> findUserWithCentrosReciclajeFiltered(@Param("favoritos") Boolean favoritos);
 
     //Cantidad de Notificaciones de un usuario en un rango de dias
     @Query(value = "SELECT us.nombres, COUNT(*) AS cantidad_notif " +
