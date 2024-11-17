@@ -27,13 +27,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query("select ur from User ur where ur.distrito like %:distrito%")
     public List<User> BuscarDistrito(@Param("distrito") String Distrito);
 
-    @Query("SELECT u.nombres, u.edad, cr.direccion, cr.horario " +
-            "FROM User u " +
-            "JOIN CentroReciclaje cr ON cr.us.idUser = u.idUser " +
-            "WHERE u.idUser = :idUser")
-    public List<String> obtenerUsuarioConCentrosDeReciclaje(@Param("idUser") Integer idUser);
-
-
     //Cantidad de Notificaciones de un usuario en un rango de dias
     @Query(value = "SELECT us.nombres, COUNT(*) AS cantidad_notif " +
             "FROM notificaciones AS noti " +

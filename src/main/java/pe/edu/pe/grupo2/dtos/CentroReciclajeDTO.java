@@ -10,8 +10,6 @@ public class CentroReciclajeDTO {
     private String direccion;
     private float latitud;
     private float longitud;
-    private String horario;
-    private User us;
 
     public int getIdCentroReciclaje() {
         return idCentroReciclaje;
@@ -45,19 +43,4 @@ public class CentroReciclajeDTO {
         this.longitud = longitud;
     }
 
-    public String getHorario() {
-        return horario;
-    }
-
-    public void setHorario(String horario) {
-        this.horario = horario;
-    }
-
-    public User getUs() {
-        return us;
-    }
-
-    public void setUs(User us) {
-        this.us = us;
-    }
 }

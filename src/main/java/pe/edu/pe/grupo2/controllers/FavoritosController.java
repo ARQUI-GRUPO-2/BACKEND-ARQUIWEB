@@ -4,7 +4,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.pe.grupo2.dtos.FavoritosDTO;
-import pe.edu.pe.grupo2.dtos.RecompensasDTO;
 import pe.edu.pe.grupo2.entities.Favoritos;
 import pe.edu.pe.grupo2.serviceinterfaces.IFavoritosService;
 
@@ -51,10 +50,11 @@ public class FavoritosController {
 
     @PutMapping
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public void modificar(@RequestBody RecompensasDTO dto) {
+    public void update(@RequestBody FavoritosDTO dto) {
         ModelMapper m = new ModelMapper();
         Favoritos f = m.map(dto, Favoritos.class);
         fS.update(f);
     }
+
 
 }

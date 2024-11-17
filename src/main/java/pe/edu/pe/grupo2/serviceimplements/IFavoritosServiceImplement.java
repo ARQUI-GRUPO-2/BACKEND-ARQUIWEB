@@ -9,12 +9,13 @@ import pe.edu.pe.grupo2.serviceinterfaces.IFavoritosService;
 import java.util.List;
 
 @Service
-public class IFavoritosServiceImplements implements IFavoritosService {
+public class IFavoritosServiceImplement implements IFavoritosService {
+
     @Autowired
     private IFavoritosRepository fR;
 
     @Override
-    public void insert(Favoritos favoritos) {fR.save(favoritos);}
+    public void insert(Favoritos favoritos) { fR.save(favoritos); }
 
     @Override
     public List<Favoritos> list() {return fR.findAll();}
@@ -27,4 +28,5 @@ public class IFavoritosServiceImplements implements IFavoritosService {
 
     @Override
     public void update(Favoritos favoritos) { fR.save(favoritos); }
+
 }

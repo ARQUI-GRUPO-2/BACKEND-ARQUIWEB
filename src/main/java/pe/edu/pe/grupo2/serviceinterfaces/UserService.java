@@ -19,12 +19,9 @@ public interface UserService {
     public void update(User ur);
     public void delete(int id);
     public List<User> BuscarDistrito(String distrito);
-    public List<String> obtenerUsuarioConCentrosDeReciclaje(int idUser);
 
     public List<String[]> Cantidadnotificaciones_deusuario_rangodias(LocalDate diaInicio, LocalDate diaFin);
     public List<String[]> ObtenerCantidadUsuariosPorDistrito();
 
-    /*public List<User> getAllUsers(); // Obtener todos los usuarios (para ADMIN)
-    public List<User> getUsersByUsername(String username); // Obtener solo el perfil de un usuario*/
 
 }
