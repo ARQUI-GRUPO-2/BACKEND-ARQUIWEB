@@ -54,7 +54,7 @@ public class ReclamacionesController {
 
     @PutMapping
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public void modificar(@RequestBody RecompensasDTO dto) {
+    public void modificar(@RequestBody ReclamacionesDTO dto) {
         ModelMapper m = new ModelMapper();
         Reclamaciones r = m.map(dto, Reclamaciones.class);
         rs.update(r);
