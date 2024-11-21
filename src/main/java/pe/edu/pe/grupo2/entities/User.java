@@ -1,6 +1,7 @@
 package pe.edu.pe.grupo2.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
@@ -19,8 +20,8 @@ public class User {
 
     @Column(name = "username", length = 30, unique = true)
     private String username;
-
-    @Column(name = "dni", nullable = false, length = 8)
+    
+    @Column(name = "dni", nullable = false, length = 8, unique = true)    
     private String dni;
 
     @Column(name = "edad", nullable = false, length = 3)
@@ -31,8 +32,8 @@ public class User {
 
     @Column(name = "distrito", nullable = false)
     private String distrito;
-
-    @Column(name = "telefono", nullable = false, length = 9)
+    
+    @Column(name = "telefono", nullable = false, length = 9, unique = true)    
     private String telefono;
 
     @Column(name = "correo", nullable = false)
