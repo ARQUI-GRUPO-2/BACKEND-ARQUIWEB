@@ -1,6 +1,8 @@
 package pe.edu.pe.grupo2.controllers;
+import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -45,8 +47,6 @@ public class UserController {
         }).collect(Collectors.toList());
     }
 
-
-
     @GetMapping("/{id}")
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public UserDTO listarId(@PathVariable("id") Integer id) {
@@ -78,21 +78,6 @@ public class UserController {
         }).collect(Collectors.toList());
     }
 
-
-    @GetMapping("/conteo_notificaciones_rangodias")
-    //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
-    public List<CantidadNotiUsuarioDTO> Cantidadnotificaciones_deusuario_rangodias(@RequestParam LocalDate diaInicio, @RequestParam LocalDate diaFin) {
-        List<String[]> filaLista = uS.Cantidadnotificaciones_deusuario_rangodias(diaInicio, diaFin);
-        List<CantidadNotiUsuarioDTO> dtoLista = new ArrayList<>();
-        for(String[] columna: filaLista){
-            CantidadNotiUsuarioDTO dto = new CantidadNotiUsuarioDTO();
-            dto.setNombres(columna[0]);
-            dto.setCantidad_notif(Integer.parseInt(columna[1]));
-            dtoLista.add(dto);
-        }
-        return dtoLista;
-    }
-
     @GetMapping("/obtenercantidadUsuariosporDistrito")
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<ObtenerCantidadUsuariosPorDistritoDTO> ObtenerCantidadUsuariosPorDistrito() {
@@ -106,6 +91,62 @@ public class UserController {
         }
         return dtoLista;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
+    @GetMapping("/conteo_notificaciones_rangodias")
+    //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public List<CantidadNotiUsuarioDTO> Cantidadnotificaciones_deusuario_rangodias(@RequestParam LocalDate diaInicio, @RequestParam LocalDate diaFin) {
+        List<String[]> filaLista = uS.Cantidadnotificaciones_deusuario_rangodias(diaInicio, diaFin);
+        List<CantidadNotiUsuarioDTO> dtoLista = new ArrayList<>();
+        for(String[] columna: filaLista){
+            CantidadNotiUsuarioDTO dto = new CantidadNotiUsuarioDTO();
+            dto.setNombres(columna[0]);
+            dto.setCantidad_notif(Integer.parseInt(columna[1]));
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }*/
+
+    /*
     @GetMapping("/conteo_notificaciones_rangoHoras")
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<CantidadNotiUsuarioDTO> Cantidadnotificaciones_deusuario_rangohoras(@RequestParam LocalDate diaInicio, @RequestParam LocalDate diaFin) {
@@ -118,10 +159,10 @@ public class UserController {
             dtoLista.add(dto);
         }
         return dtoLista;
-    }
+    }*/
 
 
-}
+
 
 
 

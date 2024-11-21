@@ -27,15 +27,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query("select ur from User ur where ur.distrito like %:distrito%")
     public List<User> BuscarDistrito(@Param("distrito") String Distrito);
 
-    //Cantidad de Notificaciones de un usuario en un rango de dias
-    @Query(value = "SELECT us.nombres, COUNT(*) AS cantidad_notif " +
-            "FROM notificaciones AS noti " +
-            "INNER JOIN usuario AS us ON noti.id_user = us.id_user " +
-            "WHERE noti.fecha_notificacion BETWEEN :diaInicio AND :diaFin " +
-            "GROUP BY us.nombres",
-            nativeQuery = true)
-    public List<String[]> Cantidadnotificaciones_deusuario_rangodias(@Param("diaInicio") LocalDate diaInicio, @Param("diaFin") LocalDate diaFin);
-
     @Query(value = "SELECT us.distrito, COUNT(*) AS cantidad_usuarios " +
                 "FROM usuario AS us " +
                 "GROUP BY us.distrito " +
@@ -43,3 +34,39 @@ public interface UserRepository extends JpaRepository<User, Integer> {
                 nativeQuery = true)
     public List<String[]> ObtenerCantidadUsuariosPorDistrito();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Cantidad de Notificaciones de un usuario en un rango de dias
+    /*
+    @Query(value = "SELECT us.nombres, COUNT(*) AS cantidad_notif " +
+            "FROM notificaciones AS noti " +
+            "INNER JOIN usuario AS us ON noti.id_user = us.id_user " +
+            "WHERE noti.fecha_notificacion BETWEEN :diaInicio AND :diaFin " +
+            "GROUP BY us.nombres",
+            nativeQuery = true)
+    public List<String[]> Cantidadnotificaciones_deusuario_rangodias(@Param("diaInicio") LocalDate diaInicio, @Param("diaFin") LocalDate diaFin);
+    */

@@ -14,8 +14,31 @@ public interface INotificacionesService {
     public void delete(int id);
     public void update(Notificaciones n);
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
     public List<String[]> PromedioNotificacionesPorDiaUsuario(LocalDate fechaInicio,LocalDate fechaFin, int userId);
     public List<String[]> Top3UsuariosConMasNotificaciones(LocalDate fechaInicio, LocalDate fechaFin);
 
-
-}
+*/

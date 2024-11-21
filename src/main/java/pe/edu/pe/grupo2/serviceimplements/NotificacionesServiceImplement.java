@@ -35,15 +35,38 @@ public class NotificacionesServiceImplement implements INotificacionesService {
     @Override
     public void delete(int id) {
         nR.deleteById(id);
-
     }
 
     @Override
     public void update(Notificaciones n) {
         nR.save(nR.save(n));
-
     }
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
     @Override
     public List<String[]> PromedioNotificacionesPorDiaUsuario(LocalDate fechaInicio, LocalDate fechaFin, int userId) {
         return nR.PromedioNotificacionesPorDiaUsuario(fechaInicio, fechaFin, userId);
@@ -53,6 +76,4 @@ public class NotificacionesServiceImplement implements INotificacionesService {
     public List<String[]> Top3UsuariosConMasNotificaciones(LocalDate fechaInicio, LocalDate fechaFin) {
         return nR.Top3UsuariosConMasNotificaciones(fechaInicio, fechaFin);
     }
-
-
-}
+    */

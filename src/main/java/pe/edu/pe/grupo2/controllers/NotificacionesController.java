@@ -62,6 +62,58 @@ public class NotificacionesController {
         nS.delete(id);
     }
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
     @GetMapping("/promedioNotificacionesPorDiaUsuario")
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<PromedioNotificacionesDTO> PromedioNotificacionesPorDiaUsuario(@RequestParam LocalDate fechaInicio, @RequestParam LocalDate fechaFin, @RequestParam int userId) {
@@ -74,8 +126,8 @@ public class NotificacionesController {
             dtoLista.add(dto);
         }
         return dtoLista;
-    }
-
+    }*/
+    /*
     @GetMapping("/top3UsuariosConMasNotificaciones")
     //   @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<Top3UsuariosDTO> Top3UsuariosConMasNotificaciones(@RequestParam LocalDate fechaInicio, @RequestParam LocalDate fechaFin) {
@@ -88,5 +140,4 @@ public class NotificacionesController {
             dtoLista.add(dto);
         }
         return dtoLista;
-    }
-}
+    }*/

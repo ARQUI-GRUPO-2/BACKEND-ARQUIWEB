@@ -20,7 +20,7 @@ public interface UserService {
     public void delete(int id);
     public List<User> BuscarDistrito(String distrito);
 
-    public List<String[]> Cantidadnotificaciones_deusuario_rangodias(LocalDate diaInicio, LocalDate diaFin);
+    //public List<String[]> Cantidadnotificaciones_deusuario_rangodias(LocalDate diaInicio, LocalDate diaFin);
     public List<String[]> ObtenerCantidadUsuariosPorDistrito();
 
 

@@ -72,14 +72,11 @@ public class UserServiceImplement implements UserService {
             // Guardar los cambios en la base de datos
             uR.save(existingUser);
         }
-
-
     }
 
     @Override
     public void delete(int id) {
         uR.deleteById(id);
-
     }
 
     @Override
@@ -87,31 +84,67 @@ public class UserServiceImplement implements UserService {
         return uR.BuscarDistrito(distrito);
     }
 
+    @Override
+   public List<String[]> ObtenerCantidadUsuariosPorDistrito() {return uR.ObtenerCantidadUsuariosPorDistrito();}
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
     @Override
     public List<String[]> Cantidadnotificaciones_deusuario_rangodias(LocalDate diaInicio, LocalDate diaFin) {
         return uR.Cantidadnotificaciones_deusuario_rangodias(diaInicio, diaFin);
     }
 
     @Override
-    public List<String[]> ObtenerCantidadUsuariosPorDistrito() {
-        return uR.ObtenerCantidadUsuariosPorDistrito();
-    }
-    @Override
     public List<String[]> Cantidadnotificaciones_deusuario_rangohoras(LocalDate diaInicio, LocalDate diaFin) {
-        return uR.Cantidadnotificaciones_deusuario_rangohoras(diaInicio, diaFin);
+       return uR.Cantidadnotificaciones_deusuario_rangohoras(diaInicio, diaFin);
     }
 
-    /*@Override
+    @Override
     public List<User> getAllUsers() {
         return uR.findAll(); // Devuelve todos los usuarios de la base de datos
     }
 
     @Override
     public List<User> getUsersByUsername(String username) {
-        // Busca el usuario por su username
+        //Busca el usuario por su username
         User user = uR.findByUsername(username);
         return user != null ? List.of(user) : List.of(); // Si el usuario existe, lo devuelve, si no, lista vacía
-    }*/
-
-}
+    }
+    */
